@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users, only: [] do
-    resources :events, controller: 'users/events', only: [:index]
-  end
+  get "users/events", to: "users/events#index"
 
   resources :events do
     resources :memberships, only: [:create, :destroy]
