@@ -7,6 +7,7 @@ class MembershipsController < ApplicationController
       @membership.errors.full_messages.each do |msg|
         flash[:error] = "Error: #{msg}"
       end
+      redirect_back(fallback_location: root_path)
     end
   end
 
