@@ -1,5 +1,4 @@
-<% this_membership = Membership.where("user_id = ? AND event_id = ?", current_user.id, @event.id).first %>
-<% if this_membership.nil? %>
+<% if @existing_membership.nil? %>
   <%= form_for [@event, @membership] do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :event_id, value: @event.id %>
@@ -7,7 +6,7 @@
   <% end %>
 <% else %>
   <%= link_to 'Leave Event',
-    event_membership_path(@event, this_membership),
+    event_membership_path(@event, @existing_membership),
     method: :delete,
     data: { confirm: 'Are you sure you want to leave this event?' } %>
 <% end %>
