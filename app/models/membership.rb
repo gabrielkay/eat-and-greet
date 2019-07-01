@@ -6,6 +6,6 @@ class Membership < ApplicationRecord
   validates :event_id, presence: true
 
   def self.find_membership(user_id, event_id)
-    Membership.where("user_id = ? AND event_id = ?", user_id, event_id).first
+    Membership.find_by("user_id = ? AND event_id = ?", user_id, event_id)
   end
 end
