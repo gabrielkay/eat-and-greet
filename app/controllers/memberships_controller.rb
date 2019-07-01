@@ -13,7 +13,7 @@ class MembershipsController < ApplicationController
   def destroy
     @membership = Membership.find(params[:id])
     @membership.destroy
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   private

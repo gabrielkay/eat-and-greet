@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'memberships/create'
   resources :events do
     resources :memberships, only: [:create, :destroy] #destroy
   end
