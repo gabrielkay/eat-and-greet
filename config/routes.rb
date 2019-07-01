@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :events do
-    resources :memberships, only: [:create, :destroy] #destroy
+    resources :memberships, only: [:create, :destroy]
   end
 
   devise_for :users, controllers: {
