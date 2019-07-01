@@ -1,2 +1,3 @@
+<%= link_to 'My Events', user_events_path(current_user) %>
 <p>Current Location: <%= current_user.location %></p>
 <%= render partial: "event", collection: @events %>
