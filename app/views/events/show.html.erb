@@ -1,2 +1,17 @@
+
+<% if Membership.where("user_id = ? AND event_id = ?", current_user.id, @event.id).count == 0 %>
+  <%= form_for [@event, @membership] do |f| %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :event_id, value: @event.id %>
+    <%= f.submit 'Join Event' %>
+  <% end %>
+<% else %>
+  <% will_delete_membership = Membership.where("user_id = ? AND event_id = ?", current_user.id, @event.id).first %>
+  <%= link_to 'Leave Event',
+    event_membership_path(@event, will_delete_membership),
+    method: :delete,
+    data: { confirm: 'Are you sure you want to leave this event?' } %>
+    <%= debug params %>
+<% end %>
 <%= link_to 'Edit Event', edit_event_path %>
 <%= link_to 'Delete Event', event_path, method: :delete, data: {confirm: "Are you sure?"} %>

@@ -6,6 +6,7 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @membership = Membership.new
     # Will have a message board once comments are added
   end
 
