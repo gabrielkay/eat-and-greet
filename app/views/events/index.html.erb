@@ -1,6 +1,3 @@
+<%= link_to 'My Events', my_events_path %>
 <p>Current Location: <%= current_user.location %></p>
-<% @events.each do |event| %>
-  <p><%= event.restaurant %>
-    <%= link_to 'More Info', event_path(event) %>
-  </p>
-<% end %>
+<%= render partial: "event", collection: @events %>
