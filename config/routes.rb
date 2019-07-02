@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get "users/events", to: "users/events#index"
+  get "my-events", to: "my_events#index"
 
   resources :events do
     resources :memberships, only: [:create, :destroy]
