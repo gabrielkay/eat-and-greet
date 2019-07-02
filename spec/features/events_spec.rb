@@ -9,14 +9,14 @@ describe 'Create an Event', type: :feature do
 
   it 'Fills in event details' do
     visit('/events/new')
-    fill_in 'event_restaurant', with: 'McDonalds'
+    fill_in 'event_restaurant', with: 'Burger King'
     fill_in 'event_start_time', with: DateTime.now
     expect do
       click_button 'Create Event'
     end.to change {
       Event.count
     }.by(1)
-    expect(page).to have_content('McDonalds')
+    expect(page).to have_content('Burger King')
   end
 end
 
@@ -49,14 +49,11 @@ describe 'Delete an Event', type: :feature do
   it 'Deletes an existing event' do
     visit('/events')
     click_link('More Info')
-    click_link('Delete Event')
     expect do
-      page.accept_confirm 'Are you sure?' do
-        click_button('OK')
-      end
+      click_link('Delete Event')
     end.to change {
       Event.count
-    }.by(1)
+    }.by(-1)
     expect(page).to_not have_content('WillBeDeleted')
   end
 end
