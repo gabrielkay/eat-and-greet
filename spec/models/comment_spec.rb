@@ -8,9 +8,5 @@ RSpec.describe Comment, type: :model do
     it { should belong_to(:event) }
   end
 
-  context 'empty comment' do
-    let(:comment) { build(:comment, body: nil) }
-
-    it { should validate_presence_of(:body) }
-  end
+  it { should validate_presence_of(:body) }
 end
