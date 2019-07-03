@@ -7,8 +7,7 @@
 <% else %>
   <%= link_to 'Leave Event',
     event_membership_path(@event, @existing_membership),
-    method: :delete,
-    data: { confirm: 'Are you sure you want to leave this event?' } %>
+    method: :delete %>
 <% end %>
 <%= link_to 'Edit Event', edit_event_path %>
-<%= link_to 'Delete Event', event_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to 'Delete Event', event_path, method: :delete %>
