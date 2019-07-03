@@ -4,26 +4,7 @@
       <div class="alert"><p>Error: <%= msg %></p></div>
     <% end %>
   <% end %>
-  <p>
-    <%= f.label 'Restaurant' %>
-    <%= f.text_field :restaurant, required: true %>
-  </p>
-  <p>
-    <%= f.label 'Meal Time' %>
-    <%= f.datetime_field :start_time, required: true %>
-  </p>
-  <p>
-    <%= f.label :description %>
-    <%= f.text_field :description %>
-  </p>
-  <p>
-    <%= f.label 'Minimum People' %>
-    <%= f.number_field :min_people %>
-  </p>
-  <p>
-    <%= f.label 'Maximum People' %>
-    <%= f.number_field :max_people %>
-  </p>
+  <%= render 'event_fields', f: f %>
   <p>
     <%= f.submit "Save Changes" %>
   </p>
