@@ -11,9 +11,9 @@ describe 'Join an Event', type: :feature do
   it 'Joins an existing event' do
     visit('/events')
     click_link('More Info')
-    expect do
+    expect {
       click_button('Join Event')
-    end.to change{
+    }.to change{
       Membership.count
     }.by(1)
     expect(page).to have_content('Leave Event')
@@ -31,9 +31,9 @@ describe 'Leave an Event', type: :feature do
   it 'Leaves an event they were a member of' do
     visit('/events')
     click_link('More Info')
-    expect do
+    expect {
       click_link('Leave Event')
-    end.to change{
+    }.to change{
       Membership.count
     }.by(-1)
     expect(page).to_not have_content('Leave Event')

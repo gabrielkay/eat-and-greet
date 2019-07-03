@@ -8,9 +8,9 @@ describe 'Create an account', type: :feature do
     fill_in 'Password', with: 'password'
     fill_in 'Location', with: 'Durham'
     fill_in 'Password confirmation', with: 'password'
-    expect do
+    expect {
       click_button('Sign up')
-    end.to change {
+    }.to change {
       User.count
     }.by(1)
     expect(page).to have_content('You have signed up successfully')
