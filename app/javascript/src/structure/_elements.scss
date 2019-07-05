@@ -1,0 +1,9 @@
+a {
+  color: blue;
+  text-decoration: inherit;
+
+  &:focus,
+  &:hover {
+    color: darkblue;
+  }
+}

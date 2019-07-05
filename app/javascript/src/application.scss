@@ -1,3 +1,9 @@
-body {
-  background-color: white;
-}
+// Vendor helpers and resets
+@import 'normalize';
+
+// Global structure
+@import 'structure/elements';
+
+// Global components
+@import 'components/button';
+@import 'components/cards';
