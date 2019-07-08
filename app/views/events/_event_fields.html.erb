@@ -1,20 +1,40 @@
 <p>
+  <%= f.label 'Title' %>
+  <%= f.text_field :restaurant, required: true %>
+</p>
+<p>
   <%= f.label 'Restaurant' %>
   <%= f.text_field :restaurant, required: true %>
 </p>
 <p>
-  <%= f.label 'Meal Time' %>
+  <%= f.label 'Restaurant Address' %>
+  <%= f.text_field :restaurant_address, required: true %>
+</p>
+<p>
+  <%= f.label 'Start Time' %>
   <%= f.datetime_field :start_time, required: true %>
 </p>
 <p>
-  <%= f.label :description %>
+  <%= f.label 'End Time' %>
+  <%= f.datetime_field :end_time, required: true %>
+</p>
+<p>
+  <%= f.label 'Diet (this should be a dropdown list)' %>
+  <%= f.text_field :diet %>
+</p>
+<p>
+  <%= f.label 'Description' %>
   <%= f.text_field :description %>
 </p>
 <p>
+  <%= f.label 'Topics' %>
+  <%= f.text_field :topic %>
+</p>
+<p>
   <%= f.label 'Minimum People' %>
-  <%= f.number_field :min_people %>
+  <%= f.number_field :min_people, required: true %>
 </p>
 <p>
   <%= f.label 'Maximum People' %>
-  <%= f.number_field :max_people %>
+  <%= f.number_field :max_people, required: true %>
 </p>
