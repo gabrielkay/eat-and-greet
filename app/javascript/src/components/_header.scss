@@ -1,7 +1,6 @@
 .header {
   .header__logo {
     align-items: center;
-    display: flex;
     flex-shrink: 0;
     justify-content: center;
     margin: spacing(1.5) 0;
@@ -14,7 +13,6 @@
 
   @include bpMin('large') {
     align-items: center;
-    display: flex;
     justify-content: space-between;
 
     .header__logo-mark {

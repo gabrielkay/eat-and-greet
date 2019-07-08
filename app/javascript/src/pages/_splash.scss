@@ -1,7 +1,5 @@
 .header {
   .splash-sign-in {
-    flex-direction: column;
-    display: flex;
     margin: spacing();
 
     .sign-in__input,
@@ -16,6 +14,8 @@
   }
 
   @include bpMin('large') {
+    flex-direction: row;
+
     .splash-sign-in {
       flex-direction: row;
 

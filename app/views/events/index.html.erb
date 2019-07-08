@@ -1,5 +1,5 @@
 <%= link_to 'My Events', my_events_path %>
 <p>Current Location: <%= current_user.location %></p>
-<div class="cards">
+<div class="cards flex">
 <%= render partial: "event", collection: @events %>
 </div>
