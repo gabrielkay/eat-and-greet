@@ -9,6 +9,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
+  "scripts": {
+    "dev": "./bin/webpack-dev-server"
+  },
   "devDependencies": {
     "webpack-dev-server": "^3.7.2"
   }
