@@ -30,18 +30,13 @@ ActiveRecord::Schema.define(version: 2019_07_08_201744) do
   create_table "events", force: :cascade do |t|
     t.string "restaurant", null: false
     t.string "city", null: false
-    t.integer "min_people", null: false
-    t.integer "max_people", null: false
+    t.integer "min_people"
+    t.integer "max_people"
     t.datetime "start_time", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "creator_id", null: false
-    t.string "title", default: "Let's Eat", null: false
-    t.datetime "end_time", default: "2019-08-10 02:10:25", null: false
-    t.string "restaurant_address", default: "123 Main Street", null: false
-    t.string "diet", default: "none", null: false
-    t.string "topic"
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
 

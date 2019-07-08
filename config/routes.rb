@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :memberships, only: [:create, :destroy]
+    resources :comments, only: [:create]
   end
 
   devise_for :users, controllers: {
