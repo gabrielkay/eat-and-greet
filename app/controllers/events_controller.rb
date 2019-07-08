@@ -8,7 +8,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @existing_membership = Membership.find_membership(current_user, @event)
     @membership = Membership.new
-    # Will have a message board once comments are added
+    @comments = Comment.where(event_id: @event.id, comment_id: nil)
+    @comment = Comment.new
   end
 
   def new
