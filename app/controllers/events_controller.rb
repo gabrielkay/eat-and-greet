@@ -8,7 +8,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @existing_membership = Membership.find_membership(current_user, @event)
     @membership = Membership.new
-    @comments = Comment.where(event_id: @event.id, comment_id: nil)
+    @comments = @event.comments
     @comment = Comment.new
   end
 
