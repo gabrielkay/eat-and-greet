@@ -1,9 +1,11 @@
 .header {
+  padding-top: spacing(1.5);
+
   .header__logo {
     align-items: center;
     flex-shrink: 0;
     justify-content: center;
-    margin: spacing(1.5) 0;
+    margin-bottom: spacing();
     max-height: rem(50px);
 
     .header__logo-mark {
@@ -13,10 +15,16 @@
 
   @include bpMin('large') {
     align-items: center;
+    border-bottom: solid 1px $border;
     justify-content: space-between;
+    padding: spacing(0.5) 0;
 
-    .header__logo-mark {
-      margin-left: spacing(2);
+    .header__logo {
+      margin-bottom: 0;
+
+      .header__logo-mark {
+        margin-left: spacing(2);
+      }
     }
   }
 }
