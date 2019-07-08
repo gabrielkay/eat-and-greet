@@ -1,8 +1,10 @@
+// Global structure
+@import 'structure/vars';
+@import 'structure/utils';
+@import 'structure/elements';
+
 // Vendor helpers and resets
 @import 'normalize';
-
-// Global structure
-@import 'structure/elements';
 
 // Global components
 @import 'components/button';

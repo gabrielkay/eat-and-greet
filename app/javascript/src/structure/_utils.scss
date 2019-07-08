@@ -1,0 +1,8 @@
+@function rem($pixels) {
+  @return ($pixels / 16px * 1rem);
+}
+
+// Spacing
+@function spacing($multiplier: 1) {
+  @return rem($base_spacing * $multiplier);
+}

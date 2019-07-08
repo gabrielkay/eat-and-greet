@@ -1,9 +1,15 @@
+body {
+  font-family: $global-family;
+  background: $background;
+  color: $text;
+}
+
 a {
-  color: blue;
+  color: $link;
   text-decoration: inherit;
 
   &:focus,
   &:hover {
-    color: darkblue;
+    color: $link-hover;
   }
 }

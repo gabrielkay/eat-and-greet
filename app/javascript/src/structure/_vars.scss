@@ -1,0 +1,55 @@
+// spacing
+$base-spacing: 20px;
+$max-width: 1200px;
+
+$breakpoints: (
+  'x-huge': 1260,
+  'huge': 1200,
+  'large': 1024,
+  'medium': 900,
+  'med-sm': 750,
+  'small': 600,
+  'tiny': 375
+) !default;
+
+// colours
+$black: #000;
+$white: #fff;
+$light-gray: #eee;
+$dark-gray: #333;
+$blue: #0d4fbf;
+$dark-blue: #002f80;
+
+$text: $black;
+$background: $white;
+$link: $blue;
+$link-hover: $dark-blue;
+$border: $black;
+
+// focus
+$focus-border: rgba(82, 168, 236, 0.8);
+
+// typography
+$sans-serif: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+
+$global-family: $sans-serif;
+
+$text-size: 16px;
+$text-line-height: 26px;
+
+$h1: 36px;
+$h1-line-height: 43px;
+$h2: 24px;
+$h2-line-height: 32px;
+$h3: 18px;
+$h4: 12px;
+
+$regular-weight: 400;
+$bold-weight: 700;
+
+$zindex: (
+  base: 1,
+  content: 10,
+  nav: 100,
+  modal: 200
+);

@@ -1,11 +1,11 @@
 .btn {
-  background-color: #333;
-  border-radius: 10px;
-  color: #fff;
-  padding: 8px 10px 7px;
+  background-color: $dark-gray;
+  border-radius: spacing(0.5);
+  color: $white;
+  padding: spacing(0.4) spacing(0.5) spacing(0.35);
 
   &:hover,
   &:focus {
-    background-color: #000;
+    background-color: $black;
   }
 }
