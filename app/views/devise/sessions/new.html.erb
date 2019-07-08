@@ -1,15 +1,53 @@
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f| %>
-  <%= f.email_field :email, class: "form__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
-  <%= f.password_field :password, class: "form__input", autocomplete: "current-password", placeholder: "password" %>
+<header class="header">
+<div class="header__logo">
+  <img class="header__logo-mark" src="https://via.placeholder.com/50">
+  <h1 class="h1">Eat & Greet</h1>
+</div>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in" }) do |f| %>
+  <%= f.email_field :email, class: "sign-in__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
+  <%= f.password_field :password, class: "sign-in__input", autocomplete: "current-password", placeholder: "password" %>
 
   <% if devise_mapping.rememberable? %>
-    <div class="form__field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+    <div class="sign-in__field flex-col">
+      <span class="mb-5"><%= f.check_box :remember_me %>
+      <%= f.label :remember_me %></span>
+      <%= render "devise/shared/links" %>
     </div>
   <% end %>
 
-  <%= f.submit "Sign in", class: "form__field btn" %>
+  <%= f.submit "Sign in", class: "sign-in__field btn" %>
 <% end %>
+</header>
 
-<%= render "devise/shared/links" %>
+<div class="container">
+  <h2 class="h2"><span class="heading-regular">New here?</span> Join the table</h2>
+  <p>Eat & Greet is here to help connect you with your community, face-to-face, over a meal.</p>
+  <h2 class="h2">How it works</h2>
+  <div class="cards">
+    <div class="card">
+      <h3 class="h3 mb-10">Browse tables near you</h3>
+      <div class="img-container">
+        <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="h3 mb-10">Join tables</h3>
+      <div class="img-container">
+        <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
+      </div>
+    </div>
+    <div class="card">
+      <h3 class="h3 mb-10">Meet people and make friends</h3>
+      <div class="img-container">
+        <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
+      </div>
+    </div>
+  </div>
+  <p>Build your community by discovering new restaurants and making new connections</p>
+  <div class="text-center">
+    <%= render "devise/shared/sign_up" %>
+  </div>
+  <div class="splash-image">
+    <img class="img-fit" src="https://via.placeholder.com/450x200" alt="">
+  </div>
+</div>

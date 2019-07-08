@@ -1,12 +1,17 @@
+// Vendor helpers and resets
+@import 'normalize';
+
 // Global structure
 @import 'structure/vars';
 @import 'structure/utils';
 @import 'structure/elements';
 
-// Vendor helpers and resets
-@import 'normalize';
-
 // Global components
 @import 'components/button';
 @import 'components/cards';
-@import 'components/form';
+@import 'components/container';
+@import 'components/header';
+@import 'components/utilities';
+
+// Page-specific styles
+@import 'pages/splash';

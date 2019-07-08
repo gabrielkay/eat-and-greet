@@ -2,10 +2,13 @@
   background-color: $dark-gray;
   border-radius: spacing(0.5);
   color: $white;
+  display: inline-block;
   padding: spacing(0.5) spacing(0.75);
+  margin: auto;
 
   &:hover,
   &:focus {
     background-color: $black;
+    color: $white;
   }
 }

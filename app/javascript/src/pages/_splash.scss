@@ -1,0 +1,33 @@
+.header {
+  .splash-sign-in {
+    flex-direction: column;
+    display: flex;
+    margin: spacing();
+
+    .sign-in__input,
+    .sign-in__field {
+      margin: spacing(0.5) auto;
+    }
+
+    .sign-in__input {
+      border-radius: spacing(0.5);
+      padding: spacing(0.5);
+    }
+  }
+
+  @include bpMin('large') {
+    .splash-sign-in {
+      flex-direction: row;
+
+      .sign-in__input,
+      .sign-in__field {
+        margin: spacing(0.5);
+      }
+    }
+  }
+}
+
+.splash-image {
+  max-width: 450px;
+  margin: spacing(2) auto;
+}

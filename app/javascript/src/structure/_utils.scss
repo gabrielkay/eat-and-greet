@@ -6,3 +6,16 @@
 @function spacing($multiplier: 1) {
   @return rem($base_spacing * $multiplier);
 }
+
+// Breakpoints
+@mixin bp($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)/16 * 1em) {
+    @content;
+  }
+}
+
+@mixin bpMin($breakpoint) {
+  @media (min-width: (map-get($breakpoints, $breakpoint) + 1)/16 * 1em) {
+    @content;
+  }
+}

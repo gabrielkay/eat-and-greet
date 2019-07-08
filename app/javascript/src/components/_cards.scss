@@ -1,12 +1,15 @@
 .cards {
   display: flex;
-  margin: spacing(0.5);
+  flex-wrap: wrap;
+  margin: auto;
 
   .card {
     border: solid 1px $border;
     margin: spacing(0.5);
     padding: spacing(0.75);
+  }
 
+  .card--link {
     &:hover,
     &:focus {
       background-color: $light-gray;

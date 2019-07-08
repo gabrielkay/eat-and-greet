@@ -1,0 +1,8 @@
+.container {
+  width: 85vw;
+  margin: spacing() auto;
+
+  @include bpMin('huge') {
+    max-width: $max-width;
+  }
+}
