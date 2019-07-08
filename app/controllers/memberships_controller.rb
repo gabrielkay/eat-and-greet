@@ -4,9 +4,7 @@ class MembershipsController < ApplicationController
     if @membership.save
       redirect_back(fallback_location: root_path)
     else
-      @membership.errors.full_messages.each do |msg|
-        flash[:error] = "Error: #{msg}"
-      end
+      flash_errors(@membership.errors)
       redirect_back(fallback_location: root_path)
     end
   end
