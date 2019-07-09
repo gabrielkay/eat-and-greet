@@ -17,7 +17,7 @@
   <% comment.comments.each do |child_comment| %>
     <p><%= child_comment.body %> by <%= User.find(child_comment.user_id).name %></p>
   <% end %>
-  <%= form_for [@event, @comment] do |f| %>
+  <%= form_for @comment do |f| %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :comment_id, value: comment.id %>
     <%= f.text_field :body, required: true %>
@@ -25,7 +25,7 @@
   <% end %>
 <% end %>
 
-<%= form_for [@event, @comment] do |f| %>
+<%= form_for @comment do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.hidden_field :event_id, value: @event.id %>
   <%= f.text_field :body, required: true %>

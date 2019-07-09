@@ -4,8 +4,9 @@ Rails.application.routes.draw do
 
   resources :events do
     resources :memberships, only: [:create, :destroy]
-    resources :comments, only: [:create]
   end
+
+  resources :comments, only: [:create]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
