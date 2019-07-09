@@ -13,8 +13,8 @@
 
   <body>
 
-    <span class="notice"><%= notice %></span>
-    <span class="alert"><%= alert %></span>
+    <%= raw("<p class=notice>#{notice}</p>") if notice %>
+    <%= raw("<p class=alert>#{alert}</p>") if alert %>
 
     <%= yield %>
   </body>
