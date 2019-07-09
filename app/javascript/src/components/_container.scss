@@ -1,8 +1,11 @@
-.container {
-  width: 85vw;
+.container-lg {
+  width: 80vw;
   margin: spacing() auto;
+  max-width: $max-width-lg;
+}
 
-  @include bpMin('huge') {
-    max-width: $max-width;
-  }
+.container-sm {
+  width: 80vw;
+  margin: spacing() auto;
+  max-width: $max-width-sm;
 }

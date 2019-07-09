@@ -1,6 +1,4 @@
 .form {
-  align-items: center;
-
   .form__button,
   .form__input,
   .form__field {
@@ -10,7 +8,6 @@
   .form__input,
   .form__field {
     width: 100%;
-    max-width: rem(250px);
   }
 
   .form__input {

@@ -1,6 +1,7 @@
 // spacing
 $base-spacing: 20px;
-$max-width: 1200px;
+$max-width-lg: 1200px;
+$max-width-sm: 400px;
 
 $breakpoints: (
   'x-huge': 1260,
@@ -16,6 +17,7 @@ $breakpoints: (
 $black: #000;
 $white: #fff;
 $light-gray: #eee;
+$gray: #757575;
 $dark-gray: #333;
 $blue: #0d4fbf;
 $dark-blue: #002f80;
@@ -36,13 +38,17 @@ $global-family: $sans-serif;
 
 $text-size: 16px;
 $text-line-height: 24px;
+$misc-size: 14px;
+$misc-line-height: 16px;
 
-$h1: 32px;
-$h1-line-height: 38px;
-$h2: 24px;
-$h2-line-height: 32px;
-$h3: 18px;
-$h3-line-height: 27px;
+$heading-lg: 32px;
+$heading-lg-line-height: 40px;
+$heading-md: 24px;
+$heading-md-line-height: 32px;
+$heading-sm: 18px;
+$heading-sm-line-height: 27px;
+$heading-xs: 12px;
+$heading-xs-line-height: 14px;
 
 $regular-weight: 400;
 $bold-weight: 700;

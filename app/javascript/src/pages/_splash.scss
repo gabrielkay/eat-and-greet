@@ -1,13 +1,19 @@
 .splash-sign-in {
-  margin: 0;
+  width: 80vw;
+  margin: 0 auto;
 
   @include bpMin('large') {
+    width: auto;
     margin-right: spacing();
 
     .form__input,
     .form__field {
       margin: spacing(0.5);
     }
+  }
+
+  @include bp('large') {
+    max-width: $max-width-sm;
   }
 }
 

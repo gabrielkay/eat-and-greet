@@ -1,7 +1,7 @@
-<header class="header flex-col lg:flex-row">
+<header class="header flex-col lg:flex-row justify-between">
 <div class="header__logo flex">
   <img class="header__logo-mark" src="https://via.placeholder.com/50">
-  <h1 class="heading-lg">Eat & Greet</h1>
+  <h1 class="logo-lg">Eat & Greet</h1>
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in form flex-col lg:flex-row" }) do |f| %>
   <%= f.email_field :email, class: "form__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
@@ -19,7 +19,7 @@
 <% end %>
 </header>
 
-<div class="container">
+<div class="container-lg">
   <h2 class="heading-md"><span class="heading-regular">New here?</span> Join the table</h2>
   <p>Eat & Greet is here to help connect you with your community, face-to-face, over a meal.</p>
   <h2 class="heading-md">How it works</h2>

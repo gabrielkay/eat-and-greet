@@ -1,19 +1,35 @@
+.logo-lg {
+  font-size: rem($heading-lg);
+}
+
 .heading-lg {
-  font-size: rem($h1);
-  line-height: rem($h1-line-height);
+  font-size: rem($heading-lg);
+  line-height: rem($heading-lg-line-height);
+  margin-top: spacing(2);
 }
 
 .heading-md {
-  font-size: rem($h2);
-  line-height: rem($h2-line-height);
+  font-size: rem($heading-md);
+  line-height: rem($heading-md-line-height);
   margin-top: spacing(2);
 }
 
 .heading-sm {
-  font-size: rem($h3);
-  line-height: rem($h3-line-height);
+  font-size: rem($heading-sm);
+  line-height: rem($heading-sm-line-height);
+}
+
+.heading-xs {
+  font-size: rem($heading-xs);
+  line-height: rem($heading-xs-line-height);
 }
 
 .heading-regular {
   font-weight: $regular-weight;
+}
+
+.form-heading {
+  color: $gray;
+  font-size: $misc-size;
+  line-height: $misc-line-height;
 }
