@@ -1,7 +1,7 @@
 <header class="header flex-col">
 <div class="header__logo flex">
   <img class="header__logo-mark" src="https://via.placeholder.com/50">
-  <h1 class="h1">Eat & Greet</h1>
+  <h1 class="heading-lg">Eat & Greet</h1>
 </div>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in flex-col" }) do |f| %>
   <%= f.email_field :email, class: "sign-in__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
@@ -20,24 +20,24 @@
 </header>
 
 <div class="container">
-  <h2 class="h2"><span class="heading-regular">New here?</span> Join the table</h2>
+  <h2 class="heading-md"><span class="heading-regular">New here?</span> Join the table</h2>
   <p>Eat & Greet is here to help connect you with your community, face-to-face, over a meal.</p>
-  <h2 class="h2">How it works</h2>
+  <h2 class="heading-md">How it works</h2>
   <div class="cards flex">
     <div class="card">
-      <h3 class="h3 mb-10">Browse tables near you</h3>
+      <h3 class="heading-sm mb-10">Browse tables near you</h3>
       <div class="img-container">
         <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
       </div>
     </div>
     <div class="card">
-      <h3 class="h3 mb-10">Join tables</h3>
+      <h3 class="heading-sm mb-10">Join tables</h3>
       <div class="img-container">
         <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
       </div>
     </div>
     <div class="card">
-      <h3 class="h3 mb-10">Meet people and make friends</h3>
+      <h3 class="heading-sm mb-10">Meet people and make friends</h3>
       <div class="img-container">
         <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
       </div>

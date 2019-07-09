@@ -19,18 +19,18 @@
   margin-bottom: spacing(0.5);
 }
 
-.h1 {
+.heading-lg {
   font-size: rem($h1);
   line-height: rem($h1-line-height);
 }
 
-.h2 {
+.heading-md {
   font-size: rem($h2);
   line-height: rem($h2-line-height);
   margin-top: spacing(2);
 }
 
-.h3 {
+.heading-sm {
   font-size: rem($h3);
   line-height: rem($h3-line-height);
 }
