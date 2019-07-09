@@ -1,53 +1,53 @@
-<h2>Sign up</h2>
+<%= render "header" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "container form flex-col" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
+  <div class="form__field">
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form__input", autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="form__field">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form__input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.text_field :location %>
+  <div class="form__field">
+    <%= f.label :location %>
+    <%= f.text_field :location, class: "form__input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :diet %><br />
-    <%= f.text_field :diet %>
+  <div class="form__field">
+    <%= f.label :diet %>
+    <%= f.text_field :diet, class: "form__input" %>
   </div>
 
-  <div class="field">
-    <%= f.label :favorite_dish %><br />
-    <%= f.text_field :favorite_dish %>
+  <div class="form__field">
+    <%= f.label :favorite_dish %>
+    <%= f.text_field :favorite_dish, class: "form__input" %>
   </div>
 
-  <div class="field">
-    <%= f.label "Private?" %> <br />
-    <%= f.check_box :is_private %> <br />
+  <div class="form__field">
+    <%= f.label "Private?" %> 
+    <%= f.check_box :is_private %>
   </div>
 
-  <div class="field">
+  <div class="form__field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% end %>
+    <%= f.password_field :password, class: "form__input", autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form__field">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form__input", autocomplete: "new-password" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up", class: "form__button btn" %>
   </div>
 <% end %>
 

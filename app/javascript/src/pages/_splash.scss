@@ -1,21 +1,11 @@
 .splash-sign-in {
   margin: 0;
 
-  .sign-in__input,
-  .sign-in__field {
-    margin: spacing(0.5) auto;
-  }
-
-  .sign-in__input {
-    border-radius: spacing(0.5);
-    padding: spacing(0.5);
-  }
-
   @include bpMin('large') {
     margin-right: spacing();
 
-    .sign-in__input,
-    .sign-in__field {
+    .form__input,
+    .form__field {
       margin: spacing(0.5);
     }
   }
