@@ -1,0 +1,19 @@
+.heading-lg {
+  font-size: rem($h1);
+  line-height: rem($h1-line-height);
+}
+
+.heading-md {
+  font-size: rem($h2);
+  line-height: rem($h2-line-height);
+  margin-top: spacing(2);
+}
+
+.heading-sm {
+  font-size: rem($h3);
+  line-height: rem($h3-line-height);
+}
+
+.heading-regular {
+  font-weight: $regular-weight;
+}
