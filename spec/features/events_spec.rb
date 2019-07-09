@@ -29,8 +29,7 @@ describe 'Edit an Event', type: :feature do
   end
 
   it 'Edits an existing event' do
-    visit('/events')
-    click_link('More Info')
+    visit(event_path(event))
     click_link('Edit Event')
     fill_in 'event_restaurant', with: 'ChangedRestaurant'
     click_button 'Save Changes'
@@ -47,8 +46,7 @@ describe 'Delete an Event', type: :feature do
   end
 
   it 'Deletes an existing event' do
-    visit('/events')
-    click_link('More Info')
+    visit(event_path(event))
     expect {
       click_link('Delete Event')
     }.to change {

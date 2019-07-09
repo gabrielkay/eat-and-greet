@@ -9,8 +9,7 @@ describe 'Join an Event', type: :feature do
   end
 
   it 'Joins an existing event' do
-    visit('/events')
-    click_link('More Info')
+    visit(event_path(event))
     expect {
       click_button('Join Event')
     }.to change{
@@ -29,8 +28,7 @@ describe 'Leave an Event', type: :feature do
   end
 
   it 'Leaves an event they were a member of' do
-    visit('/events')
-    click_link('More Info')
+    visit(event_path(membership.event_id))
     expect {
       click_link('Leave Event')
     }.to change{
@@ -49,8 +47,7 @@ describe 'My Events Page', type: :feature do
   end
 
   it 'Joins an event and navigates to My Events' do
-    visit('/events')
-    click_link('More Info')
+    visit(event_path(event))
     click_button('Join Event')
     visit('/my-events')
     expect(page).to have_content('MyRestaurant')
