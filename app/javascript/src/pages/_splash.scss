@@ -1,29 +1,22 @@
-.header {
-  .splash-sign-in {
-    margin: 0;
+.splash-sign-in {
+  margin: 0;
 
-    .sign-in__input,
-    .sign-in__field {
-      margin: spacing(0.5) auto;
-    }
+  .sign-in__input,
+  .sign-in__field {
+    margin: spacing(0.5) auto;
+  }
 
-    .sign-in__input {
-      border-radius: spacing(0.5);
-      padding: spacing(0.5);
-    }
+  .sign-in__input {
+    border-radius: spacing(0.5);
+    padding: spacing(0.5);
   }
 
   @include bpMin('large') {
-    flex-direction: row;
+    margin-right: spacing();
 
-    .splash-sign-in {
-      flex-direction: row;
-      margin-right: spacing();
-
-      .sign-in__input,
-      .sign-in__field {
-        margin: spacing(0.5);
-      }
+    .sign-in__input,
+    .sign-in__field {
+      margin: spacing(0.5);
     }
   }
 }

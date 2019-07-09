@@ -11,6 +11,12 @@
   flex-direction: column;
 }
 
+.lg\:flex-row {
+  @include bpMin('large') {
+    flex-direction: row;
+  }
+}
+
 .mb-5 {
   margin-bottom: spacing(0.25);
 }

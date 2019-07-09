@@ -1,9 +1,9 @@
-<header class="header flex-col">
+<header class="header flex-col lg:flex-row">
 <div class="header__logo flex">
   <img class="header__logo-mark" src="https://via.placeholder.com/50">
   <h1 class="heading-lg">Eat & Greet</h1>
 </div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in flex-col" }) do |f| %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in flex-col lg:flex-row" }) do |f| %>
   <%= f.email_field :email, class: "sign-in__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
   <%= f.password_field :password, class: "sign-in__input", autocomplete: "current-password", placeholder: "password" %>
 
