@@ -7,6 +7,7 @@
 
   <h3 class="heading-md">Start with the basics:</h3>
   <%= f.text_field :name, class: "form__input", placeholder: "Name" %>
+  <%= f.label "This is how your name will appear to others", class: "form-heading" %>
   <%= f.text_field :location, class: "form__input", placeholder: "City or town" %>
 
   <div class="heading-md">Upload a profile picture</div>
@@ -15,7 +16,7 @@
   <%= f.password_field :password, class: "form__input", placeholder: "Password", autocomplete: "new-password" %>
 
   <% if @minimum_password_length %>
-    <em class="form-heading mb-10">(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="form-heading">(<%= @minimum_password_length %> characters minimum)</em>
   <% end %>
 
   <%= f.submit "Sign up", class: "form__button btn" %>
