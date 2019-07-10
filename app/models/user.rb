@@ -11,4 +11,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :location, presence: true
+  validates_with TopicsValidator
 end

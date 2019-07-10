@@ -15,9 +15,32 @@
   <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
   <%= f.password_field :password, class: "form__input", placeholder: "Password", autocomplete: "new-password" %>
 
-  <% if @minimum_password_length %>
-    <em class="form-heading">(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %>
+  <div class="field">
+    <%= f.label :favorite_dish %><br />
+    <%= f.text_field :favorite_dish %>
+  </div>
 
-  <%= f.submit "Sign up", class: "form__button btn" %>
+  <div class="field">
+    <%= f.label "Private?" %> <br />
+    <%= f.check_box :is_private %> <br />
+  </div>
+
+  <div class="field">
+    <%= f.label :password %>
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign up" %>
+  </div>
 <% end %>
+
+<%= render "devise/shared/links" %>
