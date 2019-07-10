@@ -49,7 +49,7 @@ describe 'My Events Page', type: :feature do
   it 'Joins an event and navigates to My Events' do
     visit(event_path(event))
     click_button('Join Event')
-    visit('/my-events')
+    visit('/my-tables')
     expect(page).to have_content('MyRestaurant')
   end
 end

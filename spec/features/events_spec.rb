@@ -8,9 +8,12 @@ describe 'Create an Event', type: :feature do
   end
 
   it 'Fills in event details' do
-    visit('/events/new')
+    visit('/tables/new')
     fill_in 'event_restaurant', with: 'Burger King'
     fill_in 'event_start_time', with: DateTime.now
+    fill_in 'event_end_time', with: DateTime.now
+    fill_in 'event_min_people', with: 3
+    fill_in 'event_max_people', with: 4
     expect {
       click_button 'Create Event'
     }.to change {
