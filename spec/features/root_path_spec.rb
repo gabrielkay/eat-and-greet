@@ -15,6 +15,6 @@ describe 'Root for new visitor', type: :feature do
 
   it 'Visits root' do
     visit('/')
-    expect(page).to have_current_path('/users/sign_up')
+    expect(page).to have_current_path('/users/sign_in')
   end
 end
