@@ -1,10 +1,10 @@
 <%= link_to event_path(event), class: "link card card--link" do %>
-  <h2>Title of table</h2>
+  <h2 class="heading-sm"><%= event.title %></h2>
   <span class="card__title"><%= event.restaurant %>,
   </span>
   <time datetime="<%= event.start_time.strftime("%Y-%m-%dT%H:%M:%S") %>" class="card__time"><%= event.start_time.strftime("%lPM %A %b %e") %>
   </time>
   <div>
-    <span class="card__guests"><%= event.min_people %>-<%= event.max_people %> guests</span>
+    <span class="card__guests"><%= event.max_people === 3 ? event.max_people : '3-' + event.max_people.to_s %> guests</span>
   </div>
 <% end %>

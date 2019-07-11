@@ -19,12 +19,12 @@
 <h2 class="heading-md"><%= @event.title %></h2>
 <p><%= @event.description %></p>
 
-<h3 class="heading-sm">Table details</h2>
+<h3 class="heading-sm">Table info</h2>
 <p><%= @event.restaurant %></p>
 <p><%= @event.restaurant_address %></p>
 <time datetime="<%= @event.start_time.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= @event.start_time.strftime("%A, %b %e, %l:%M %p") %>
 </time>
-<p><%= @event.max_people === 3 ? @event.max_people : '3 to ' + @event.max_people.to_s %> guests</p>
+<p><%= @event.max_people === 3 ? @event.max_people : '3-' + @event.max_people.to_s %> guests</p>
 
 
 <h3 class="heading-sm">Attending</h3>
