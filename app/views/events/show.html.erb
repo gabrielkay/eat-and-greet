@@ -16,7 +16,18 @@
   <%= image_tag @event.event_pic, style: 'height:100px;width:100px;' %>
 <% end %>
 
-<h2 class="heading-md">Attending</h2>
+<h2 class="heading-md"><%= @event.title %></h2>
+<p><%= @event.description %></p>
+
+<h3 class="heading-sm">Table details</h2>
+<p><%= @event.restaurant %></p>
+<p><%= @event.restaurant_address %></p>
+<time datetime="<%= @event.start_time.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= @event.start_time.strftime("%A, %b %e, %l:%M %p") %>
+</time>
+<p><%= @event.max_people === 3 ? @event.max_people : '3 to ' + @event.max_people.to_s %> guests</p>
+
+
+<h3 class="heading-sm">Attending</h3>
 <% @event.members.each do |current_user| %>
   <p><%= current_user.name %></p>
 <% end %>
