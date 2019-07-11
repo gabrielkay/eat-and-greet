@@ -1,16 +1,17 @@
-<% if @existing_membership.nil? %>
-  <%= form_for [@event, @membership] do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :event_id, value: @event.id %>
-    <%= f.submit 'Join Event' %>
+<div class="container-lg">
+  <% if @existing_membership.nil? %>
+    <%= form_for [@event, @membership] do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.submit 'Join Event' %>
+    <% end %>
+  <% else %>
+    <%= link_to 'Leave Event',
+      event_membership_path(@event, @existing_membership),
+      method: :delete %>
   <% end %>
-<% else %>
-  <%= link_to 'Leave Event',
-    event_membership_path(@event, @existing_membership),
-    method: :delete %>
-<% end %>
-<%= link_to 'Edit Event', edit_event_path %>
-<%= link_to 'Delete Event', event_path, method: :delete %>
+  <%= link_to 'Edit Event', edit_event_path %>
+  <%= link_to 'Delete Event', event_path, method: :delete %>
 
 <% if @event.event_pic.attached? %>
   <%= image_tag @event.event_pic, style: 'height:100px;width:100px;' %>
@@ -19,50 +20,53 @@
 <h2 class="heading-md"><%= @event.title %></h2>
 <p><%= @event.description %></p>
 
-<h3 class="heading-sm">Table info</h2>
-<p><%= @event.restaurant %></p>
-<p><%= @event.restaurant_address %></p>
-<time datetime="<%= @event.start_time.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= @event.start_time.strftime("%A, %b %e, %l:%M %p") %>
-</time>
-<p><%= @event.max_people === 3 ? @event.max_people : '3-' + @event.max_people.to_s %> guests</p>
+  <h3 class="heading-sm">Table info</h2>
+  <p><%= @event.restaurant %></p>
+  <p><%= @event.restaurant_address %></p>
+  <time datetime="<%= @event.start_time.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= @event.start_time.strftime("%A, %b %e, %l:%M %p") %>
+  </time>
+  <p><%= @event.max_people === 3 ? @event.max_people : '3-' + @event.max_people.to_s %> guests</p>
 
 
-<h3 class="heading-sm">Attending</h3>
-<% @event.members.each do |current_user| %>
-  <p><%= current_user.name %></p>
-<% end %>
+  <h3 class="heading-sm">Attending</h3>
+  <% @event.members.each do |current_user| %>
+    <p><%= current_user.name %></p>
+  <% end %>
 
-<h3 class="heading-sm">Comments</h3>
+  <h3 class="heading-sm">Comments</h3>
 
-<div class="cards">
-  <% @comments.each do |comment| %>
-    <div class="card">
-      <div class="heading-sm bold-weight"><%= User.find(comment.user_id).name %></div>
-      <p><%= comment.body %></p>
-    </div>
-    <% comment.comments.each do |child_comment| %>
-    <div class="card ml-40">
-      <div class="heading-sm bold-weight"><%= User.find(child_comment.user_id).name %></div>
-      <p><%= child_comment.body %></p>
-    </div>
+  <div class="cards">
+    <% @comments.each do |comment| %>
+      <div class="card">
+        <div class="heading-sm bold-weight"><%= User.find(comment.user_id).name %>
+          <span class="regular-weight"><%= comment.created_at.strftime("%-m/%-d %l:%M %p") %></span>
+        </div>
+        <p><%= comment.body %></p>
+      </div>
+      <% comment.comments.each do |child_comment| %>
+      <div class="card ml-40">
+        <div class="heading-sm bold-weight"><%= User.find(child_comment.user_id).name %>
+          <span class="regular-weight"><%= child_comment.created_at.strftime("%-m/%-d %l:%M %p") %></span>
+        </div>
+        <p><%= child_comment.body %></p>
+      </div>
+      <% end %>
+      <div class="card ml-40">
+        <%= form_for @comment do |f| %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :comment_id, value: comment.id %>
+          <%= f.text_field :body, required: true %>
+          <%= f.submit 'Reply' %>
+        <% end %>
+      </div>
     <% end %>
-    <div class="card ml-40">
+    <div class="card">
       <%= form_for @comment do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.hidden_field :comment_id, value: comment.id %>
+        <%= f.hidden_field :event_id, value: @event.id %>
         <%= f.text_field :body, required: true %>
-        <%= f.submit 'Reply' %>
+        <%= f.submit 'Post' %>
       <% end %>
     </div>
-  <% end %>
-  <div class="card">
-    <%= form_for @comment do |f| %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.hidden_field :event_id, value: @event.id %>
-      <%= f.text_field :body, required: true %>
-      <%= f.submit 'Post' %>
-    <% end %>
   </div>
 </div>
-
-
