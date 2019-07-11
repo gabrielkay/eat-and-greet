@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  get "my-events", to: "my_events#index"
+  get "my-tables", to: "my_events#index"
 
-  resources :events do
+  resources :events, path: 'tables' do
     resources :memberships, only: [:create, :destroy]
   end
 
@@ -12,6 +12,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root to: "home#index"
 
+  root "events#index"
 end

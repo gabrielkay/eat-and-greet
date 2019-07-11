@@ -1,4 +1,7 @@
 class EventsController < ApplicationController
+
+  before_action :auth_user
+
   def index
     @events = Event.where(city: current_user.location)
     # (user/events index will be index of the user's events that they've joined)
