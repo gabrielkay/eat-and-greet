@@ -32,22 +32,37 @@
   <p><%= current_user.name %></p>
 <% end %>
 
-<% @comments.each do |comment| %>
-  <p><%= comment.body %> by <%= User.find(comment.user_id).name %></p>
-  <% comment.comments.each do |child_comment| %>
-    <p><%= child_comment.body %> by <%= User.find(child_comment.user_id).name %></p>
-  <% end %>
-  <%= form_for @comment do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :comment_id, value: comment.id %>
-    <%= f.text_field :body, required: true %>
-    <%= f.submit 'Post Reply' %>
-  <% end %>
-<% end %>
+<h3 class="heading-sm">Comments</h3>
 
-<%= form_for @comment do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :event_id, value: @event.id %>
-  <%= f.text_field :body, required: true %>
-  <%= f.submit 'Post' %>
-<% end %>
+<div class="cards">
+  <% @comments.each do |comment| %>
+    <div class="card">
+      <div class="heading-sm bold-weight"><%= User.find(comment.user_id).name %></div>
+      <p><%= comment.body %></p>
+    </div>
+    <% comment.comments.each do |child_comment| %>
+    <div class="card ml-40">
+      <div class="heading-sm bold-weight"><%= User.find(child_comment.user_id).name %></div>
+      <p><%= child_comment.body %></p>
+    </div>
+    <% end %>
+    <div class="card ml-40">
+      <%= form_for @comment do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :comment_id, value: comment.id %>
+        <%= f.text_field :body, required: true %>
+        <%= f.submit 'Reply' %>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="card">
+    <%= form_for @comment do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :event_id, value: @event.id %>
+      <%= f.text_field :body, required: true %>
+      <%= f.submit 'Post' %>
+    <% end %>
+  </div>
+</div>
+
+

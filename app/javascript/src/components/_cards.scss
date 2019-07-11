@@ -2,17 +2,17 @@
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
+}
 
-  .card {
-    border: solid 1px $border;
-    margin: spacing(1);
-    padding: spacing(0.75);
-  }
+.card {
+  border: solid 1px $border;
+  margin: spacing(1);
+  padding: spacing(0.75);
+}
 
-  .card--link {
-    &:hover,
-    &:focus {
-      background-color: $gray100;
-    }
+.card--link {
+  &:hover,
+  &:focus {
+    background-color: $gray100;
   }
 }
