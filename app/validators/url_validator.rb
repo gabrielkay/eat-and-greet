@@ -1,16 +1,16 @@
 class UrlValidator < ActiveModel::Validator
   def validate(record)
-    unless record.twitter_link.nil? || valid_url?(record.twitter_link)
+    unless record.twitter_link.blank? || valid_url?(record.twitter_link)
       record.errors[:base] << 'Your twitter url was invalid. You entered: ' +
-        record.link.to_s + '. Try copy and pasting your profile link from your browser'
+        record.twitter_link.to_s + '. Try copy and pasting the entire link to your profile'
     end
-    unless record.instagram_link.nil? || valid_url?(record.instagram_link)
+    unless record.instagram_link.blank? || valid_url?(record.instagram_link)
       record.errors[:base] << 'Your instagram url was invalid. You entered: ' +
-        record.link.to_s + '. Try copy and pasting your profile link from your browser'
+        record.instagram_link.to_s + '. Try copy and pasting the entire link to your profile'
     end
-    unless record.facebook_link.nil? || valid_url?(facebook_link.link)
+    unless record.facebook_link.blank? || valid_url?(record.facebook_link)
       record.errors[:base] << 'Your facebook url was invalid. You entered: ' +
-        record.link.to_s + '. Try copy and pasting your profile link from your browser'
+        record.facebook_link.to_s + '. Try copy and pasting the entire link to your profile'
     end
   end
 
