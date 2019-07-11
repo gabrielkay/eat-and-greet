@@ -16,6 +16,11 @@
   <%= image_tag @event.event_pic, style: 'height:100px;width:100px;' %>
 <% end %>
 
+<h2 class="heading-md">Attending</h2>
+<% @event.members.each do |current_user| %>
+  <p><%= current_user.name %></p>
+<% end %>
+
 <% @comments.each do |comment| %>
   <p><%= comment.body %> by <%= User.find(comment.user_id).name %></p>
   <% comment.comments.each do |child_comment| %>
