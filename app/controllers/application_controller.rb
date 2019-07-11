@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
     flash[:alert] = "You are not authorized to perform this action"
     redirect_to(request.referrer || root_path)
   end
+
+  def auth_user
+    redirect_to new_user_registration_url unless user_signed_in?
+  end
 end
