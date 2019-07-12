@@ -8,10 +8,20 @@
   <h3 class="heading-md sm:heading-md mb-50">Start with the basics:</h3>
   <div class="form__sections flex justify-between mb-150">
     <div class="form__section">
-      <%= f.label :name, class: "form__label" %>
+      <div class="form__label">
+        <%= f.label :name do %>
+          Name<span aria-hidden="true" class="text-red"> *</span>
+          <span class="sr-only">Required field</span>
+        <% end %>
+      </div>
       <%= f.label "This is how your name will appear to others", class: "form__details" %>
       <%= f.text_field :name, class: "form__input", placeholder: "your name" %>
-      <%= f.label "City / town", class: "form__label" %>
+      <div class="form__label">
+        <%= f.label :location do %>
+          City / town<span aria-hidden="true" class="text-red"> *</span>
+          <span class="sr-only">Required field</span>
+        <% end %>
+      </div>
       <%= f.text_field :location, class: "form__input", placeholder: "your city or town" %>
     </div>
     <div class="form__section2">
@@ -23,12 +33,27 @@
   </div>
   <h3 class="heading-md sm:heading-md mb-50">Okay, we're almost finished:</h3>
   <div class="form__section mb-150">
-    <%= f.label :email, class: "form__label" %>
+    <div class="form__label">
+      <%= f.label :email do %>
+        Email<span aria-hidden="true" class="text-red"> *</span>
+        <span class="sr-only">Required field</span>
+      <% end %>
+    </div>
     <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
-    <%= f.label :password, class: "form__label" %>
+    <div class="form__label">
+      <%= f.label :password do %>
+        Password<span aria-hidden="true" class="text-red"> *</span>
+        <span class="sr-only">Required field</span>
+      <% end %>
+    </div>
     <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.", class: "form__details" %>
     <%= f.password_field :password, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
-    <%= f.label "Confirm password", class: "form__label" %>
+    <div class="form__label">
+      <%= f.label :password_confirmation do %>
+        Confirm password<span aria-hidden="true" class="text-red"> *</span>
+        <span class="sr-only">Required field</span>
+      <% end %>
+    </div>
     <%= f.password_field :password_confirmation, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
     <%= f.submit "Create my account", class: "form__button btn" %>
   </div>
