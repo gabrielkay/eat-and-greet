@@ -14,9 +14,7 @@ a {
   }
 }
 
-p {
-  font-size: $text-size;
-  line-height: $text-line-height;
-  margin-top: spacing(0.5);
-  margin-bottom: spacing();
+img {
+  display: block;
+  margin: auto;
 }

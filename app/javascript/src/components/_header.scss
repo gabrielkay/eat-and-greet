@@ -12,6 +12,10 @@
     .header__logo-mark {
       margin-right: spacing();
     }
+
+    .header__logo-text {
+      font-size: rem($h2);
+    }
   }
 
   @include bpMin('large') {

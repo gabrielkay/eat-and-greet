@@ -1,0 +1,14 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in form flex-col lg:flex-row" }) do |f| %>
+  <%= f.email_field :email, class: "form__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
+  <%= f.password_field :password, class: "form__input", autocomplete: "current-password", placeholder: "password" %>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="form__field flex-col">
+      <span class="mb-5"><%= f.check_box :remember_me %>
+      <%= f.label :remember_me %></span>
+      <%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+
+  <%= f.submit "Sign in", class: "form__button btn" %>
+<% end %>

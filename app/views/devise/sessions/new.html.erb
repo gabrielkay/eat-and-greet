@@ -1,53 +1,17 @@
-<header class="header flex-col lg:flex-row justify-between">
-<div class="header__logo flex">
-  <img class="header__logo-mark" src="https://via.placeholder.com/50">
-  <h1 class="logo-lg">Eat & Greet</h1>
-</div>
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "splash-sign-in form flex-col lg:flex-row" }) do |f| %>
-  <%= f.email_field :email, class: "form__input", autofocus: true, autocomplete: "email", placeholder: "email address" %>
-  <%= f.password_field :password, class: "form__input", autocomplete: "current-password", placeholder: "password" %>
+<%= render "header" %>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="form__field flex-col">
-      <span class="mb-5"><%= f.check_box :remember_me %>
-      <%= f.label :remember_me %></span>
-      <%= render "devise/shared/links" %>
-    </div>
-  <% end %>
-
-  <%= f.submit "Sign in", class: "form__button btn" %>
-<% end %>
-</header>
-
-<div class="container-lg">
-  <h2 class="heading-md"><span class="heading-regular">New here?</span> Join the table</h2>
+<div class="container text-center">
+  <h2 class="heading-xl sm:heading-xl">New here? Join the table</h2>
   <p>Eat & Greet is here to help connect you with your community, face-to-face, over a meal.</p>
-  <h2 class="heading-md">How it works</h2>
-  <div class="cards flex">
-    <div class="card">
-      <h3 class="heading-sm mb-10">Browse tables near you</h3>
-      <div class="img-container">
-        <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
-      </div>
-    </div>
-    <div class="card">
-      <h3 class="heading-sm mb-10">Join tables</h3>
-      <div class="img-container">
-        <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
-      </div>
-    </div>
-    <div class="card">
-      <h3 class="heading-sm mb-10">Meet people and make friends</h3>
-      <div class="img-container">
-        <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
-      </div>
-    </div>
+  <h2 class="heading-lg sm:heading-lg">How it works</h2>
+  <div class="flex-col">
+    <h3 class="heading-md sm:heading-md mb-10">Browse tables near you</h3>
+    <img src="https://via.placeholder.com/300x150" alt="">
+    <h3 class="heading-md sm:heading-md mb-10">Join tables</h3>
+    <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
+    <h3 class="heading-md sm:heading-md mb-10">Meet people and make friends</h3>
+    <img src="https://via.placeholder.com/300x150" alt="">
   </div>
   <p>Build your community by discovering new restaurants and making new connections</p>
-  <div class="text-center">
-    <%= render "devise/shared/sign_up" %>
-  </div>
-  <div class="splash-image">
-    <img class="img-fit" src="https://via.placeholder.com/450x200" alt="">
-  </div>
+  <%= render "devise/shared/sign_up" %>
 </div>

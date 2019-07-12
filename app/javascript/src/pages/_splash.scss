@@ -1,5 +1,5 @@
 .splash-sign-in {
-  width: 80vw;
+  width: 84vw;
   margin: 0 auto;
 
   @include bpMin('large') {
@@ -13,7 +13,7 @@
   }
 
   @include bp('large') {
-    max-width: $max-width-sm;
+    max-width: $max-width;
   }
 }
 
