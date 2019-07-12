@@ -12,6 +12,7 @@
 }
 
 .heading-md {
+  font-weight: $regular-weight;
   font-size: rem($h2-mobile);
   line-height: lineHeight($h2-mobile);
 }

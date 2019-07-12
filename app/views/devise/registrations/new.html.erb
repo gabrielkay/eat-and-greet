@@ -3,26 +3,34 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "container form flex-col" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <h2 class="heading-lg sm:heading-lg">Let's make your profile.</h2>
+  <h2 class="heading-lg sm:heading-lg mb-130">Let's make your profile.</h2>
 
-  <h3 class="heading-md sm:heading-md">Start with the basics:</h3>
-  <%= f.text_field :name, class: "form__input", placeholder: "Name" %>
-  <%= f.label "This is how your name will appear to others", class: "form__label" %>
-  <%= f.text_field :location, class: "form__input", placeholder: "City or town" %>
-
-  <div class="heading-md sm:heading-md">Upload a profile picture</div>
-  <p>
-    <%= f.label 'Profile Picture' %>
-    <%= f.file_field :profile_pic %>
-  </p>
-  <h3 class="heading-md sm:heading-md">Okay, we're almost finished:</h3>
-  <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
-  <%= f.password_field :password, class: "form__input", placeholder: "Password", autocomplete: "new-password" %>
-  <%= f.password_field :password__confirmation, class: "form__input", placeholder: "Confirm password", autocomplete: "new-password" %>
-  <% if @minimum_password_length %>
-    <em class="form__label">(<%= @minimum_password_length %> characters minimum)</em>
-  <% end %>
-
+  <div class="flex">
+    <div class="form__section mb-150">
+      <h3 class="heading-md sm:heading-md mb-50">Start with the basics:</h3>
+      <%= f.label :name, class: "form__label" %>
+      <%= f.label "This is how your name will appear to others", class: "form__details" %>
+      <%= f.text_field :name, class: "form__input", placeholder: "your name" %>
+      <%= f.label "City / town", class: "form__label" %>
+      <%= f.text_field :location, class: "form__input", placeholder: "your city or town" %>
+    </div>
+    <div class="form__section mb-150">
+      <%= f.label "Profile photo", class: "form__label" %>
+      <%= f.label "This helps people know you’re not a robot.", class: "form__details" %>
+      <%= f.file_field :profile_pic %>
+      </p>
+    </div>
+  </div>
+  <div class="form__section mb-150">
+    <h3 class="heading-md sm:heading-md mb-50">Okay, we're almost finished:</h3>
+    <%= f.label :email, class: "form__label" %>
+    <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
+    <%= f.label :password, class: "form__label" %>
+    <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.", class: "form__details" %>
+    <%= f.password_field :password, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
+    <%= f.label "Confirm password", class: "form__label" %>
+    <%= f.password_field :password_confirmation, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
+    <%= f.submit "Create my account", class: "form__button btn" %>
+  </div>
+  
 <% end %>
-
-<%= render "devise/shared/links" %>
