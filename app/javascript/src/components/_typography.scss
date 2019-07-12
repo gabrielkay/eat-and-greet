@@ -35,11 +35,13 @@
 }
 
 .heading-xl {
+  font-family: $serif;
   font-size: rem($title-mobile);
   line-height: lineHeight($title-mobile);
 }
 
 .heading-lg {
+  font-family: $serif;
   font-size: rem($h1-mobile);
   line-height: lineHeight($h1-mobile);
 }
