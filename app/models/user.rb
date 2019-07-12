@@ -11,6 +11,25 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :location, presence: true
-  validates_with TopicsValidator
-  validates_with UrlValidator
+  validate :topics_limit
+  validates :twitter_link, url: true
+  validates :instagram_link, url: true
+  validates :facebook_link, url: true
+
+  private
+
+  def valid_url?(url)
+    uri = URI.parse(url)
+    uri.is_a?(URI::HTTP) && !uri.host.nil?
+  rescue URI::InvalidURIError
+    false
+  end
+
+  def topics_limit
+    return if topics.nil?
+
+    unless topics.count(",") < 5
+      errors.add(:topics, ': You must have 5 or less topics')
+    end
+  end
 end
