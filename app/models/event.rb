@@ -4,6 +4,7 @@ class Event < ApplicationRecord
   has_many :memberships, dependent: :destroy
   has_many :members, through: :memberships, source: 'user'
   has_many :comments, dependent: :destroy
+  has_one_attached :event_pic
 
   validates :restaurant, presence: true
   validates :city, presence: true

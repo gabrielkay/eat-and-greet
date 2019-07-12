@@ -15,7 +15,10 @@
   <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
   <%= f.password_field :password, class: "form__input", placeholder: "Password", autocomplete: "new-password" %>
 
-  <p>Field for profile picture will be right here</p>
+  <p>
+    <%= f.label 'Profile Picture' %>
+    <%= f.file_field :profile_pic %>
+  </p>
 
   <div class="field">
     <%= f.label :password %>

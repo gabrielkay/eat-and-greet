@@ -13,6 +13,11 @@
   <% end %>
 
   <div class="field">
+    <%= f.label "Profile Picture" %>
+    <%= f.file_field :profile_pic %>
+  </div>
+
+  <div class="field">
     <%= f.label :location %><br />
     <%= f.text_field :location %>
   </div>
