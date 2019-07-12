@@ -12,7 +12,7 @@
 }
 
 .lg\:flex-row {
-  @include bpMin('large') {
+  @include bpMin('medium') {
     flex-direction: row;
   }
 }
