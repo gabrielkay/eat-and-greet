@@ -20,7 +20,7 @@
   <%= f.password_field :password, class: "form__input", placeholder: "Password", autocomplete: "new-password" %>
   <%= f.password_field :password__confirmation, class: "form__input", placeholder: "Confirm password", autocomplete: "new-password" %>
   <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em class="form__label">(<%= @minimum_password_length %> characters minimum)</em>
   <% end %>
 
 <% end %>
