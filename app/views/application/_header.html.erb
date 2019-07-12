@@ -3,5 +3,7 @@
     <img class="header__logo-mark" src="https://via.placeholder.com/50">
     <h1 class="header__logo-text">Eat & Greet</h1>
   </div>
-  <%= render "sign-in" %>
+  <%- if controller_name == 'sessions' %>
+    <%= render "sign-in" %>
+  <% end %>
 </header>
