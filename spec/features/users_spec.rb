@@ -28,3 +28,16 @@ describe 'Log into an account', type: :feature do
     expect(page).to have_content('Signed in successfully.')
   end
 end
+
+describe 'Displays a User profile page', type: :feature do
+  let!(:user) { create(:user, name: 'FirstName LastName') }
+
+  before do
+    login_as(user, scope: :user)
+  end
+
+  it 'Logs in' do
+    visit("/users/#{user.id}")
+    expect(page).to have_content('FirstName LastName')
+  end
+end
