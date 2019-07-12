@@ -1,28 +1,28 @@
 // spacing
-$base-spacing: 20px;
-$max-width-lg: 1200px;
-$max-width-sm: 400px;
+$base-spacing: 10px;
+$max-width: 1200px;
 
 $breakpoints: (
-  'x-huge': 1260,
-  'huge': 1200,
-  'large': 1024,
-  'medium': 900,
-  'med-sm': 750,
-  'small': 600,
-  'tiny': 375
+  'large': 1440,
+  'medium': 1024,
+  'small': 375
 ) !default;
 
 // colours
-$black: #000;
 $white: #fff;
-$light-gray: #eee;
-$gray: #757575;
-$dark-gray: #333;
-$blue: #0d4fbf;
-$dark-blue: #002f80;
+$gray100: #f2f2f2;
+$gray200: #969696;
+$gray300: #727272;
+$charcoal: #3f3b3b;
+$black: #000;
 
-$text: $black;
+$red: #d73838;
+$yellow: #fa9704;
+$blue: #0047ff;
+$maroon: #662a2a;
+$purple: #512589;
+
+$text: $charcoal;
 $background: $white;
 $link: $blue;
 $link-hover: $dark-blue;
@@ -32,7 +32,8 @@ $border: $black;
 $focus-border: rgba(82, 168, 236, 0.8);
 
 // typography
-$sans-serif: 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$serif: 'DM Serif Display', serif;
+$sans-serif: 'Lato', sans-serif;
 
 $global-family: $sans-serif;
 
@@ -41,17 +42,34 @@ $text-line-height: 24px;
 $misc-size: 14px;
 $misc-line-height: 16px;
 
-$heading-lg: 32px;
-$heading-lg-line-height: 40px;
-$heading-md: 24px;
-$heading-md-line-height: 32px;
-$heading-sm: 18px;
-$heading-sm-line-height: 27px;
-$heading-xs: 12px;
-$heading-xs-line-height: 14px;
+$title: 93px;
+$h1: 67px;
+$h2: 40px;
+$h3: 29px;
+$h4: 21px;
+$title-mobile: 60px;
+$h1-mobile: 53px;
+$h2-mobile: 32px;
+$h3-mobile: 27px;
+$h4-mobile: 21px;
 
+$light-weight: 300;
 $regular-weight: 400;
 $bold-weight: 700;
+$black-weight: 900;
+
+$line-height: (
+  title: 1.1,
+  h1: 1.1,
+  h2: 1.4,
+  h3: 1.35,
+  h4: auto,
+  title-mobile: 1.1,
+  h1-mobile: 1.1,
+  h2-mobile: 1.35,
+  h3-mobile: 1.2,
+  h4-mobile: auto
+);
 
 $zindex: (
   base: 1,

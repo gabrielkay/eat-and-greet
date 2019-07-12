@@ -2,6 +2,10 @@
   @return ($pixels / 16px * 1rem);
 }
 
+@function lineHeight($font-size) {
+  @return map-get($line-height, $font-size);
+}
+
 // Spacing
 @function spacing($multiplier: 1) {
   @return rem($base_spacing * $multiplier);
