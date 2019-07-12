@@ -13,12 +13,12 @@
   <%= link_to 'Edit Event', edit_event_path %>
   <%= link_to 'Delete Event', event_path, method: :delete %>
 
-<% if @event.event_pic.attached? %>
-  <%= image_tag @event.event_pic, style: 'height:100px;width:100px;' %>
-<% end %>
+  <% if @event.event_pic.attached? %>
+    <%= image_tag @event.event_pic, style: 'height:100px;width:100px;' %>
+  <% end %>
 
-<h2 class="heading-md"><%= @event.title %></h2>
-<p><%= @event.description %></p>
+  <h2 class="heading-md"><%= @event.title %></h2>
+  <p><%= @event.description %></p>
 
   <h3 class="heading-sm">Table info</h2>
   <p><%= @event.restaurant %></p>
