@@ -29,6 +29,12 @@
   padding: spacing();
 }
 
+.form__input::placeholder {
+  color: $gray200;
+  font-size: rem(15px);
+  font-style: italic;
+}
+
 .form__label {
   display: block;
   font-weight: 700;
@@ -39,8 +45,9 @@
 }
 
 .form__details {
-  color: $gray200;
+  color: $gray300;
   display: block;
+  font-size: rem(15px);
   font-style: italic;
   margin-bottom: spacing();
 }
