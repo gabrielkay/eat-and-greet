@@ -12,12 +12,13 @@
 }
 
 .heading-md {
-  font-weight: $regular-weight;
+  font-weight: $light-weight;
   font-size: rem($h2-mobile);
   line-height: lineHeight($h2-mobile);
 }
 
 .heading-sm {
+  font-weight: $light-weight;
   font-size: rem($h3-mobile);
   line-height: lineHeight($h3-mobile);
 }
