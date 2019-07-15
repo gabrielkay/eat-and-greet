@@ -1,3 +1,16 @@
+// Body variation
+.small-body {
+  font-size: rem($small-body-mobile);
+  line-height: lineHeight($small-body-mobile);
+}
+
+.sm\:small-body {
+  @include bpMin('small') {
+    font-size: rem($small-body);
+    line-height: lineHeight($small-body);
+  }
+}
+
 // Headings
 .heading-xxl {
   font-family: $serif;

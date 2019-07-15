@@ -1,5 +1,7 @@
 body {
   font-family: $global-family;
+  font-size: $body;
+  font-weight: $light-weight;
   background: $background;
   color: $text;
 }
