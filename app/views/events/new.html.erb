@@ -1,11 +1,22 @@
-<%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <% @event.errors.full_messages.each do |msg| %>
-      <div class="alert"><p>Error: <%= msg %></p></div>
+<%= render "header" %>
+
+<div class="container flex justify-between">
+  <div class="mb-50">
+    <h2 class="heading-xl sm:heading-xl mb-50">Create Your Table</h2>
+  </div>
+  <div class="flex-col mb-130">
+    <%= form_for(@event) do |f| %>
+      <% if @event.errors.any? %>
+        <% @event.errors.full_messages.each do |msg| %>
+          <div class="alert"><p>Error: <%= msg %></p></div>
+        <% end %>
+      <% end %>
+      <%= render 'event_fields', f: f %>
+      <p>
+        <%= f.submit "Create Table", class: "btn" %>
+      </p>
     <% end %>
-  <% end %>
-  <%= render 'event_fields', f: f %>
-  <p>
-    <%= f.submit "Create Event" %>
-  </p>
-<% end %>
+  </div>
+</div>
+
+
