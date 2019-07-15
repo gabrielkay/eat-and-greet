@@ -1,10 +1,22 @@
-<%= link_to event_path(event), class: "link card card--link" do %>
-  <h2 class="heading-md"><%= event.title %></h2>
-  <span class="card__title"><%= event.restaurant %>,
-  </span>
-  <time datetime="<%= event.start_time.strftime("%Y-%m-%dT%H:%M:%S") %>" class="card__time"><%= event.start_time.strftime("%lPM %A %b %e") %>
-  </time>
+<%= link_to event_path(event), class: "card card--link" do %>
+<div class="flex justify-between">
   <div>
-    <span class="card__guests"><%= event.max_people === 3 ? event.max_people : '3-' + event.max_people.to_s %> guests</span>
+    <h2 class="heading-md sm:heading-md mb-10"><%= event.title %></h2>
+    <p class="card__restaurant mb-20"><%= event.restaurant %></p>
+    <div class="flex mb-20">
+      <div class="card__time">
+        <time datetime="<%= event.start_time.strftime("%H:%M:%S") %>"><%= event.start_time.strftime("%l:%M %p") %>
+        </time>
+      </div>
+      <div class="card__time">
+        <time datetime="<%= event.start_time.strftime("%Y-%m-%d") %>"><%= event.start_time.strftime("%A, %B %e") %>
+        </time>
+      </div>
+    </div>
+    <button class="btn card__btn">View Table</button>
+  </div>
+  <div>
+    <span class="card__guests">up to <%= event.max_people.to_s %> guests</span>
+</div>
   </div>
 <% end %>

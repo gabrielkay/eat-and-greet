@@ -1,18 +1,47 @@
 .cards {
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: auto;
+  align-items: flex-end;
+  flex-basis: 570px;
 }
 
 .card {
-  border: solid 1px $border;
-  margin: spacing(1);
-  padding: spacing(0.75);
+  background-color: $gray100;
+  border-radius: 5px;
+  box-shadow: -2px 4px 7px rgba(0, 0, 0, 0.15);
+  margin: spacing(1) 0;
+  padding: spacing(2);
+  width: 100%;
 }
 
 .card--link {
+  color: inherit;
+
   &:hover,
   &:focus {
     background-color: $gray100;
   }
+}
+
+.card__restaurant {
+  color: $maroon;
+  font-size: rem(14px);
+  font-weight: $bold-weight;
+}
+
+.card__time {
+  font-size: rem(12px);
+  font-weight: $regular-weight;
+  margin-right: spacing(2);
+
+  @include bpMin('small') {
+    font-size: rem(14px);
+  }
+}
+
+.card__guests {
+  font-size: rem(14px);
+  font-style: italic;
+}
+
+.card__btn {
+  pointer-events: none;
 }
