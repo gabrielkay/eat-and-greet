@@ -3,9 +3,9 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "container form flex-col" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <h2 class="heading-lg sm:heading-lg mb-130">Let's make your profile.</h2>
+  <h2 class="heading-xl sm:heading-xl mb-130">Let's make your profile.</h2>
 
-  <h3 class="heading-md sm:heading-md mb-50">Start with the basics:</h3>
+  <h3 class="heading-lg sm:heading-lg mb-50">Start with the basics:</h3>
   <div class="form__sections flex justify-between mb-150">
     <div class="form__section">
       <div class="form__label">
@@ -31,7 +31,7 @@
       </p>
     </div>
   </div>
-  <h3 class="heading-md sm:heading-md mb-50">Okay, we're almost finished:</h3>
+  <h3 class="heading-lg sm:heading-lg mb-50">Okay, we're almost finished:</h3>
   <div class="form__section mb-150">
     <div class="form__label">
       <%= f.label :email do %>
