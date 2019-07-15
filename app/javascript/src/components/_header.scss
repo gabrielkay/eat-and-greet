@@ -3,22 +3,6 @@
   padding-top: spacing(3);
   margin-bottom: spacing(9);
 
-  .header__logo {
-    align-items: center;
-    flex-shrink: 0;
-    justify-content: center;
-    margin: 0 auto spacing();
-    max-height: rem(50px);
-
-    .header__logo-mark {
-      margin-right: spacing();
-    }
-
-    .header__logo-text {
-      font-size: rem($h2);
-    }
-  }
-
   @include bpMin('medium') {
     align-items: center;
     border-bottom: solid 1px $border;
@@ -32,5 +16,21 @@
         margin-left: spacing(2);
       }
     }
+  }
+}
+
+.header__logo {
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+  margin: 0 auto spacing();
+  max-height: rem(50px);
+
+  .header__logo-mark {
+    margin-right: spacing();
+  }
+
+  .header__logo-text {
+    font-size: rem($h2);
   }
 }
