@@ -37,21 +37,22 @@ $sans-serif: 'Lato', sans-serif;
 
 $global-family: $sans-serif;
 
-$text-size: 16px;
-$text-line-height: 24px;
-$misc-size: 14px;
-$misc-line-height: 16px;
-
+$body: 16px;
+$small-body: 14px;
 $title: 70px;
 $h1: 50px;
 $h2: 30px;
 $h3: 22px;
 $h4: 16px;
+$h5: 18px;
+$body-mobile: 15px;
+$small-body-mobile: 13px;
 $title-mobile: 45px;
 $h1-mobile: 40px;
 $h2-mobile: 24px;
 $h3-mobile: 20px;
-$h4-mobile: 16px;
+$h4-mobile: 14px;
+$h5-mobile: 16px;
 
 $light-weight: 300;
 $regular-weight: 400;
@@ -59,16 +60,19 @@ $bold-weight: 700;
 $black-weight: 900;
 
 $line-height: (
+  body: 1.2,
   title: 1.1,
   h1: 1.1,
   h2: 1.4,
   h3: 1.35,
-  h4: auto,
+  h4: 1.2,
+  h5: 1.2,
   title-mobile: 1.1,
   h1-mobile: 1.1,
   h2-mobile: 1.35,
   h3-mobile: 1.2,
-  h4-mobile: auto
+  h4-mobile: 1.2,
+  h5-mobile: 1.2
 );
 
 $zindex: (

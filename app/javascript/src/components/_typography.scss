@@ -1,57 +1,75 @@
 // Headings
-.heading-xl {
+.heading-xxl {
   font-family: $serif;
+  font-weight: $regular-weight;
   font-size: rem($title-mobile);
   line-height: lineHeight($title-mobile);
 }
 
-.heading-lg {
+.heading-xl {
   font-family: $serif;
+  font-weight: $regular-weight;
   font-size: rem($h1-mobile);
   line-height: lineHeight($h1-mobile);
 }
 
-.heading-md {
+.heading-lg {
   font-weight: $light-weight;
   font-size: rem($h2-mobile);
   line-height: lineHeight($h2-mobile);
 }
 
-.heading-sm {
+.heading-md {
   font-weight: $light-weight;
   font-size: rem($h3-mobile);
   line-height: lineHeight($h3-mobile);
 }
 
+.heading-sm {
+  font-weight: $regular-weight;
+  font-size: rem($h5-mobile);
+  line-height: lineHeight($h5-mobile);
+}
+
 .heading-xs {
+  font-weight: $black-weight;
   font-size: rem($h4-mobile);
   line-height: lineHeight($h4-mobile);
+  text-transform: uppercase;
 }
-.sm\:heading-xl {
+
+.sm\:heading-xxl {
   @include bpMin('small') {
     font-size: rem($title);
     line-height: lineHeight($title);
   }
 }
 
-.sm\:heading-lg {
+.sm\:heading-xl {
   @include bpMin('small') {
     font-size: rem($h1);
     line-height: lineHeight($h1);
   }
 }
 
-.sm\:heading-md {
+.sm\:heading-lg {
   @include bpMin('small') {
     font-size: rem($h2);
     line-height: lineHeight($h2);
   }
 }
 
-.sm\:heading-sm {
+.sm\:heading-md {
   @include bpMin('small') {
     font-size: rem($h3);
     line-height: lineHeight($h3);
+  }
+}
+
+.sm\:heading-sm {
+  @include bpMin('small') {
+    font-size: rem($h5);
+    line-height: lineHeight($h5);
   }
 }
 
