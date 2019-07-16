@@ -56,16 +56,16 @@
   <div class="mb-50">
     <% @comments.each do |comment| %>
       <div class="mb-15">
-        <div class="heading-sm sm:heading-sm mb-5"><%= User.find(comment.user_id).name %>
-          <span class="small-body sm:small-body comment__time"><%= comment.created_at.strftime("%-m/%-d %l:%M %p") %></span>
-        </div>
+        <p class="heading-sm sm:heading-sm mb-5"><%= User.find(comment.user_id).name %>
+          <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= comment.created_at.strftime("%-m/%-d %l:%M %p") %></time>
+        </p>
         <p><%= comment.body %></p>
       </div>
       <% comment.comments.each do |child_comment| %>
       <div class="mb-15 comment__reply">
-        <div class="heading-sm sm:heading-sm mb-5"><%= User.find(child_comment.user_id).name %>
-          <span class="small-body sm:small-body comment__time"><%= child_comment.created_at.strftime("%-m/%-d %l:%M %p") %></span>
-        </div>
+        <p class="heading-sm sm:heading-sm mb-5"><%= User.find(child_comment.user_id).name %>
+          <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= child_comment.created_at.strftime("%-m/%-d %l:%M %p") %></time>
+        </p>
         <p><%= child_comment.body %></p>
       </div>
       <% end %>
