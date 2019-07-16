@@ -9,7 +9,6 @@
   box-shadow: -2px 4px 7px rgba(0, 0, 0, 0.15);
   margin: spacing(1) 0;
   padding: spacing(2);
-  position: relative;
   width: 100%;
 }
 
@@ -32,9 +31,4 @@
 .card__guests {
   font-size: rem(14px);
   font-style: italic;
-}
-
-.card__btn {
-  display: block;
-  z-index: map-get($zindex, content);
 }

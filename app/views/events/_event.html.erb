@@ -13,15 +13,19 @@
           </time>
         </div>
       </div>
+    </div>
+    <p class="card__guests mb-30">up to <%= event.max_people.to_s %> guests</p>
+  </div>
+  <div class="flex justify-between">
+    <div>
       <%= link_to 'View Table', event_path(event), class: "btn" %>
       <% if event.creator_id == current_user.id %>
         <%= link_to 'Edit Table', edit_event_path(event), class: "btn" %>
       <% end %>
     </div>
     <div>
-      <p class="card__guests mb-30">up to <%= event.max_people.to_s %> guests</p>
       <% if event.creator_id == current_user.id %>
-        <%= link_to 'Cancel Table', event_path(event), method: :delete, class: "btn card__btn" %>
+        <%= link_to 'Cancel Table', event_path(event), method: :delete, class: "btn" %>
       <% else %>
         <%= link_to 'Leave Table', event_membership_path(event, Membership.find_membership(current_user, event)),
           method: :delete, class: "btn" %>
