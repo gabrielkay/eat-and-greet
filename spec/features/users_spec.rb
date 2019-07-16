@@ -37,7 +37,7 @@ describe 'Displays a User profile page', type: :feature do
   end
 
   it 'Logs in' do
-    visit("/users/#{user.id}")
+    visit("/users/#{user.slug}")
     expect(page).to have_content('FirstName LastName')
   end
 end

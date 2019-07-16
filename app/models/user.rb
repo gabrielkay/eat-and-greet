@@ -17,7 +17,17 @@ class User < ApplicationRecord
   validates :instagram_link, url: true
   validates :facebook_link, url: true
 
+  before_create :set_slug
+
+  def to_param
+    slug
+  end
+
   private
+
+  def set_slug
+    self.slug = "#{self.name.parameterize}-#{self.id}"
+  end
 
   def valid_url?(url)
     uri = URI.parse(url)
