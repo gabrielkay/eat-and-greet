@@ -1,22 +1,31 @@
-<%= link_to event_path(event), class: "card card--link" do %>
-<div class="flex justify-between">
-  <div>
-    <h2 class="heading-md sm:heading-md mb-10"><%= event.title %></h2>
-    <p class="card__restaurant mb-20"><%= event.restaurant %></p>
-    <div class="flex mb-20">
-      <div class="card__time">
-        <time datetime="<%= event.start_time.strftime("%H:%M:%S") %>"><%= event.start_time.strftime("%l:%M %p") %>
-        </time>
+<div class="card card--link">
+  <div class="flex justify-between">
+    <div>
+      <h2 class="heading-md sm:heading-md mb-10"><%= event.title %></h2>
+      <p class="card__restaurant mb-20"><%= event.restaurant %></p>
+      <div class="flex mb-20">
+        <div class="card__time">
+          <time datetime="<%= event.start_time.strftime("%H:%M:%S") %>"><%= event.start_time.strftime("%l:%M %p") %>
+          </time>
+        </div>
+        <div class="card__time">
+          <time datetime="<%= event.start_time.strftime("%Y-%m-%d") %>"><%= event.start_time.strftime("%A, %B %e") %>
+          </time>
+        </div>
       </div>
-      <div class="card__time">
-        <time datetime="<%= event.start_time.strftime("%Y-%m-%d") %>"><%= event.start_time.strftime("%A, %B %e") %>
-        </time>
-      </div>
+      <%= link_to 'View Table', event_path(event), class: "btn" %>
+      <% if event.creator_id == current_user.id %>
+        <%= link_to 'Edit Table', edit_event_path(event), class: "btn" %>
+      <% end %>
     </div>
-    <button class="btn card__btn">View Table</button>
+    <div>
+      <p class="card__guests mb-30">up to <%= event.max_people.to_s %> guests</p>
+      <% if event.creator_id == current_user.id %>
+        <%= link_to 'Cancel Table', event_path(event), method: :delete, class: "btn card__btn" %>
+      <% else %>
+        <%= link_to 'Leave Table', event_membership_path(event, Membership.find_membership(current_user, event)),
+          method: :delete, class: "btn" %>
+      <% end %>
+    </div>
   </div>
-  <div>
-    <span class="card__guests">up to <%= event.max_people.to_s %> guests</span>
 </div>
-  </div>
-<% end %>

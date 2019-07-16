@@ -9,16 +9,8 @@
   box-shadow: -2px 4px 7px rgba(0, 0, 0, 0.15);
   margin: spacing(1) 0;
   padding: spacing(2);
+  position: relative;
   width: 100%;
-}
-
-.card--link {
-  color: inherit;
-
-  &:hover,
-  &:focus {
-    background-color: $gray100;
-  }
 }
 
 .card__restaurant {
@@ -43,5 +35,6 @@
 }
 
 .card__btn {
-  pointer-events: none;
+  display: block;
+  z-index: map-get($zindex, content);
 }
