@@ -15,5 +15,6 @@
 // const imagePath = (name) => images(name, true)
 
 import '../src/application.scss';
+import '../../assets/javascripts/tabs.js';
 
 console.log('Hello World from Webpacker');

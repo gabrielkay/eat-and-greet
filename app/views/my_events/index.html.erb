@@ -1,4 +1,22 @@
-<h1>My Events</h1>
-<div class="cards flex">
-<%= render partial: "events/event", collection: @events %>
+<%= render "header" %>
+
+
+<div class="container flex justify-between">
+  <div class="mb-50">
+    <h2 class="heading-xl sm:heading-xl mb-50">My Tables</h2>
+  </div>
+  <div class="cards flex-col mb-130">
+    <div class="tab flex justify-between mb-20">
+      <button class="tab__links active" onclick="switchTabs(event, 'created')">Created Tables</button>
+      <button class="tab__links" onclick="switchTabs(event, 'archived')">Archived Tables</button>
+    </div>
+    <div class="tab__content" id="created" style="display: block">
+      <%# TODO: change @events to @created_events when available %>
+      <%= render partial: "events/event", collection: @events %>
+    </div>
+    <div class="tab__content" id="archived">
+      <%# TODO: change @events to @archived_events when available %>
+      <%= render partial: "events/event", collection: @events %>
+    </div>
+  </div>
 </div>

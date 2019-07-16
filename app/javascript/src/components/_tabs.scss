@@ -1,0 +1,36 @@
+.tab {
+  width: 100%;
+}
+
+.tab__links {
+  color: $charcoal;
+  font-size: rem(11px);
+  font-weight: $bold-weight;
+  padding: spacing(0.5) spacing();
+  text-transform: uppercase;
+  transition: border-bottom 0.25s, color 0.25s;
+  width: 50%;
+}
+
+.tab__links:first-of-type {
+  text-align: left;
+}
+
+.tab__links:last-of-type {
+  text-align: right;
+}
+
+.tab__links:not(.active) {
+  border-bottom: solid 1px $charcoal;
+}
+
+.tab__links.active,
+.tab__links:hover {
+  color: $red;
+  border-bottom: solid 5px $red;
+}
+
+.tab__content {
+  display: none;
+  width: 100%;
+}
