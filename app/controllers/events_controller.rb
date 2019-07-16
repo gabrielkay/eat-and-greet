@@ -3,8 +3,10 @@ class EventsController < ApplicationController
   before_action :auth_user
 
   def index
-    @events = Event.where(city: current_user.location)
-    # (user/events index will be index of the user's events that they've joined)
+    @events = Event.search_location(params[:search_location] || current_user.location, current_user.id)
+    @locations = Event.distinct.pluck(:city)
+    # once we have our list of cities, this will be set to that. We can make a constant array in events class
+    # add a page for no events in the area
   end
 
   def show
@@ -20,11 +22,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(event_params)
-    @event.city = current_user.location
-    @event.creator_id = current_user.id
+    @event = Event.build_with_member(current_user, event_params)
     if (@event.save)
-      redirect_to events_path
+      redirect_to my_tables_path
     else
       render 'new'
     end
@@ -33,7 +33,6 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
     authorize @event
-    # Will need to be restricted to the event creator
   end
 
   def update

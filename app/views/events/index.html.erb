@@ -3,6 +3,9 @@
 <div class="container flex justify-between">
   <div class="mb-50">
     <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
+    <%= form_tag events_path, method: 'get' do %>
+      <%= select_tag("search_location", options_for_select(@locations, params[:search_location] || current_user.location), onchange: "this.form.submit();") %>
+    <% end %>
     <p class="heading-md sm:heading-md mb-50">Find a seat at an upcoming table near you.</p>
     <p class="form__label">Location:</p>
     <p><%= current_user.location %></p>

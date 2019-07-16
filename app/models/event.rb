@@ -10,4 +10,17 @@ class Event < ApplicationRecord
   validates :city, presence: true
   validates :start_time, presence: true
   validates :creator_id, presence: true
+
+  def self.search_location(location, id)
+    events = Event.where(city: location)
+      .where('id NOT IN (SELECT event_id FROM memberships WHERE user_id = ?)', id)
+  end
+
+  def self.build_with_member(user, event_params)
+    event = self.new(event_params)
+    event.city = user.location
+    event.creator_id = user.id
+    event.memberships.build(user_id: event.creator_id)
+    event
+  end
 end
