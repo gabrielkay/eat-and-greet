@@ -3,3 +3,21 @@
   margin: 0 auto;
   max-width: $max-width;
 }
+
+.column-container {
+  margin: spacing(-2);
+}
+
+.column {
+  margin: spacing(2);
+}
+
+.column--small {
+  flex: 1 1 rem(350px);
+  max-width: rem(515px);
+  min-width: rem(350px);
+}
+
+.column--big {
+  flex-basis: rem(570px);
+}

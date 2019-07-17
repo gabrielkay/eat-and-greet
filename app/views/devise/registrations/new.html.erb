@@ -6,8 +6,8 @@
   <h2 class="heading-xl sm:heading-xl mb-130">Let's make your profile.</h2>
 
   <h3 class="heading-lg sm:heading-lg mb-50">Start with the basics:</h3>
-  <div class="form__sections flex justify-between mb-150">
-    <div class="form__section">
+  <div class="column-container flex justify-between mb-150">
+    <div class="column form__section">
       <div class="form__label-text">
         <%= f.label :name do %>
           Name<span aria-hidden="true" class="text-red"> *</span>
@@ -24,7 +24,7 @@
       </div>
       <%= f.select :location, Event::LOCATIONS, { include_blank: "--- Select ---" }, { required: true, class: "form__input" } %>
     </div>
-    <div class="form__section2">
+    <div class="column--big">
       <%= f.label "Profile photo", class: "form__label-text" %>
       <%= f.label "This helps people know you’re not a robot.", class: "form__details" %>
       <%= f.file_field :profile_pic %>

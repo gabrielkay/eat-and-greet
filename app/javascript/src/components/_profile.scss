@@ -1,13 +1,4 @@
 .profile {
-  margin: spacing(-2);
-
-  .profile__user,
-  .profile__tables {
-    margin: spacing(2);
-  }
-}
-
-.profile__user {
   flex-basis: 350px;
 }
 
