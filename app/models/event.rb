@@ -13,7 +13,9 @@ class Event < ApplicationRecord
 
   def self.search_location(location, id)
     events = Event.where(city: location)
-      .where('id NOT IN (SELECT event_id FROM memberships WHERE user_id = ?)', id)
+    .where('id NOT IN (SELECT event_id FROM memberships WHERE user_id = ?)', id).reject do |event|
+      event.members.count == event.max_people
+    end
   end
 
   def self.build_with_member(user, event_params)
