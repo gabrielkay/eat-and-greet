@@ -34,3 +34,9 @@
     font-size: rem($h2);
   }
 }
+
+@include bpMin('medium') {
+  .header__nav {
+    margin-right: spacing(2);
+  }
+}

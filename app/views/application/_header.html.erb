@@ -5,5 +5,7 @@
   </div>
   <%- if controller_name == 'sessions' %>
     <%= render "sign-in" %>
+  <% else %>
+    <%= link_to "My Profile", user_path(current_user.slug), class: "header__nav btn" %>
   <% end %>
 </header>

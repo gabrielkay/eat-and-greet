@@ -1,3 +1,65 @@
-<h1>This is a user's profile page.</h1>
-<p>You can link here with a link_to user_path(slug)</p>
-<%= @user.name %>
+<%= render "header" %>
+
+<div class="container">
+  <div class="profile flex justify-between">
+    <div class="profile__user mb-50">
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn mb-20" %>
+      <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
+      <div class="profile__location flex mb-20">
+        <%= inline_svg "icons/location.svg", class: "profile__icon" %>
+        <p class="heading-sm sm:heading-sm"><%= @user.location %></p>
+      </div>
+      <div class="profile__img-container mb-30">
+        <% if @user.profile_pic.attached? %>
+          <img class="profile__image" src="<%= (url_for(@user.profile_pic)) %>">
+        <% else %>
+          <img class=" profile__image" src="https://via.placeholder.com/250">
+        <% end %>
+      </div>
+      <div class="flex justify-between mb-10">
+        <div class="profile__social flex">
+          <%= link_to @user.instagram_link, target: :_blank do %>
+            <%= inline_svg "icons/instagram.svg", class: "profile__icon" %>
+          <% end %>
+          <%= link_to @user.facebook_link do %>
+            <%= inline_svg "icons/facebook.svg", class: "profile__icon" %>
+          <% end %>
+          <%= link_to @user.twitter_link do %>
+            <%= inline_svg "icons/twitter.svg", class: "profile__icon" %>
+          <% end %>
+        </div>
+        <%= link_to edit_registration_path(current_user), class: "profile__btn flex" do %>
+          <%= inline_svg "icons/edit.svg", class: "profile__icon" %>
+          <p class="profile__edit">Edit</p>
+        <% end %>
+      </div>
+      <div class="profile__details">
+        <div class="flex mb-15">
+          <div class="profile__flex-item">
+            <h3 class="form__label">Favorite Cuisine:</h3>
+            <p><%= @user.favorite_dish %></p>
+          </div>
+          <div class="profile__flex-item">
+            <h3 class="form__label">Interests:</h3>
+            <p><%= @user.topics %></p>
+          </div>
+        </div>
+        <h3 class="form__label">Bio:</h3>
+        <p><%= @user.bio %></p>
+      </div>
+    </div>
+    <div class="profile__tables cards flex-col mb-130">
+      <div class="tab flex justify-between mb-20">
+        <button class="tab__links active" onclick="switchTabs(event, 'created')">Created Tables</button>
+        <button class="tab__links" onclick="switchTabs(event, 'archived')">Archived Tables</button>
+      </div>
+      <div class="tab__content" id="created" style="display: block">
+        <%= render partial: "events/event", collection: @created_events %>
+      </div>
+      <div class="tab__content" id="archived">
+        <%# TODO: change @created_events to @archived_events when available %>
+        <%= render partial: "events/event", collection: @created_events %>
+      </div>
+    </div>
+  </div>
+</div>
