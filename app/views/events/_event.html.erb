@@ -26,7 +26,7 @@
     <div>
       <% if event.creator_id == current_user.id %>
         <%= link_to 'Cancel Table', event_path(event), method: :delete, class: "btn" %>
-      <% else %>
+      <% elsif event.members.include?(current_user) %>
         <%= link_to 'Leave Table', event_membership_path(event, Membership.find_membership(current_user, event)),
           method: :delete, class: "btn" %>
       <% end %>
