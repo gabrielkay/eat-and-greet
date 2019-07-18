@@ -11,12 +11,12 @@
       <button class="tab__links" onclick="switchTabs(event, 'archived')">Archived Tables</button>
     </div>
     <div class="tab__content" id="created" style="display: block">
-      <%# TODO: change @events to @created_events when available %>
-      <%= render partial: "events/event", collection: @events %>
+      <%# TODO: This is using user#show page design, should be my-tables %>
+      <%= render partial: "events/event", collection: @created_events %>
     </div>
     <div class="tab__content" id="archived">
-      <%# TODO: change @events to @archived_events when available %>
-      <%= render partial: "events/event", collection: @events %>
+      <%# TODO: These are joined events, not archived events %>
+      <%= render partial: "events/event", collection: @joined_events %>
     </div>
   </div>
 </div>

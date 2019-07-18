@@ -1,5 +1,6 @@
 class MyEventsController < ApplicationController
   def index
-    @events = current_user.events_as_member
+    @joined_events = current_user.events_as_member - current_user.events
+    @created_events = current_user.events
   end
 end
