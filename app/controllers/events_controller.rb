@@ -60,6 +60,7 @@ class EventsController < ApplicationController
         :event_pic,
         :restaurant,
         :restaurant_address,
+        :city,
         :min_people,
         :max_people,
         :start_time,

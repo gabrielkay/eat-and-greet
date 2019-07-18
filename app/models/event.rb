@@ -22,7 +22,6 @@ class Event < ApplicationRecord
 
   def self.build_with_member(user, event_params)
     event = self.new(event_params)
-    event.city = user.location
     event.creator_id = user.id
     event.memberships.build(user_id: event.creator_id)
     event

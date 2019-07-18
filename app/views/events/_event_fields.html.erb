@@ -17,6 +17,10 @@
   <%= f.text_field :restaurant_address, required: true %>
 </p>
 <p>
+  <%= f.label 'Location' %>
+  <%= f.select :city, Event::LOCATIONS, { include_blank: "--- Select ---" }, { required: true } %>
+</p>
+<p>
   <%= f.label 'Start Time' %>
   <%= f.datetime_field :start_time, required: true %>
 </p>
