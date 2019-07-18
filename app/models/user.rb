@@ -26,7 +26,17 @@ class User < ApplicationRecord
   private
 
   def set_slug
-    self.slug = "#{self.name.parameterize}-#{self.id}"
+    parameterized_name = self.name.parameterize
+    similar_slugs = User.where("slug LIKE ?", "#{parameterized_name}%").pluck(:slug)
+    unless similar_slugs.include? parameterized_name
+      self.slug = parameterized_name
+      return
+    end
+    n = 1
+    while similar_slugs.include?("#{parameterized_name}-#{n}")
+      n += 1
+    end
+    self.slug = "#{parameterized_name}-#{n}"
   end
 
   def valid_url?(url)
