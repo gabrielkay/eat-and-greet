@@ -14,16 +14,31 @@
 }
 
 .card__time {
+  align-items: center;
   font-size: rem(12px);
   font-weight: $regular-weight;
   margin-right: spacing(2);
+
+  .card__icon {
+    margin-right: spacing(0.5);
+  }
 
   @include bpMin('small') {
     font-size: rem(14px);
   }
 }
 
-.card__guests {
-  font-size: rem(14px);
-  font-style: italic;
+.card__space {
+  align-items: flex-end;
+
+  .card__seats {
+    color: $red;
+    font-size: rem(14px);
+    font-weight: $bold-weight;
+  }
+
+  .card__guests {
+    font-size: rem(14px);
+    font-style: italic;
+  }
 }
