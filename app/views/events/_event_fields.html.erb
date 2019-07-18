@@ -20,17 +20,17 @@
 
 <p>
   <%= f.label 'Start Time', class: "form__label" %>
-  <%= f.datetime_field :start_time, required: true, class: "form__input" %>
+  <%= f.datetime_field :start_time, required: true, class: "form__date form__input form__input--md" %>
 </p>
 <p>
   <%= f.label 'End Time', class: "form__label" %>
-  <%= f.datetime_field :end_time, required: true, class: "form__input" %>
+  <%= f.datetime_field :end_time, required: true, class: "form__date form__input form__input--md" %>
 </p>
 
 <p>
-  <%= f.label 'Number of guests', class: "form__label" %>
-  <%= f.label 'Up to 10', class: "form__details" %>
-  <%= f.select :max_people, [3, 4, 5, 6, 7, 8], { include_blank: "-- Select One --" }, required: true, class: "form__input" %>
+  <%= f.label 'Maximum Number of Guests', class: "form__label" %>
+  <%= f.label 'Make sure to include yourself.', class: "form__details" %>
+  <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ], { include_blank: "--- Select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
 </p>
 
 <p>
