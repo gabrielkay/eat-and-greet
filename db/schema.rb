@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_140940) do
+ActiveRecord::Schema.define(version: 2019_07_18_164434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,6 @@ ActiveRecord::Schema.define(version: 2019_07_15_140940) do
     t.string "title", null: false
     t.datetime "end_time", null: false
     t.string "restaurant_address", null: false
-    t.string "diet", null: false
     t.string "topic"
     t.index ["creator_id"], name: "index_events_on_creator_id"
   end
