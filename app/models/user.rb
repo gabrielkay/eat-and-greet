@@ -26,9 +26,14 @@ class User < ApplicationRecord
   private
 
   def set_slug
-    n = 1
     parameterized_name = self.name.parameterize
-    while User.where(slug: "#{parameterized_name}-#{n}").exists?
+    similar_slugs = User.where("slug LIKE ?", "#{parameterized_name}%").pluck(:slug)
+    unless similar_slugs.include? parameterized_name
+      self.slug = parameterized_name
+      return
+    end
+    n = 1
+    while similar_slugs.include?("#{parameterized_name}-#{n}")
       n += 1
     end
     self.slug = "#{parameterized_name}-#{n}"
