@@ -3,9 +3,9 @@
     <img class="header__logo-mark" src="https://via.placeholder.com/50">
     <h1 class="header__logo-text">Eat & Greet</h1>
   </div>
-  <%- if controller_name == 'sessions' %>
-    <%= render "sign-in" %>
-  <% else %>
+  <%- if user_signed_in? %>
     <%= link_to "My Profile", user_path(current_user.slug), class: "header__nav btn" %>
+  <% else %>
+    <%= render "sign-in" %>
   <% end %>
 </header>
