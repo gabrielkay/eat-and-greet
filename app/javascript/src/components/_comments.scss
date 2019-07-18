@@ -1,16 +1,16 @@
 .comment__time {
-  color: $gray300;
+  color: $gray400;
   font-weight: $regular-weight;
   margin-left: spacing();
 }
 
 .comment__reply {
-  border-left: solid 1px $gray200;
+  border-left: solid 1px $gray300;
   padding-left: spacing(2);
 }
 
 .comment__helper {
-  color: $gray200;
+  color: $gray300;
   font-style: italic;
 }
 

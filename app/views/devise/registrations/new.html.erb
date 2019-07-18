@@ -8,7 +8,7 @@
   <h3 class="heading-lg sm:heading-lg mb-50">Start with the basics:</h3>
   <div class="column-container flex justify-between mb-150">
     <div class="column form__section">
-      <div class="form__label-text">
+      <div class="form__label">
         <%= f.label :name do %>
           Name<span aria-hidden="true" class="text-red"> *</span>
           <span class="sr-only">Required field</span>
@@ -16,16 +16,16 @@
       </div>
       <%= f.label "This is how your name will appear to others", class: "form__details" %>
       <%= f.text_field :name, class: "form__input", placeholder: "your name" %>
-      <div class="form__label-text">
+      <div class="form__label">
         <%= f.label :location do %>
           City / town<span aria-hidden="true" class="text-red"> *</span>
           <span class="sr-only">Required field</span>
         <% end %>
       </div>
-      <%= f.select :location, Event::LOCATIONS, { include_blank: "--- Select ---" }, { required: true, class: "form__input" } %>
+      <%= f.select :location, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input" } %>
     </div>
-    <div class="column--big">
-      <%= f.label "Profile photo", class: "form__label-text" %>
+    <div class="column">
+      <%= f.label "Profile photo", class: "form__label" %>
       <%= f.label "This helps people know you’re not a robot.", class: "form__details" %>
       <%= f.file_field :profile_pic %>
       </p>
@@ -33,14 +33,14 @@
   </div>
   <h3 class="heading-lg sm:heading-lg mb-50">Okay, we're almost finished:</h3>
   <div class="form__section mb-150">
-    <div class="form__label-text">
+    <div class="form__label">
       <%= f.label :email do %>
         Email<span aria-hidden="true" class="text-red"> *</span>
         <span class="sr-only">Required field</span>
       <% end %>
     </div>
     <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
-    <div class="form__label-text">
+    <div class="form__label">
       <%= f.label :password do %>
         Password<span aria-hidden="true" class="text-red"> *</span>
         <span class="sr-only">Required field</span>
@@ -48,7 +48,7 @@
     </div>
     <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.", class: "form__details" %>
     <%= f.password_field :password, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
-    <div class="form__label-text">
+    <div class="form__label">
       <%= f.label :password_confirmation do %>
         Confirm password<span aria-hidden="true" class="text-red"> *</span>
         <span class="sr-only">Required field</span>

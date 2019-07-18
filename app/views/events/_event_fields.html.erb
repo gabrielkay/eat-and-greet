@@ -14,8 +14,8 @@
 </p>
 
 <p>
-  <%= f.label 'Location' %>
-  <%= f.select :city, Event::LOCATIONS, { include_blank: "--- Select ---" }, { required: true } %>
+  <%= f.label 'Location', class: "form__label" %>
+  <%= f.select :city, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
 </p>
 
 <p>
@@ -30,7 +30,7 @@
 <p>
   <%= f.label 'Maximum Number of Guests', class: "form__label" %>
   <%= f.label 'Make sure to include yourself.', class: "form__details" %>
-  <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ], { include_blank: "--- Select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
+  <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ], { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
 </p>
 
 <p>

@@ -9,7 +9,7 @@
       <%= form_for(@event) do |f| %>
         <% if @event.errors.any? %>
           <% @event.errors.full_messages.each do |msg| %>
-            <div class="alert"><p>Error: <%= msg %></p></div>
+            <p class="alert">Error: <%= msg %></p>
           <% end %>
         <% end %>
         <%= render 'event_fields', f: f %>
@@ -20,5 +20,3 @@
     </div>
   </div>
 </div>
-
-

@@ -19,7 +19,7 @@
 
   <div class="field">
     <%= f.label :location %><br />
-    <%= f.select :location, Event::LOCATIONS, { include_blank: "--- Select ---" }, { required: true, class: "form__input" } %>
+    <%= f.select :location, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
   </div>
 
   <div class="field">

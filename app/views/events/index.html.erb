@@ -10,7 +10,7 @@
         <p class="form__label-text">Location:</p> 
       </div>
       <%= form_tag events_path, method: 'get' do %>
-        <%= select_tag("search_location", options_for_select(Event::LOCATIONS, params[:search_location] || current_user.location), onchange: "this.form.submit();", class: "form__input") %>
+        <%= select_tag("search_location", options_for_select(Event::LOCATIONS, params[:search_location] || current_user.location), onchange: "this.form.submit();", class: "form__select form__input form__input--md") %>
       <% end %>
     </div>
     <div class="column column--big flex-col mb-130">

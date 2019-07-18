@@ -20,7 +20,7 @@
 
 .form__input {
   background-color: $white;
-  border: solid 1px #b7b7b7;
+  border: solid 1px $gray200;
   border-radius: $rounded-sm;
   box-shadow: -2px 3px 3px rgba(0, 0, 0, 0.1) inset;
   margin-bottom: spacing(2);
@@ -35,17 +35,15 @@
 }
 
 .form__input::placeholder,
-input:invalid,
-select:invalid,
-select option[value=''] {
-  color: $gray200;
+input.form__date:invalid,
+select.form__select:invalid,
+select.form__select option[value=''] {
+  color: $gray300;
   font-size: rem(15px);
   font-style: italic;
 }
 
 .form__select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
   appearance: none;
   background-image: url('../../assets/images/icons/dropdown.svg');
   background-repeat: no-repeat;
@@ -54,25 +52,22 @@ select option[value=''] {
 
 .form__label {
   align-items: center;
+  display: block;
+  color: $black;
+  font-weight: 700;
+  font-size: rem(11px);
+  line-height: 1.4;
+  margin-bottom: spacing(0.25);
+  text-transform: uppercase;
 
   .form__label-icon {
     fill: $black;
     margin-right: spacing(0.5);
   }
-
-  .form__label-text {
-    display: block;
-    color: $black;
-    font-weight: 700;
-    font-size: rem(11px);
-    line-height: 1.4;
-    margin-bottom: spacing(0.25);
-    text-transform: uppercase;
-  }
 }
 
 .form__details {
-  color: $gray300;
+  color: $gray400;
   display: block;
   font-size: rem(15px);
   font-style: italic;
