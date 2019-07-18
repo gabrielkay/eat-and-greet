@@ -36,12 +36,22 @@
 }
 
 .form__label {
-  display: block;
-  font-weight: 700;
-  font-size: rem(11px);
-  line-height: 1.4;
-  margin-bottom: spacing(0.25);
-  text-transform: uppercase;
+  align-items: center;
+
+  .form__label-icon {
+    fill: $black;
+    margin-right: spacing(0.5);
+  }
+
+  .form__label-text {
+    display: block;
+    color: $black;
+    font-weight: 700;
+    font-size: rem(11px);
+    line-height: 1.4;
+    margin-bottom: spacing(0.25);
+    text-transform: uppercase;
+  }
 }
 
 .form__details {

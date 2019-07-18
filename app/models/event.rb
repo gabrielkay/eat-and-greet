@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
 
+  LOCATIONS = [ "Raleigh-Durham", "Denver/Boulder", "Washington D.C. Metro" ]
+
   belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
   has_many :memberships, dependent: :destroy
   has_many :members, through: :memberships, source: 'user'
