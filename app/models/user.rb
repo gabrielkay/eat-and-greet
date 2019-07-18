@@ -26,7 +26,12 @@ class User < ApplicationRecord
   private
 
   def set_slug
-    self.slug = "#{self.name.parameterize}-#{self.id}"
+    n = 1
+    parameterized_name = self.name.parameterize
+    while User.where(slug: "#{parameterized_name}-#{n}").exists?
+      n += 1
+    end
+    self.slug = "#{parameterized_name}-#{n}"
   end
 
   def valid_url?(url)
