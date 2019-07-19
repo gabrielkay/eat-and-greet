@@ -1,83 +1,101 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<%= render "header" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "container form flex-col", method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
+  <div class="container">
+    <div class="column-container flex justify-between">
+      <div class="column column--small mb-50">
+        <h2 class="heading-xl sm:heading-xl mb-20">Edit Your Profile</h2>
+      </div>
+      <div class="column column--big flex-col mb-130">
+        <div>
+          <%= f.label :name, class: "form__label" %>
+          <%= f.label "This is how your name will appear to others", class: "form__details" %>
+          <%= f.text_field :name, class: "form__input form__input--md" %>
+        </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <div class="field">
+          <%= f.label :location, class: "form__label" %>
+          <%= f.select :location, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
+        </div>
 
-  <div class="field">
-    <%= f.label "Profile Picture" %>
-    <%= f.file_field :profile_pic %>
-  </div>
+        <div class="field">
+          <%= f.label :bio, class: "form__label" %>
+          <%= f.text_area :bio, class: "form__input" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :location %><br />
-    <%= f.select :location, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
-  </div>
+        <div class="field">
+          <%= f.label "Favorite Cuisine", class: "form__label" %>
+          <%= f.text_field :favorite_dish, class: "form__input form__input--md" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :bio %><br />
-    <%= f.text_area :bio %>
-  </div>
+        <div class="field">
+          <%= f.label :topics, class: "form__label" %>
+          <%= f.text_field :topics, class: "form__input form__input--md" %>
+        </div>
 
-  <div class="field">
-    <%= f.label "Favorite Cuisine", :favorite_dish %><br />
-    <%= f.text_field :favorite_dish %>
-  </div>
+        <div class="field">
+          <%= f.label "Twitter", class: "form__label" %>
+          <%= f.text_field :twitter_link, class: "form__input" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :twitter_link %><br />
-    <%= f.text_field :twitter_link %>
-  </div>
+        <div class="field">
+          <%= f.label "Instagram", class: "form__label" %>
+          <%= f.text_field :instagram_link, class: "form__input" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :instagram_link %><br />
-    <%= f.text_field :instagram_link %>
-  </div>
+        <div class="field">
+          <%= f.label "Facebook", class: "form__label" %>
+          <%= f.text_field :facebook_link, class: "form__input" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :facebook_link %><br />
-    <%= f.text_field :facebook_link %>
-  </div>
+        <div class="form__field">
+          <%= f.label "Profile photo", class: "form__label" %>
+          <%= f.label "This helps people know you’re not a robot.", class: "form__details" %>
+          <label class="form__photo form__label">
+            <div class="form__photo-button flex">
+              <%= inline_svg "icons/photo.svg", class: "form__photo-icon" %>
+              Upload a photo
+            </div>
+            <div class="form__photo-file">
+              <%= f.file_field :profile_pic %>
+            </div>
+          </label>
+        </div>
 
-  <div class="field">
-    <%= f.label :topics %><br />
-    <%= f.text_field :topics %>
-  </div>
+        <div class="field">
+          <%= f.label :email, class: "form__label" %>
+          <%= f.email_field :email, autocomplete: "email", class: "form__input form__input--md" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
+        <div class="field">
+          <%= f.label "New Password", class: "form__label" %>
+          <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.", class: "form__details" %>
+          <%= f.password_field :password, autocomplete: "new-password", placeholder: "••••••••", class: "form__input form__input--md" %>
+        </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
+        <div class="field">
+          <%= f.label "Confirm new password", class: "form__label" %>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "••••••••", class: "form__input form__input--md" %>
+        </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
+        <div class="field">
+          <%= f.label :current_password, class: "form__label" %>
+          <%= f.label "We need your current password to confirm your changes", class: "form__details" %>
+          <%= f.password_field :current_password, autocomplete: "current-password", class: "form__input form__input--md" %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Update", class: "btn" %>
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn" %>
+          <%= link_to "Back", :back, class: "btn" %>
+        </div>
+      </div>
+    </div>
   </div>
 <% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
