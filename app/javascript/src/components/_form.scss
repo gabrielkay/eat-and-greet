@@ -77,6 +77,7 @@ select.form__select option[value=''] {
 
 .form__photo {
   color: $blue;
+  cursor: pointer;
 
   .form__photo-button {
     align-items: center;

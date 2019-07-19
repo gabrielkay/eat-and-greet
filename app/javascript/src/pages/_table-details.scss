@@ -1,0 +1,38 @@
+.table-details {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas:
+    '.'
+    'guests'
+    'title'
+    'aside'
+    'comments';
+  grid-gap: spacing(2);
+
+  @include bpMin('large') {
+    grid-template-columns: minmax(350px, 515px) rem(750px);
+    grid-template-areas:
+      '. guests'
+      'aside title'
+      'aside comments';
+  }
+}
+
+.table__details_guests {
+  grid-area: guests;
+}
+
+.table-details__aside {
+  grid-area: aside;
+}
+
+.table-details__title {
+  grid-area: title;
+  max-width: rem(750px);
+}
+
+.table-details__comments {
+  grid-area: comments;
+  max-width: rem(750px);
+}

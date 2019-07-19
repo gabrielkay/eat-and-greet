@@ -1,5 +1,45 @@
+.info-box-group {
+  flex-basis: 350px;
+}
+
 .info-box {
   background-color: $gray100;
-  max-width: 300px;
+  max-width: 350px;
   padding: spacing(2.5);
+
+  @include bpMin('large') {
+    max-width: auto;
+  }
+}
+
+.info-box__details {
+  align-items: center;
+
+  .info-box__icon {
+    margin-right: spacing();
+  }
+}
+
+.info-box__attending {
+  align-items: center;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+
+  .info-box__image {
+    border: solid 1px $red;
+    border-radius: $rounded-full;
+    height: rem(40px);
+    margin-right: spacing(1.5);
+    overflow: hidden;
+    width: rem(40px);
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
 }

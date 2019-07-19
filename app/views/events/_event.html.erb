@@ -27,26 +27,26 @@
   </div>
   <div class="flex justify-between">
     <div class="card__buttons">
-      <%= link_to event_path(event), class: "btn flex card__view" do %>
+      <%= link_to event_path(event), class: "btn card__view" do %>
         <div class="flex">
           <p>View Table</p>
           <%= inline_svg "icons/arrow.svg", class: "btn__icon" %>
         </div>
       <% end %>
       <% if event.creator_id == current_user.id %>
-        <%= link_to edit_event_path(event), class: "btn btn--mobile flex card__edit" do %>
+        <%= link_to edit_event_path(event), class: "btn btn--mobile card__edit" do %>
           <p class="btn__text-mobile">Edit Table</p>
           <%= inline_svg "icons/edit.svg", class: "btn__icon btn__icon--mobile" %>
         <% end %>
       <% end %>
       <% if event.creator_id == current_user.id %>
-        <%= link_to event_path(event), method: :delete, class: "btn btn--mobile flex card__remove" do %>
+        <%= link_to event_path(event), method: :delete, class: "btn btn--mobile card__remove" do %>
           <p class="btn__text-mobile">Cancel Table</p>
           <%= inline_svg "icons/delete.svg", class: "btn__icon btn__icon--mobile" %>
         <% end %>
       <% elsif event.members.include?(current_user) %>
         <%= link_to 'Leave Table', event_membership_path(event, Membership.find_membership(current_user, event)),
-          method: :delete, class: "btn flex card__remove" %>
+          method: :delete, class: "btn card__remove" %>
       <% end %>
     </div>
   </div>

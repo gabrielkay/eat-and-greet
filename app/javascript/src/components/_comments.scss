@@ -1,3 +1,7 @@
+.comments > :last-child {
+  margin-bottom: spacing(5);
+}
+
 .comment__time {
   color: $gray400;
   font-weight: $regular-weight;
@@ -16,4 +20,5 @@
 
 .comment__divider {
   border: solid 1px $gray100;
+  width: 100%;
 }

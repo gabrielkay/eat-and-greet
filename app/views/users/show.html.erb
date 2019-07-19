@@ -21,10 +21,10 @@
           <%= link_to @user.instagram_link, target: :_blank do %>
             <%= inline_svg "icons/instagram.svg", class: "profile__icon" %>
           <% end %>
-          <%= link_to @user.facebook_link do %>
+          <%= link_to @user.facebook_link, target: :_blank do %>
             <%= inline_svg "icons/facebook.svg", class: "profile__icon" %>
           <% end %>
-          <%= link_to @user.twitter_link do %>
+          <%= link_to @user.twitter_link, target: :_blank do %>
             <%= inline_svg "icons/twitter.svg", class: "profile__icon" %>
           <% end %>
         </div>
