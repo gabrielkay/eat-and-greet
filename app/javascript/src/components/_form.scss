@@ -74,3 +74,28 @@ select.form__select option[value=''] {
   font-weight: $regular-weight;
   margin-bottom: spacing();
 }
+
+.form__photo {
+  color: $blue;
+
+  .form__photo-button {
+    align-items: center;
+
+    .form__photo-icon {
+      fill: $blue;
+      margin-right: spacing(0.5);
+    }
+  }
+
+  .form__photo-file {
+    color: $charcoal;
+    font-size: rem(15px);
+  }
+}
+
+input[type='file']::-webkit-file-upload-button {
+  bottom: -99999px;
+  padding: 0;
+  position: relative;
+  width: 0;
+}

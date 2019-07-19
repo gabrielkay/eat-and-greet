@@ -1,5 +1,10 @@
 .tab {
+  margin-bottom: spacing(1.5);
   width: 100%;
+
+  @include bpMin('small') {
+    margin-bottom: spacing(4.5);
+  }
 }
 
 .tab__links {

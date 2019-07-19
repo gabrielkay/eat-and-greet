@@ -7,7 +7,7 @@
 }
 
 .profile__img-container {
-  border-radius: 50%;
+  border-radius: $rounded-full;
   border: solid 1px $red;
   height: rem(250px);
   margin: 0 auto;

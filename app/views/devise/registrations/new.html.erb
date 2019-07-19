@@ -27,8 +27,15 @@
     <div class="column">
       <%= f.label "Profile photo", class: "form__label" %>
       <%= f.label "This helps people know you’re not a robot.", class: "form__details" %>
-      <%= f.file_field :profile_pic %>
-      </p>
+      <label class="form__photo form__label">
+        <div class="form__photo-button flex">
+          <%= inline_svg "icons/photo.svg", class: "form__photo-icon" %>
+          Upload a photo
+        </div>
+        <div class="form__photo-file">
+          <%= f.file_field :profile_pic %>
+        </div>
+      </label>
     </div>
   </div>
   <h3 class="heading-lg sm:heading-lg mb-50">Okay, we're almost finished:</h3>

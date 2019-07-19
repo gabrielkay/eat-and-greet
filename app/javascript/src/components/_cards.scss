@@ -1,10 +1,14 @@
 .card {
   background-color: $gray100;
-  border-radius: 5px;
+  border-radius: $rounded-sm;
   box-shadow: -2px 4px 7px rgba(0, 0, 0, 0.15);
-  margin: spacing(1) 0;
+  margin-bottom: spacing(1.5);
   padding: spacing(2);
   width: 100%;
+
+  @include bpMin('small') {
+    margin-bottom: spacing(4.5);
+  }
 }
 
 .card__restaurant {
@@ -29,7 +33,9 @@
 }
 
 .card__space {
-  align-items: flex-end;
+  @include bpMin('small') {
+    align-items: flex-end;
+  }
 
   .card__seats {
     color: $red;
@@ -40,5 +46,32 @@
   .card__guests {
     font-size: rem(14px);
     font-style: italic;
+  }
+}
+
+.card__buttons {
+  display: grid;
+  grid-gap: spacing();
+  grid-template-columns: max-content 1fr repeat(2, max-content);
+  grid-template-areas: 'view . edit remove';
+  justify-items: start;
+  width: 100%;
+
+  @include bpMin('small') {
+    grid-template-columns: repeat(2, max-content) 1fr max-content;
+    grid-template-areas: 'view edit . remove';
+  }
+
+  .card__view {
+    grid-area: view;
+  }
+
+  .card__edit {
+    grid-area: edit;
+  }
+
+  .card__remove {
+    grid-area: remove;
+    justify-self: end;
   }
 }
