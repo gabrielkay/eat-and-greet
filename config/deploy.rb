@@ -8,7 +8,7 @@ set :branch,     'master'
 
 set :user, 'deploy'
 
-set :slack_url,     'https://hooks.slack.com/services/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'
+set :slack_url,     'https://hooks.slack.com/services/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'
 set :slack_channel, '#interns-19'
 set :slack_emoji,   ':fork_and_knife:'
 
