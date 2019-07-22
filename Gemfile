@@ -55,6 +55,9 @@ end
 
 group :development do
   gem 'viget-deployment', '2.0.0', github: 'vigetlabs/viget-deployment', require: false
+  # needed for ed25519 SSH Key support https://github.com/net-ssh/net-ssh/issues/565
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf', '>= 1.0', '< 2.0'
 
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
