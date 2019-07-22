@@ -78,6 +78,17 @@ select.form__select option[value=''] {
   color: $blue;
   cursor: pointer;
 
+  &:hover,
+  &:focus {
+    color: $black;
+
+    .form__photo-button {
+      .form__photo-icon {
+        fill: $black;
+      }
+    }
+  }
+
   .form__photo-button {
     align-items: center;
 

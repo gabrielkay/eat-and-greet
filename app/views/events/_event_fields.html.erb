@@ -1,23 +1,23 @@
 <p>
-  <%= f.label 'Title of table',
+  <%= f.label :title, "Let's give your table a name",
       class: "form__label" %>
   <%= f.text_field :title,
       required: true,
       class: "form__input",
-      placeholder: "Title name here" %>
+      placeholder: "Event title" %>
 </p>
 
 <p>
-  <%= f.label 'Name of Restaurant',
+  <%= f.label :restaurant, 'Where are we going?',
       class: "form__label" %>
   <%= f.text_field :restaurant,
       required: true,
       class: "form__input",
-      placeholder: "Denny's" %>
+      placeholder: "Restaurant name" %>
 </p>
 
 <p>
-  <%= f.label 'Address of Restaurant',
+  <%= f.label :restaurant_address, 'Address of Restaurant',
       class: "form__label" %>
   <%= f.text_field :restaurant_address,
       required: true,
@@ -26,7 +26,7 @@
 </p>
 
 <p>
-  <%= f.label 'Location',
+  <%= f.label :city, 'Location',
       class: "form__label" %>
   <%= f.select :city,
       Event::LOCATIONS,
@@ -36,14 +36,14 @@
 </p>
 
 <p>
-  <%= f.label 'Start Time',
+  <%= f.label :start_time, 'Start Time',
       class: "form__label" %>
   <%= f.datetime_field :start_time,
       required: true,
       class: "form__date form__input form__input--md" %>
 </p>
 <p>
-  <%= f.label 'End Time',
+  <%= f.label :end_time, 'End Time',
       class: "form__label" %>
   <%= f.datetime_field :end_time,
       required: true,
@@ -51,9 +51,9 @@
 </p>
 
 <p>
-  <%= f.label 'Maximum Number of Guests',
+  <%= f.label :max_people, 'Maximum Number of Guests',
       class: "form__label" %>
-  <%= f.label 'Make sure to include yourself.',
+  <%= f.label :max_people, 'Make sure to include yourself.',
       class: "form__details" %>
   <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ],
       { include_blank: "--- select ---" },
@@ -62,18 +62,20 @@
 </p>
 
 <p>
-  <%= f.label 'Topics for Discussion',
+  <%= f.label :topic, 'Topics for Discussion',
       class: "form__label" %>
+  <%= f.label :topic, 'List up to 5 topics to get the conversation started at your table (separate with commas).',
+      class: "form__details" %>
   <%= f.text_field :topic,
-      class: "form__input", placeholder: "Separate topic tags with a comma" %>
+      class: "form__input", placeholder: "Books, Surfing, Books about surfing" %>
 </p>
 
 <p>
-  <%= f.label 'Event Description',
+  <%= f.label :description, 'Event Description',
       class: "form__label" %>
-  <%= f.label 'Tell people about the restaurant, why you’re hosting the event, and details like reservations and where to meet.',
+  <%= f.label :description, 'Give your guests a little more information: Where can they park? Whose name is the reservation under? Etc.',
       class: "form__details" %>
   <%= f.text_area :description,
       class: "form__input",
-      placeholder: "Want to meet some other fun-loving gals in the big city? We’re meeting at DC Staple, Busboys and Poets for all-American fare and $5 mimosas!" %>
+      placeholder: "Your very cool, super informative less-than-250-characters event description." %>
 </p>

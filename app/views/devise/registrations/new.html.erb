@@ -14,11 +14,11 @@
           <span class="sr-only">Required field</span>
         <% end %>
       </div>
-      <%= f.label "This is how your name will appear to others",
+      <%= f.label :name, "This is how your name will appear to others",
           class: "form__details" %>
       <%= f.text_field :name,
           class: "form__input",
-          placeholder: "your name" %>
+          placeholder: "John Doe" %>
       <div class="form__label">
         <%= f.label :location do %>
           City / town<span aria-hidden="true" class="text-red"> *</span>
@@ -32,15 +32,15 @@
             class: "form__select form__input" } %>
     </div>
     <div class="column">
-      <%= f.label "Profile photo",
+      <%= f.label :profile_pic, "Profile picture",
           class: "form__label" %>
-      <%= f.label "This helps people know you’re not a robot.",
+      <%= f.label :profile_pic, "(This helps people know you’re not a robot.)",
           class: "form__details" %>
       <label class="form__photo form__label">
         <div class="form__photo-button flex">
           <%= inline_svg "icons/photo.svg",
               class: "form__photo-icon" %>
-          Upload a photo
+          Upload a profile picture
         </div>
         <div class="form__photo-file">
           <%= f.file_field :profile_pic %>
@@ -58,7 +58,7 @@
     </div>
     <%= f.email_field :email,
         class: "form__input",
-        placeholder: "Email",
+        placeholder: "your.email@example.com",
         autocomplete: "email" %>
     <div class="form__label">
       <%= f.label :password do %>
@@ -66,7 +66,7 @@
         <span class="sr-only">Required field</span>
       <% end %>
     </div>
-    <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.",
+    <%= f.label :password, "Your password must be at least 8 characters, including an upper case letter and a number.",
         class: "form__details" %>
     <%= f.password_field :password,
         class: "form__input",

@@ -6,11 +6,11 @@
       class: "form__input",
       autofocus: true,
       autocomplete: "email",
-      placeholder: "email address" %>
+      placeholder: "your.email@example.com" %>
   <%= f.password_field :password,
       class: "form__input",
       autocomplete: "current-password",
-      placeholder: "password" %>
+      placeholder: "••••••••" %>
 
   <% if devise_mapping.rememberable? %>
     <div class="form__field flex-col">
@@ -20,6 +20,6 @@
     </div>
   <% end %>
 
-  <%= f.submit "Sign in",
+  <%= f.submit "Log in",
       class: "form__button btn" %>
 <% end %>
