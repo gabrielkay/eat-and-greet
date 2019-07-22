@@ -124,8 +124,10 @@
                   value: comment.id %>
               <%= f.text_field :body,
                   required: true,
-                  placeholder: "Send a response",
+                  placeholder: "send a response",
                   class: "form__input comment__helper" %>
+              <%= f.submit 'Post',
+                  class: "btn" %>
             <% end %>
           </div>
         <% end %>

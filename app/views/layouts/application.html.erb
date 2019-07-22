@@ -15,8 +15,8 @@
 
   <body>
 
-    <%= raw("<p class=notice>#{notice}</p>") if notice %>
-    <%= raw("<p class=alert>#{alert}</p>") if alert %>
+    <%= raw("<p class=notice id=notice >#{notice}<button onclick=hideNotice()>#{inline_svg "icons/x.svg", class: "close-banner"}</button></p>") if notice %>
+    <%= raw("<p class=alert id=alert >#{alert}<button onclick=hideAlert()>#{inline_svg "icons/x.svg", class: "close-banner"}</button></p>") if alert %>
 
     <%= yield %>
   </body>

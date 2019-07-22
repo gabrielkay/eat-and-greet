@@ -30,6 +30,12 @@
 .profile__social {
   .profile__icon {
     margin-right: spacing(2);
+    fill: $black;
+
+    &:hover,
+    &:focus {
+      fill: $blue;
+    }
   }
 }
 
@@ -40,7 +46,8 @@
 .profile__btn {
   align-items: center;
 
-  &:hover {
+  &:hover,
+  &:focus {
     .profile__edit {
       color: $charcoal;
     }
@@ -60,5 +67,10 @@
   .profile__icon {
     fill: $blue;
     margin-bottom: spacing(0.2);
+
+    &:hover,
+    &:focus {
+      fill: $black;
+    }
   }
 }

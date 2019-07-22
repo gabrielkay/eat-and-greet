@@ -1,0 +1,21 @@
+.alert,
+.notice {
+  background-color: $yellow-banner;
+  border-radius: $rounded-sm;
+  box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.25);
+  color: $black;
+  font-weight: $regular-weight;
+  position: absolute;
+  top: spacing(2);
+  left: spacing(5);
+  padding: spacing(0.75);
+  right: spacing(5);
+  text-align: center;
+  z-index: map-get($zindex, modal);
+}
+
+.close-banner {
+  position: absolute;
+  right: spacing();
+  top: spacing(0.5);
+}
