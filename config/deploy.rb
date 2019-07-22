@@ -20,6 +20,9 @@ namespace :deploy do
       run %{ln -nsf "#{shared_path}/config/database.yml" "#{release_path}/config/database.yml"}
 
       run %{ln -nsf "#{shared_path}/config/master.key" "#{release_path}/config/master.key"}
+
+      run %{rm #{release_path}/config/storage.yml}
+      run %{ln -nsf "#{shared_path}/config/storage.yml" "#{release_path}/config/storage.yml"}
     end
   end
 end
