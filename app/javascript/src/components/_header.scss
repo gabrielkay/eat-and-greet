@@ -1,11 +1,10 @@
 .header {
   justify-content: space-between;
-  margin-bottom: spacing(9);
+  margin-bottom: spacing(4);
   padding-top: spacing(3);
 
   @include bpMin('medium') {
     align-items: center;
-    border-bottom: solid 1px $border;
     justify-content: space-between;
     padding: spacing(0.5) 0;
 
@@ -32,6 +31,82 @@
 
   .header__logo-text {
     font-size: rem($h2);
+  }
+}
+
+.header__nav {
+  background-color: $white;
+  bottom: 0;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.15);
+  flex-direction: row;
+  margin: 0;
+  position: fixed;
+  width: 100%;
+
+  @include bpMin('medium') {
+    box-shadow: none;
+    flex-direction: column;
+    left: auto;
+    top: 0;
+    right: rem(30px);
+    padding: spacing(3) 0;
+    width: rem(60px);
+  }
+}
+
+.header__button {
+  border: solid 1px $gray100;
+  display: inline-block;
+  flex-basis: 25%;
+  text-align: center;
+  padding: spacing() 0;
+
+  &:hover,
+  &:focus {
+    color: $red;
+
+    .header__btn-text {
+      color: $red;
+    }
+
+    .header__icon {
+      fill: $red;
+    }
+
+    .header__icon-stroke {
+      stroke: $red;
+    }
+  }
+
+  @include bpMin('medium') {
+    border: none;
+    flex-basis: auto;
+    text-align: center;
+    padding: 0 spacing(3);
+    margin-bottom: spacing(2);
+  }
+}
+
+.header__icon {
+  align-self: center;
+  display: block;
+  margin: auto;
+  fill: $black;
+}
+
+.header__icon-stroke {
+  align-self: center;
+  display: block;
+  margin: auto;
+  fill: none;
+  stroke: $black;
+}
+
+.header__btn-text {
+  display: none;
+
+  @include bpMin('medium') {
+    display: inline-block;
   }
 }
 

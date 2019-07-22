@@ -2,6 +2,10 @@
   margin: 0 auto;
   max-width: $max-width;
   width: 84vw;
+
+  @include bpMin('medium') {
+    padding-right: rem(100px);
+  }
 }
 
 .column-container {

@@ -4,9 +4,31 @@
     <h1 class="header__logo-text">Eat & Greet</h1>
   </div>
   <%- if user_signed_in? %>
-    <%= link_to "My Profile",
-        user_path(current_user.slug),
-        class: "header__nav btn" %>
+    <nav class="header__nav flex">
+      <%= link_to user_path(current_user.slug),
+          class: "header__button" do %>
+        <%= inline_svg "icons/profile.svg",
+            class: "header__icon" %>
+      <% end %>
+      <%= link_to events_path,
+          class: "header__button" do %>
+        <%= inline_svg "icons/search.svg",
+            class: "header__icon" %>
+        <span class="header__btn-text form__label">Browse Tables</span>
+      <% end %>
+      <%= link_to my_tables_path,
+          class: "header__button" do %>
+        <%= inline_svg "icons/tables.svg",
+            class: "header__icon" %>
+        <span class="header__btn-text form__label">My Tables</span>
+      <% end %>
+      <%= link_to new_event_path,
+          class: "header__button" do %>
+        <%= inline_svg "icons/new.svg",
+            class: "header__icon-stroke" %>
+        <span class="header__btn-text form__label">Create Table</span>
+      <% end %>
+    </nav>
   <% else %>
     <%= render "sign-in" %>
   <% end %>
