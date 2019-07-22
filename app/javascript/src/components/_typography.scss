@@ -14,39 +14,39 @@
 // Headings
 .heading-xxl {
   font-family: $serif;
-  font-weight: $regular-weight;
   font-size: rem($title-mobile);
+  font-weight: $regular-weight;
   line-height: lineHeight($title-mobile);
 }
 
 .heading-xl {
   font-family: $serif;
-  font-weight: $regular-weight;
   font-size: rem($h1-mobile);
+  font-weight: $regular-weight;
   line-height: lineHeight($h1-mobile);
 }
 
 .heading-lg {
-  font-weight: $light-weight;
   font-size: rem($h2-mobile);
+  font-weight: $light-weight;
   line-height: lineHeight($h2-mobile);
 }
 
 .heading-md {
-  font-weight: $light-weight;
   font-size: rem($h3-mobile);
+  font-weight: $light-weight;
   line-height: lineHeight($h3-mobile);
 }
 
 .heading-sm {
-  font-weight: $regular-weight;
   font-size: rem($h5-mobile);
+  font-weight: $regular-weight;
   line-height: lineHeight($h5-mobile);
 }
 
 .heading-xs {
-  font-weight: $black-weight;
   font-size: rem($h4-mobile);
+  font-weight: $black-weight;
   line-height: lineHeight($h4-mobile);
   text-transform: uppercase;
 }

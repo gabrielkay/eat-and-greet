@@ -1,38 +1,92 @@
 .table-details {
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: auto;
-  grid-template-areas:
-    '.'
-    'guests'
-    'title'
-    'aside'
-    'comments';
-  grid-gap: spacing(2);
+  @include bp('medium') {
+    display: flex;
+    flex-direction: column;
+  }
 
-  @include bpMin('large') {
-    grid-template-columns: minmax(350px, 515px) rem(750px);
+  // Clearfix
+  @include bpMin('medium') {
+    &::after {
+      content: '';
+      clear: both;
+      display: table;
+    }
+  }
+
+  @supports (display: grid) {
+    display: grid;
     grid-template-areas:
-      '. guests'
-      'aside title'
-      'aside comments';
+      '.'
+      'guests'
+      'title'
+      'aside'
+      'comments';
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+
+    @include bpMin('medium') {
+      grid-template-areas:
+        '. guests'
+        'aside title'
+        'aside comments';
+      grid-template-columns: rem(350px) minmax(350px, 750px);
+    }
   }
 }
 
-.table__details_guests {
-  grid-area: guests;
+.table-details__guests {
+  order: 1;
+
+  @include bpMin('medium') {
+    margin-left: 35%;
+  }
+
+  @supports (display: grid) {
+    grid-area: guests;
+    margin-left: 0;
+  }
 }
 
 .table-details__aside {
-  grid-area: aside;
+  order: 3;
+
+  @include bpMin('medium') {
+    float: left;
+    width: 35%;
+  }
+
+  @supports (display: grid) {
+    grid-area: aside;
+    width: auto;
+  }
 }
 
 .table-details__title {
-  grid-area: title;
   max-width: rem(750px);
+  order: 2;
+
+  @include bpMin('medium') {
+    float: left;
+    width: 65%;
+  }
+
+  @supports (display: grid) {
+    grid-area: title;
+    width: auto;
+  }
 }
 
 .table-details__comments {
-  grid-area: comments;
   max-width: rem(750px);
+  order: 4;
+
+  @include bpMin('medium') {
+    float: left;
+    width: 65%;
+  }
+
+  @supports (display: grid) {
+    grid-area: comments;
+    width: auto;
+  }
 }

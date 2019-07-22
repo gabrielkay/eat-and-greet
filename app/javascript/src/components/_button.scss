@@ -1,7 +1,9 @@
 .btn {
   align-items: center;
+  appearance: none;
   background-color: $blue;
-  border-radius: $rounded;
+  border-radius: $rounded-full;
+  border: none;
   color: $white;
   display: inline-flex;
   font-size: rem(11px);
@@ -25,31 +27,29 @@
   }
 
   @include bpMin('small') {
+    border-radius: $rounded;
     min-height: auto;
-    padding: spacing() spacing(2.5);
     min-width: auto;
+    padding: spacing() spacing(2.5);
     width: auto;
   }
 }
 
-.btn--mobile {
-  border-radius: $rounded-full;
+.btn--small {
   padding: 0;
 
-  .btn__text-mobile {
+  .btn__text {
     display: none;
   }
 
   @include bpMin('small') {
-    min-height: auto;
     padding: spacing() spacing(2.5);
-    min-width: auto;
 
-    .btn__text-mobile {
+    .btn__text {
       display: block;
     }
 
-    .btn__icon--mobile {
+    .btn__icon {
       display: none;
     }
   }

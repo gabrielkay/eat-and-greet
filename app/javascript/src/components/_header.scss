@@ -1,7 +1,7 @@
 .header {
   justify-content: space-between;
-  padding-top: spacing(3);
   margin-bottom: spacing(9);
+  padding-top: spacing(3);
 
   @include bpMin('medium') {
     align-items: center;

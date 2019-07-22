@@ -2,15 +2,12 @@
 
 <div class="container">
   <div class="table-details">
-    <%# TODO: Get grid working without empty div %>
-    <div></div>
     <div class="table-details__guests mb-30">
-      <% if @event.memberships.length == @event.max_people %>
-        <p class="card__seats mb-5">No seats available</p>
-      <% else %>
-        <p class="card__seats mb-5"><%= (@event.max_people - @event.memberships.length).to_s %> seats available</p>
-      <% end %>
-      <p class="card__guests">up to <%= @event.max_people.to_s %> guests</p>
+      <p class="card__seats mb-5">
+        <%= @event.memberships.length == @event.max_people ? "No" : @event.max_people - @event.memberships.length %>
+         seats available
+      </p>
+      <p class="card__guests">up to <%= @event.max_people %> guests</p>
     </div>
     <div class="info-box-group table-details__aside mb-50">
       <div class="info-box mb-30">
@@ -26,16 +23,19 @@
         <div class="info-box__details flex mb-20">
           <%= inline_svg "icons/calendar.svg", class: "info-box__icon" %>
           <div class="small-body sm:small-body">
-            <time datetime="<%= @event.start_time.strftime("%Y-%m-%d") %>"><%= @event.start_time.strftime("%A, %b %e") %>
+            <time datetime="<%= @event.start_time.strftime("%Y-%m-%d") %>">
+              <%= @event.start_time.strftime("%A, %b %e") %>
             </time>
           </div>
         </div>
         <div class="info-box__details flex mb-20">
           <%= inline_svg "icons/clock.svg", class: "info-box__icon" %>
           <div class="small-body sm:small-body">
-            <time datetime="<%= @event.start_time.strftime("%H:%M:%S") %>"><%= @event.start_time.strftime("%l:%M %p") %>
+            <time datetime="<%= @event.start_time.strftime("%H:%M:%S") %>">
+              <%= @event.start_time.strftime("%l:%M %p") %>
             </time> - 
-            <time datetime="<%= @event.end_time.strftime("%H:%M:%S") %>"><%= @event.end_time.strftime("%l:%M %p") %>
+            <time datetime="<%= @event.end_time.strftime("%H:%M:%S") %>">
+              <%= @event.end_time.strftime("%l:%M %p") %>
             </time>
           </div>
         </div>
@@ -62,23 +62,32 @@
         <% end %>
       </div>
     </div>
-    <div class="table-details__title flex-col">
+    <div class="table-details__title flex-col mb-20">
       <h2 class="heading-xl sm:heading-xl mb-20"><%= @event.title %></h2>
       <p class="heading-md sm:heading-md mb-30"><%= @event.description %></p>
 
       <div class="mb-50">
         <%= form_for [@event, @membership] do |f| %>
           <% if @existing_membership.nil? %>
-              <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.hidden_field :event_id, value: @event.id %>
-              <%= f.submit 'Join Table', class: "btn" %>
-          <% elsif @existing_membership.user_id == current_user.id %>
-            <%= link_to 'Edit Table', edit_event_path, class: "btn" %>
-            <%= link_to 'Cancel Table', event_path, method: :delete, class: "btn" %>
+              <%= f.hidden_field :user_id,
+                  value: current_user.id %>
+              <%= f.hidden_field :event_id,
+                  value: @event.id %>
+              <%= f.submit 'Join Table',
+                  class: "btn" %>
+          <% elsif @event.creator_id == current_user.id %>
+            <%= link_to 'Edit Table',
+                edit_event_path,
+                class: "btn" %>
+            <%= link_to 'Cancel Table',
+                event_path,
+                method: :delete,
+                class: "btn" %>
           <% else %>
             <%= link_to 'Leave Table',
-              event_membership_path(@event, @existing_membership),
-              method: :delete, class: "btn" %>
+                event_membership_path(@event, @existing_membership),
+                method: :delete,
+                class: "btn" %>
           <% end %>
         <% end %>
       </div>
@@ -88,24 +97,35 @@
       <div class="comments">
         <% @comments.each do |comment| %>
           <div class="mb-15">
-            <p class="heading-sm sm:heading-sm mb-5"><%= User.find(comment.user_id).name %>
-              <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= comment.created_at.strftime("%-m/%-d %l:%M %p") %></time>
+            <p class="heading-sm sm:heading-sm mb-5">
+              <%= User.find(comment.user_id).name %>
+              <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>">
+                <%= comment.created_at.strftime("%-m/%-d %l:%M %p") %>
+              </time>
             </p>
             <p><%= comment.body %></p>
           </div>
           <% comment.comments.each do |child_comment| %>
           <div class="mb-15 comment__reply">
-            <p class="heading-sm sm:heading-sm mb-5"><%= User.find(child_comment.user_id).name %>
-              <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>"><%= child_comment.created_at.strftime("%-m/%-d %l:%M %p") %></time>
+            <p class="heading-sm sm:heading-sm mb-5">
+              <%= User.find(child_comment.user_id).name %>
+              <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>">
+                <%= child_comment.created_at.strftime("%-m/%-d %l:%M %p") %>
+              </time>
             </p>
             <p><%= child_comment.body %></p>
           </div>
           <% end %>
           <div class="mb-5">
             <%= form_for @comment do |f| %>
-              <%= f.hidden_field :user_id, value: current_user.id %>
-              <%= f.hidden_field :comment_id, value: comment.id %>
-              <%= f.text_field :body, required: true, placeholder: "Send a response", class: "form__input comment__helper" %>
+              <%= f.hidden_field :user_id,
+                  value: current_user.id %>
+              <%= f.hidden_field :comment_id,
+                  value: comment.id %>
+              <%= f.text_field :body,
+                  required: true,
+                  placeholder: "Send a response",
+                  class: "form__input comment__helper" %>
             <% end %>
           </div>
         <% end %>
@@ -114,10 +134,16 @@
       <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
       <div class="mb-130">
         <%= form_for @comment do |f| %>
-          <%= f.hidden_field :user_id, value: current_user.id %>
-          <%= f.hidden_field :event_id, value: @event.id %>
-          <%= f.text_field :body, required: true, placeholder: "what would you like to say?", class: "form__input comment__helper" %>
-          <%= f.submit 'Post', class: "btn" %>
+          <%= f.hidden_field :user_id,
+              value: current_user.id %>
+          <%= f.hidden_field :event_id,
+              value: @event.id %>
+          <%= f.text_field :body,
+              required: true,
+              placeholder: "what would you like to say?",
+              class: "form__input comment__helper" %>
+          <%= f.submit 'Post',
+              class: "btn" %>
         <% end %>
       </div>
     </div>

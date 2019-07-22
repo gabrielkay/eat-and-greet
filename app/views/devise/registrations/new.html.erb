@@ -14,22 +14,32 @@
           <span class="sr-only">Required field</span>
         <% end %>
       </div>
-      <%= f.label "This is how your name will appear to others", class: "form__details" %>
-      <%= f.text_field :name, class: "form__input", placeholder: "your name" %>
+      <%= f.label "This is how your name will appear to others",
+          class: "form__details" %>
+      <%= f.text_field :name,
+          class: "form__input",
+          placeholder: "your name" %>
       <div class="form__label">
         <%= f.label :location do %>
           City / town<span aria-hidden="true" class="text-red"> *</span>
           <span class="sr-only">Required field</span>
         <% end %>
       </div>
-      <%= f.select :location, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input" } %>
+      <%= f.select :location,
+          Event::LOCATIONS,
+          { include_blank: "--- select ---" },
+          { required: true,
+            class: "form__select form__input" } %>
     </div>
     <div class="column">
-      <%= f.label "Profile photo", class: "form__label" %>
-      <%= f.label "This helps people know you’re not a robot.", class: "form__details" %>
+      <%= f.label "Profile photo",
+          class: "form__label" %>
+      <%= f.label "This helps people know you’re not a robot.",
+          class: "form__details" %>
       <label class="form__photo form__label">
         <div class="form__photo-button flex">
-          <%= inline_svg "icons/photo.svg", class: "form__photo-icon" %>
+          <%= inline_svg "icons/photo.svg",
+              class: "form__photo-icon" %>
           Upload a photo
         </div>
         <div class="form__photo-file">
@@ -46,23 +56,34 @@
         <span class="sr-only">Required field</span>
       <% end %>
     </div>
-    <%= f.email_field :email, class: "form__input", placeholder: "Email", autocomplete: "email" %>
+    <%= f.email_field :email,
+        class: "form__input",
+        placeholder: "Email",
+        autocomplete: "email" %>
     <div class="form__label">
       <%= f.label :password do %>
         Password<span aria-hidden="true" class="text-red"> *</span>
         <span class="sr-only">Required field</span>
       <% end %>
     </div>
-    <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.", class: "form__details" %>
-    <%= f.password_field :password, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
+    <%= f.label "Passwords should include at least 8 characters, and include one upper case letter and a number.",
+        class: "form__details" %>
+    <%= f.password_field :password,
+        class: "form__input",
+        placeholder: "••••••••",
+        autocomplete: "new-password" %>
     <div class="form__label">
       <%= f.label :password_confirmation do %>
         Confirm password<span aria-hidden="true" class="text-red"> *</span>
         <span class="sr-only">Required field</span>
       <% end %>
     </div>
-    <%= f.password_field :password_confirmation, class: "form__input", placeholder: "••••••••", autocomplete: "new-password" %>
-    <%= f.submit "Create my account", class: "form__button btn" %>
+    <%= f.password_field :password_confirmation,
+        class: "form__input",
+        placeholder: "••••••••",
+        autocomplete: "new-password" %>
+    <%= f.submit "Create my account",
+        class: "form__button btn" %>
   </div>
   
 <% end %>

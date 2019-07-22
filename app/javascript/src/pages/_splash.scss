@@ -1,10 +1,10 @@
 .splash-sign-in {
-  width: 84vw;
   margin: 0 auto;
+  width: 84vw;
 
   @include bpMin('medium') {
-    width: auto;
     margin-right: spacing();
+    width: auto;
 
     .form__input,
     .form__field {
@@ -18,6 +18,6 @@
 }
 
 .splash-image {
-  max-width: 450px;
   margin: spacing(2) auto;
+  max-width: 450px;
 }

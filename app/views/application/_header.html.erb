@@ -4,7 +4,9 @@
     <h1 class="header__logo-text">Eat & Greet</h1>
   </div>
   <%- if user_signed_in? %>
-    <%= link_to "My Profile", user_path(current_user.slug), class: "header__nav btn" %>
+    <%= link_to "My Profile",
+        user_path(current_user.slug),
+        class: "header__nav btn" %>
   <% else %>
     <%= render "sign-in" %>
   <% end %>

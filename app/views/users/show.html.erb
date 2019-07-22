@@ -18,14 +18,20 @@
       </div>
       <div class="flex justify-between mb-10">
         <div class="profile__social flex">
-          <%= link_to @user.instagram_link, target: :_blank do %>
-            <%= inline_svg "icons/instagram.svg", class: "profile__icon" %>
+          <% if @user.instagram_link? %>
+            <%= link_to @user.instagram_link, target: :_blank do %>
+              <%= inline_svg "icons/instagram.svg", class: "profile__icon" %>
+            <% end %>
           <% end %>
-          <%= link_to @user.facebook_link, target: :_blank do %>
-            <%= inline_svg "icons/facebook.svg", class: "profile__icon" %>
+          <% if @user.facebook_link? %>
+            <%= link_to @user.facebook_link, target: :_blank do %>
+              <%= inline_svg "icons/facebook.svg", class: "profile__icon" %>
+            <% end %>
           <% end %>
-          <%= link_to @user.twitter_link, target: :_blank do %>
-            <%= inline_svg "icons/twitter.svg", class: "profile__icon" %>
+          <% if @user.twitter_link? %>
+            <%= link_to @user.twitter_link, target: :_blank do %>
+              <%= inline_svg "icons/twitter.svg", class: "profile__icon" %>
+            <% end %>
           <% end %>
         </div>
         <%= link_to edit_registration_path(current_user), class: "profile__btn flex" do %>

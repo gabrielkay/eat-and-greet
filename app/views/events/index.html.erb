@@ -6,15 +6,20 @@
       <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
       <p class="heading-md sm:heading-md mb-50">Find a seat at an upcoming table near you.</p>
       <div class="form__label flex">
-        <%= inline_svg "icons/location.svg", class: "form__label-icon" %>
+        <%= inline_svg "icons/location.svg",
+            class: "form__label-icon" %>
         <p class="form__label-text">Location:</p> 
       </div>
       <%= form_tag events_path, method: 'get' do %>
-        <%= select_tag("search_location", options_for_select(Event::LOCATIONS, params[:search_location] || current_user.location), onchange: "this.form.submit();", class: "form__select form__input form__input--md") %>
+        <%= select_tag("search_location",
+            options_for_select(Event::LOCATIONS, params[:search_location] || current_user.location),
+            onchange: "this.form.submit();",
+            class: "form__select form__input form__input--md") %>
       <% end %>
     </div>
     <div class="column column--big flex-col mb-130">
-    <%= render partial: "event", collection: @events %>
+    <%= render partial: "event",
+        collection: @events %>
     </div>
   </div>
 </div>

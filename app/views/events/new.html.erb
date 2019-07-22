@@ -12,9 +12,11 @@
             <p class="alert">Error: <%= msg %></p>
           <% end %>
         <% end %>
-        <%= render 'event_fields', f: f %>
+        <%= render 'event_fields',
+            f: f %>
         <p>
-          <%= f.submit "Create Table", class: "btn" %>
+          <%= f.submit "Create Table",
+              class: "btn" %>
         </p>
       <% end %>
     </div>

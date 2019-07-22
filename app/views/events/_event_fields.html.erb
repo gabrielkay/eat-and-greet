@@ -1,45 +1,79 @@
 <p>
-  <%= f.label 'Title of table', class: "form__label" %>
-  <%= f.text_field :title, required: true, class: "form__input", placeholder: "Title name here" %>
+  <%= f.label 'Title of table',
+      class: "form__label" %>
+  <%= f.text_field :title,
+      required: true,
+      class: "form__input",
+      placeholder: "Title name here" %>
 </p>
 
 <p>
-  <%= f.label 'Name of Restaurant', class: "form__label" %>
-  <%= f.text_field :restaurant, required: true, class: "form__input", placeholder: "Denny's" %>
+  <%= f.label 'Name of Restaurant',
+      class: "form__label" %>
+  <%= f.text_field :restaurant,
+      required: true,
+      class: "form__input",
+      placeholder: "Denny's" %>
 </p>
 
 <p>
-  <%= f.label 'Address of Restaurant', class: "form__label" %>
-  <%= f.text_field :restaurant_address, required: true, class: "form__input", placeholder: "1234 Main St. Malibu, California 90210" %>
+  <%= f.label 'Address of Restaurant',
+      class: "form__label" %>
+  <%= f.text_field :restaurant_address,
+      required: true,
+      class: "form__input",
+      placeholder: "1234 Main St. Malibu, California 90210" %>
 </p>
 
 <p>
-  <%= f.label 'Location', class: "form__label" %>
-  <%= f.select :city, Event::LOCATIONS, { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
+  <%= f.label 'Location',
+      class: "form__label" %>
+  <%= f.select :city,
+      Event::LOCATIONS,
+      { include_blank: "--- select ---" },
+      { required: true,
+        class: "form__select form__input form__input--md" } %>
 </p>
 
 <p>
-  <%= f.label 'Start Time', class: "form__label" %>
-  <%= f.datetime_field :start_time, required: true, class: "form__date form__input form__input--md" %>
+  <%= f.label 'Start Time',
+      class: "form__label" %>
+  <%= f.datetime_field :start_time,
+      required: true,
+      class: "form__date form__input form__input--md" %>
 </p>
 <p>
-  <%= f.label 'End Time', class: "form__label" %>
-  <%= f.datetime_field :end_time, required: true, class: "form__date form__input form__input--md" %>
-</p>
-
-<p>
-  <%= f.label 'Maximum Number of Guests', class: "form__label" %>
-  <%= f.label 'Make sure to include yourself.', class: "form__details" %>
-  <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ], { include_blank: "--- select ---" }, { required: true, class: "form__select form__input form__input--md" } %>
-</p>
-
-<p>
-  <%= f.label 'Topics for Discussion', class: "form__label" %>
-  <%= f.text_field :topic, class: "form__input", placeholder: "Separate topic tags with a comma" %>
+  <%= f.label 'End Time',
+      class: "form__label" %>
+  <%= f.datetime_field :end_time,
+      required: true,
+      class: "form__date form__input form__input--md" %>
 </p>
 
 <p>
-  <%= f.label 'Event Description', class: "form__label" %>
-  <%= f.label 'Tell people about the restaurant, why you’re hosting the event, and details like reservations and where to meet.', class: "form__details" %>
-  <%= f.text_area :description, class: "form__input", placeholder: "Want to meet some other fun-loving gals in the big city? We’re meeting at DC Staple, Busboys and Poets for all-American fare and $5 mimosas!" %>
+  <%= f.label 'Maximum Number of Guests',
+      class: "form__label" %>
+  <%= f.label 'Make sure to include yourself.',
+      class: "form__details" %>
+  <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ],
+      { include_blank: "--- select ---" },
+      { required: true,
+        class: "form__select form__input form__input--md" } %>
+</p>
+
+<p>
+  <%= f.label 'Topics for Discussion',
+      class: "form__label" %>
+  <%= f.text_field :topic,
+      class: "form__input", placeholder: "Separate topic tags with a comma" %>
+</p>
+
+<p>
+  <%= f.label 'Event Description',
+      class: "form__label" %>
+  <%= f.label 'Tell people about the restaurant, why you’re hosting the event, and details like reservations and where to meet.',
+      class: "form__details" %>
+  <%= f.text_area :description,
+      class: "form__input",
+      placeholder: "Want to meet some other fun-loving gals in the big city? We’re meeting at DC Staple, Busboys and Poets for all-American fare and $5 mimosas!" %>
 </p>

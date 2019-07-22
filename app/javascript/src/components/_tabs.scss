@@ -31,8 +31,8 @@
 
 .tab__links.active,
 .tab__links:hover {
-  color: $red;
   border-bottom: solid 5px $red;
+  color: $red;
 }
 
 .tab__content {

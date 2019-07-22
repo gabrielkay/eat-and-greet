@@ -50,28 +50,27 @@
 }
 
 .card__buttons {
-  display: grid;
-  grid-gap: spacing();
-  grid-template-columns: max-content 1fr repeat(2, max-content);
-  grid-template-areas: 'view . edit remove';
-  justify-items: start;
+  display: flex;
   width: 100%;
 
-  @include bpMin('small') {
-    grid-template-columns: repeat(2, max-content) 1fr max-content;
-    grid-template-areas: 'view edit . remove';
+  .card__btn {
+    margin: 0;
   }
 
   .card__view {
-    grid-area: view;
+    margin-right: spacing();
   }
 
   .card__edit {
-    grid-area: edit;
+    margin-left: auto;
+
+    @include bpMin('small') {
+      margin-left: 0;
+      margin-right: auto;
+    }
   }
 
   .card__remove {
-    grid-area: remove;
-    justify-self: end;
+    margin-left: spacing();
   }
 }
