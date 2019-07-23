@@ -74,20 +74,20 @@
               <%= f.hidden_field :event_id,
                   value: @event.id %>
               <%= f.submit 'Join Table',
-                  class: "btn" %>
+                  class: "btn btn--yellow" %>
           <% elsif @event.creator_id == current_user.id %>
             <%= link_to 'Edit Table',
                 edit_event_path,
-                class: "btn" %>
+                class: "btn btn--blue" %>
             <%= link_to 'Cancel Table',
                 event_path,
                 method: :delete,
-                class: "btn" %>
+                class: "btn btn--blue" %>
           <% else %>
             <%= link_to 'Leave Table',
                 event_membership_path(@event, @existing_membership),
                 method: :delete,
-                class: "btn" %>
+                class: "btn btn--blue" %>
           <% end %>
         <% end %>
       </div>
@@ -127,7 +127,7 @@
                   placeholder: "send a response",
                   class: "form__input comment__helper" %>
               <%= f.submit 'Post',
-                  class: "btn" %>
+                  class: "btn btn--blue" %>
             <% end %>
           </div>
         <% end %>
@@ -145,7 +145,7 @@
               placeholder: "what would you like to say?",
               class: "form__input comment__helper" %>
           <%= f.submit 'Post',
-              class: "btn" %>
+              class: "btn btn--blue" %>
         <% end %>
       </div>
     </div>

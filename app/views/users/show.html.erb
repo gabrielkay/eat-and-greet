@@ -6,7 +6,7 @@
       <%= link_to "Logout",
           destroy_user_session_path,
           method: :delete,
-          class: "btn mb-20" %>
+          class: "btn btn--blue mb-20" %>
       <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
         <%= inline_svg "icons/location.svg",

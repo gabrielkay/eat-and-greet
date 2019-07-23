@@ -1,10 +1,8 @@
 .btn {
   align-items: center;
   appearance: none;
-  background-color: $blue;
   border-radius: $rounded-full;
-  border: none;
-  color: $white;
+  border: solid 1px $blue;
   display: inline-flex;
   font-size: rem(11px);
   font-weight: $black-weight;
@@ -15,15 +13,8 @@
   padding: 0 spacing(2);
   text-transform: uppercase;
 
-  &:hover,
-  &:focus {
-    background-color: $black;
-    color: $white;
-  }
-
   .btn__icon {
     align-self: center;
-    fill: $white;
   }
 
   @include bpMin('small') {
@@ -52,5 +43,75 @@
     .btn__icon {
       display: none;
     }
+  }
+}
+
+.btn--blue {
+  background-color: $blue;
+  color: $white;
+
+  .btn__icon {
+    fill: $white;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $blue-hover;
+    border-color: $blue-hover;
+    color: $white;
+  }
+}
+
+.btn--blue-border {
+  background-color: transparent;
+  color: $charcoal;
+
+  .btn__icon {
+    fill: $blue;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $blue-hover;
+    border-color: $blue-hover;
+    color: $white;
+
+    .btn__icon {
+      fill: $white;
+    }
+  }
+}
+
+.btn--yellow {
+  background-color: $yellow;
+  border-color: $yellow;
+  color: $charcoal;
+
+  .btn__icon {
+    fill: $charcoal;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $yellow-hover;
+    border-color: $yellow-hover;
+    color: $charcoal;
+  }
+}
+
+.btn--maroon {
+  background-color: $maroon;
+  border-color: $maroon;
+  color: $white;
+
+  .btn__icon {
+    fill: $white;
+  }
+
+  &:hover,
+  &:focus {
+    background-color: $maroon-hover;
+    border-color: $maroon-hover;
+    color: $white;
   }
 }
