@@ -1,24 +1,8 @@
 <div class="card card--link">
   <div class="flex justify-between">
-    <div>
+    <div class="card__title">
       <h2 class="heading-md sm:heading-md mb-10"><%= event.title %></h2>
       <p class="card__restaurant mb-20"><%= event.restaurant %></p>
-      <div class="flex mb-20">
-        <div class="card__time flex">
-          <%= inline_svg "icons/clock.svg",
-              class: "card__icon" %>
-          <time datetime="<%= event.start_time.strftime("%H:%M:%S") %>">
-            <%= event.start_time.strftime("%l:%M %p") %>
-          </time>
-        </div>
-        <div class="card__time flex">
-          <%= inline_svg "icons/calendar.svg",
-              class: "card__icon" %>
-          <time datetime="<%= event.start_time.strftime("%Y-%m-%d") %>">
-            <%= event.start_time.strftime("%A, %B %e") %>
-          </time>
-        </div>
-      </div>
     </div>
     <div class="card__space flex-col">
       <p class="card__seats mb-5">
@@ -26,6 +10,22 @@
          seats available
       </p>
       <p class="card__guests mb-20">up to <%= event.max_people %> guests</p>
+    </div>
+  </div>
+  <div class="flex mb-10">
+    <div class="card__time flex mb-10">
+      <%= inline_svg "icons/clock.svg",
+          class: "card__icon" %>
+      <time datetime="<%= event.start_time.strftime("%H:%M:%S") %>">
+        <%= event.start_time.strftime("%l:%M %p") %>
+      </time>
+    </div>
+    <div class="card__time flex mb-10">
+      <%= inline_svg "icons/calendar.svg",
+          class: "card__icon" %>
+      <time datetime="<%= event.start_time.strftime("%Y-%m-%d") %>">
+        <%= event.start_time.strftime("%A, %B %e") %>
+      </time>
     </div>
   </div>
   <div class="card__buttons flex justify-between">

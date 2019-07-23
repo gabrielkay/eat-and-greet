@@ -1,8 +1,9 @@
-<header class="header flex-col lg:flex-row justify-between">
-  <div class="header__logo flex">
-    <img class="header__logo-mark" src="https://via.placeholder.com/50">
-    <h1 class="header__logo-text">Eat & Greet</h1>
-  </div>
+<header class="header">
+  <h1 class="header__logo">
+    <%= link_to root_path do %>
+      Eat & Greet
+    <% end %>
+  </h1>
   <%- if user_signed_in? %>
     <nav class="header__nav flex">
       <%= link_to user_path(current_user.slug),

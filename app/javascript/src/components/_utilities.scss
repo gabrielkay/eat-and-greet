@@ -8,9 +8,16 @@
   flex-direction: column;
 }
 
-.lg\:flex-row {
+.md\:flex-row {
   @include bpMin('medium') {
     flex-direction: row;
+  }
+}
+
+.lg\:flex-row {
+  @include bpMin('large') {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
 

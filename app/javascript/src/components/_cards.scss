@@ -2,13 +2,22 @@
   background-color: $gray100;
   border-radius: $rounded-sm;
   box-shadow: -2px 4px 7px rgba(0, 0, 0, 0.15);
-  margin-bottom: spacing(1.5);
+  margin-bottom: spacing(2.5);
   padding: spacing(2);
   width: 100%;
 
   @include bpMin('small') {
-    margin-bottom: spacing(4.5);
+    margin-bottom: spacing(3);
+    max-width: rem(570px);
   }
+
+  @include bpMin('large') {
+    margin: spacing(1.5);
+  }
+}
+
+.card__title {
+  max-width: calc(100% - 125px);
 }
 
 .card__restaurant {

@@ -13,28 +13,26 @@
   </div>
 <% end %>
 
-<div class="container">
-  <div class="column-container flex justify-between">
-    <div class="column column--small mb-50">
-      <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
-      <p class="heading-md sm:heading-md mb-50">
-        Connect with fellow newcomers by eating together at a local restaurant.
-      </p>
-      <div class="form__label flex">
-        <%= inline_svg "icons/location.svg",
-            class: "form__label-icon" %>
-        <p class="form__label-text">Location:</p> 
-      </div>
-      <%= form_tag events_path, method: 'get' do %>
-        <%= select_tag("search_location",
-            options_for_select(Event::LOCATIONS, params[:search_location] || current_user.location),
-            onchange: "this.form.submit();",
-            class: "form__select form__input form__input--md") %>
-      <% end %>
+<div class="container-full flex">
+  <div class="card-column__title">
+    <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
+    <p class="heading-md sm:heading-md mb-50">
+      Connect with fellow newcomers by eating together at a local restaurant.
+    </p>
+    <div class="form__label flex">
+      <%= inline_svg "icons/location.svg",
+          class: "form__label-icon" %>
+      <p class="form__label-text">Location:</p> 
     </div>
-    <div class="column column--big flex-col">
-    <%= render partial: "event",
-        collection: @events %>
-    </div>
+    <%= form_tag events_path, method: 'get' do %>
+      <%= select_tag("search_location",
+          options_for_select(Event::LOCATIONS, params[:search_location] || current_user.location),
+          onchange: "this.form.submit();",
+          class: "form__select form__input form__input--md") %>
+    <% end %>
+  </div>
+  <div class="card-column__cards flex-col lg:flex-row mb-130">
+  <%= render partial: "event",
+      collection: @events %>
   </div>
 </div>
