@@ -150,21 +150,16 @@
               autocomplete: "current-password",
               class: "form__input form__input--md" %>
         </div>
-
         <div>
           <%= f.submit "Update",
               class: "btn" %>
-        </div>
-        <div>
-          <%= button_to "Cancel my account",
+          <%= link_to "Cancel my account",
               registration_path(resource_name),
               data: { confirm: "Are you sure?" },
               method: :delete,
               class: "btn" %>
-        </div>
-        <div>
           <%= link_to "Back", :back,
-                class: "btn" %>
+              class: "btn" %>
         </div>
       </div>
     </div>

@@ -8,16 +8,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display|Lato:300,300i,400,400i,700,900&display=swap" rel="stylesheet">
 
-    <%= javascript_pack_tag 'application' %>
     <%= stylesheet_pack_tag 'application' %>
     <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
 
-    <%= raw("<p class=notice id=notice >#{notice}<button onclick=hideNotice()>#{inline_svg "icons/x.svg", class: "close-banner"}</button></p>") if notice %>
-    <%= raw("<p class=alert id=alert >#{alert}<button onclick=hideAlert()>#{inline_svg "icons/x.svg", class: "close-banner"}</button></p>") if alert %>
-
     <%= yield %>
+
+    <%= javascript_pack_tag 'application' %>
   </body>
 </html>

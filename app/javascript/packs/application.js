@@ -15,7 +15,12 @@
 // const imagePath = (name) => images(name, true)
 
 import '../src/application.scss';
-import '../../assets/javascripts/banner.js';
-import '../../assets/javascripts/tabs.js';
+import { selectAll } from '../scripts/utils';
 
-console.log('Hello World from Webpacker');
+selectAll('[data-module]').forEach(module => {
+  module.dataset.module.split(' ').forEach(function(moduleName) {
+    import(`../modules/${moduleName}`).then(Module => {
+      new Module.default(module);
+    });
+  });
+});

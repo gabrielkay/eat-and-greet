@@ -1,5 +1,18 @@
 <%= render "header" %>
 
+<% if notice == "Welcome! You have signed up successfully." %>
+  <div data-module="banner" class="banner">
+    <span>Your account has been created! Start browsing tables near you.</span>
+    <%= link_to edit_registration_path(current_user),
+        class: "btn banner__button" do %>
+      Complete Your Profile
+    <% end %>
+    <button class="banner__close">
+      <%= inline_svg "icons/x.svg" %>
+    </button>
+  </div>
+<% end %>
+
 <div class="container">
   <div class="column-container flex justify-between">
     <div class="column column--small mb-50">

@@ -49,7 +49,7 @@
               class: "profile__btn flex" do %>
             <%= inline_svg "icons/edit.svg",
                 class: "profile__icon" %>
-            <p class="profile__edit">Edit</p>
+            <span class="profile__edit">Edit</span>
           <% end %>
         <% end %>
       </div>
@@ -77,17 +77,16 @@
       <% end %>
     </div>
     <% if @user.id == current_user.id %>
-      <div class="column column--big flex-col mb-130">
+      <div data-module="tabs" class="column column--big flex-col mb-130">
         <div class="tab flex justify-between">
-          <button class="tab__links active" onclick="switchTabs(event, 'created')">Created Tables</button>
-          <button class="tab__links" onclick="switchTabs(event, 'archived')">Archived Tables</button>
+          <button class="tab__links active" data-type="created">Created Tables</button>
+          <button class="tab__links" data-type="archived">Archived Tables</button>
         </div>
-        <div class="tab__content" id="created" style="display: block">
+        <div class="tab__content" id="created">
           <%= render partial: "events/event",
               collection: @created_events %>
         </div>
         <div class="tab__content" id="archived">
-          <%# TODO: change @created_events to @archived_events when available %>
           <%= render partial: "events/event",
               collection: @archived_events %>
         </div>
