@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find_by slug: params[:slug]
-    @created_events = @user.events
-    @archived_events = @user.events_as_member.where("start_time < ?", DateTime.now.end_of_day)
+    @created_events = @user.events.future
+    @archived_events = @user.events_as_member.past
   end
 end

@@ -39,7 +39,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     authorize @event
     if @event.update(event_params)
-      redirect_to events_path
+      redirect_to my_tables_path
     else
       render 'edit'
     end

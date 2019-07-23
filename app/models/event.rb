@@ -2,6 +2,9 @@ class Event < ApplicationRecord
 
   LOCATIONS = [ "Raleigh-Durham", "Denver/Boulder", "Washington D.C. Metro" ]
 
+  scope :past, -> { where("start_time < ?", DateTime.now.beginning_of_day) }
+  scope :future, -> { where("start_time > ?", DateTime.now.beginning_of_day) }
+
   belongs_to :creator, class_name: 'User', foreign_key: 'creator_id'
   has_many :memberships, dependent: :destroy
   has_many :members, through: :memberships, source: 'user'
