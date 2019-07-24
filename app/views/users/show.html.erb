@@ -1,12 +1,8 @@
 <%= render "header" %>
 
 <div class="container">
-  <div class="column-container flex justify-between">
+  <div class="column-container flex justify-between mb-130">
     <div class="profile column mb-50">
-      <%= link_to "Logout",
-          destroy_user_session_path,
-          method: :delete,
-          class: "btn btn--blue mb-20" %>
       <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
         <%= inline_svg "icons/location.svg",
@@ -54,7 +50,7 @@
         <% end %>
       </div>
       <% if @user.favorite_dish? || @user.topics? || @user.bio? %>
-        <div class="profile__details">
+        <div class="profile__details mb-30">
           <div class="flex mb-15">
             <% if @user.favorite_dish? %>
               <div class="profile__flex-item">
@@ -75,9 +71,21 @@
           <% end %>
         </div>
       <% end %>
+      <%= form_for @user,
+          html: { class: "flex justify-between" } do |f| %>
+        <%= link_to "Log out",
+            destroy_user_session_path,
+            method: :delete,
+            class: "btn btn--blue" %>
+        <%= link_to "Delete my account",
+            user_registration_path,
+            data: { confirm: "Are you sure?" },
+            method: :delete,
+            class: "btn btn--maroon" %>
+      <% end %>
     </div>
     <% if @user.id == current_user.id %>
-      <div data-module="tabs" class="column column--big flex-col mb-130">
+      <div data-module="tabs" class="column column--big flex-col">
         <div class="tab flex justify-between">
           <button class="tab__links active" data-type="created">Created Tables</button>
           <button class="tab__links" data-type="archived">Archived Tables</button>
