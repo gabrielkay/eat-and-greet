@@ -17,6 +17,7 @@
       <%= f.label :name, "This is how your name will appear to others.",
           class: "form__details" %>
       <%= f.text_field :name,
+          required: true,
           class: "form__input",
           placeholder: "John Doe" %>
       <div class="form__label">
@@ -57,6 +58,7 @@
       <% end %>
     </div>
     <%= f.email_field :email,
+        required: true,
         class: "form__input",
         placeholder: "your.email@example.com",
         autocomplete: "email" %>
@@ -69,6 +71,7 @@
     <%= f.label :password, "Your password must be at least 8 characters, including an upper case letter and a number.",
         class: "form__details" %>
     <%= f.password_field :password,
+        required: true,
         class: "form__input",
         placeholder: "••••••••",
         autocomplete: "new-password" %>
@@ -79,6 +82,7 @@
       <% end %>
     </div>
     <%= f.password_field :password_confirmation,
+        required: true,
         class: "form__input",
         placeholder: "••••••••",
         autocomplete: "new-password" %>

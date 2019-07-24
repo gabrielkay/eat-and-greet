@@ -24,7 +24,7 @@ export default class Tabs {
     });
 
     this.tabs.forEach(tab => {
-      tab.className = tab.className.replace(' active', '');
+      tab.classList.remove('active');
     });
 
     const target = e.target;
@@ -32,6 +32,6 @@ export default class Tabs {
     const content = document.getElementById(type);
 
     content.style.display = 'block';
-    target.className += ' active';
+    target.classList.add('active');
   };
 }

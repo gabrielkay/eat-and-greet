@@ -23,6 +23,7 @@
           <%= f.label :name, "This is how your name will appear to others.",
               class: "form__details" %>
           <%= f.text_field :name,
+              required: true,
               class: "form__input form__input--md" %>
         </div>
         
@@ -110,6 +111,7 @@
           </div>
           <%= f.email_field :email,
               autocomplete: "email",
+              required: true,
               class: "form__input form__input--md" %>
         </div>
 
@@ -148,6 +150,7 @@
               class: "form__details" %>
           <%= f.password_field :current_password,
               autocomplete: "current-password",
+              required: true,
               class: "form__input form__input--md" %>
         </div>
         <div>
