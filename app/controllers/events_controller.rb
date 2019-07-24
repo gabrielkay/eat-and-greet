@@ -4,8 +4,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.search_location(params[:search_location] || current_user.location, current_user.id)
-    @locations = Event.distinct.pluck(:city)
-    # once we have our list of cities, this will be set to that. We can make a constant array in events class
     # add a page for no events in the area
   end
 
@@ -23,6 +21,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.build_with_member(current_user, event_params)
+    convert_to_datetime_and_assign(event_params)
     if (@event.save)
       redirect_to my_tables_path
     else
@@ -37,6 +36,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
+    convert_to_datetime_and_assign(event_params)
     authorize @event
     if @event.update(event_params)
       redirect_to my_tables_path
@@ -52,6 +52,13 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+  def convert_to_datetime_and_assign(params)
+    @date_field = Date.parse(params[:date_field]).strftime("%Y-%m-%d")
+    @start_time_field = Time.parse(params[:start_time_field]).strftime("%H:%M:%S")
+    @end_time_field = Time.parse(params[:end_time_field]).strftime("%H:%M:%S")
+    @event.start_time = DateTime.parse("#{@date_field} #{@start_time_field}")
+    @event.end_time = DateTime.parse("#{@date_field} #{@end_time_field}")
+  end
 
   private def event_params
     params

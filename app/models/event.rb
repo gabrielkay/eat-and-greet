@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-  before_validation :convert_to_datetime
+  attr_accessor :date_field, :start_time_field, :end_time_field
 
   LOCATIONS = [ "Raleigh-Durham", "Denver/Boulder", "Washington D.C. Metro" ]
 
@@ -33,37 +33,4 @@ class Event < ApplicationRecord
     event.memberships.build(user_id: event.creator_id)
     event
   end
-
-  def date_field
-    @date.strftime("%d/%m/%Y") if @date.present?
-  end
-
-  def start_time_field
-    @start_time.strftime("%I:%M%p") if @start_time.present?
-  end
-
-  def end_time_field
-    @end_time.strftime("%I:%M%p") if @end_time.present?
-  end
-
-  def date_field=(date)
-    # Change back to datetime friendly format
-    @date_field = Date.parse(date).strftime("%Y-%m-%d")
-  end
-
-  def start_time_field=(time)
-    # Change back to datetime friendly format
-    @start_time_field = Time.parse(time).strftime("%H:%M:%S")
-  end
-
-  def end_time_field=(time)
-    # Change back to datetime friendly format
-    @end_time_field = Time.parse(time).strftime("%H:%M:%S")
-  end
-
-  def convert_to_datetime
-    self.start_time = DateTime.parse("#{@date_field} #{@start_time_field}")
-    self.end_time = DateTime.parse("#{@date_field} #{@end_time_field}")
-  end
-
 end
