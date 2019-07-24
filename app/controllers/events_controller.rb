@@ -52,6 +52,7 @@ class EventsController < ApplicationController
     redirect_to events_path
   end
 
+
   private def event_params
     params
       .require(:event)
@@ -63,8 +64,9 @@ class EventsController < ApplicationController
         :city,
         :min_people,
         :max_people,
-        :start_time,
-        :end_time,
+        :date_field,
+        :start_time_field,
+        :end_time_field,
         :description,
         :diet,
         :topic)
