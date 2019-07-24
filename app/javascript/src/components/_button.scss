@@ -12,6 +12,7 @@
   min-width: rem(44px);
   padding: 0 spacing(2);
   text-transform: uppercase;
+  transition: 0.3s;
 
   .btn__icon {
     align-self: center;
@@ -46,7 +47,7 @@
   }
 }
 
-.btn--blue {
+.btn--primary {
   background-color: $blue;
   color: $white;
 
@@ -62,7 +63,7 @@
   }
 }
 
-.btn--blue-border {
+.btn--secondary {
   background-color: transparent;
   color: $charcoal;
 
@@ -82,7 +83,7 @@
   }
 }
 
-.btn--yellow {
+.btn--join {
   background-color: $yellow;
   border-color: $yellow;
   color: $charcoal;
@@ -99,7 +100,7 @@
   }
 }
 
-.btn--maroon {
+.btn--leave {
   background-color: $maroon;
   border-color: $maroon;
   color: $white;
@@ -113,5 +114,17 @@
     background-color: $maroon-hover;
     border-color: $maroon-hover;
     color: $white;
+  }
+}
+
+.btn--info {
+  background-color: $white;
+  border-color: $yellow-banner;
+  color: $charcoal;
+
+  &:hover,
+  &:focus {
+    background-color: $yellow;
+    color: $charcoal;
   }
 }

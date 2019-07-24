@@ -5,7 +5,7 @@
     <div class="column column--small mb-50">
       <h2 class="heading-xl sm:heading-xl mb-20">Edit Your Table</h2>
     </div>
-    <div class="column column--big flex-col mb-130">
+    <div class="column column--big flex-col">
       <%= form_for(@event) do |f| %>
         <% if @event.errors.any? %>
           <% @event.errors.full_messages.each do |msg| %>
@@ -16,7 +16,7 @@
             f: f %>
         <p>
           <%= f.submit "Save Changes",
-              class: "btn btn--blue" %>
+              class: "btn btn--primary" %>
         </p>
       <% end %>
     </div>

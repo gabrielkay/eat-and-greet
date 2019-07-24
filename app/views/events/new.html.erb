@@ -8,7 +8,7 @@
         You choose the place, time, and conversation topics. We’ll find people to fill the table.
       </p>
     </div>
-    <div class="column column--big flex-col mb-130">
+    <div class="column column--big flex-col">
       <%= form_for(@event) do |f| %>
         <% if @event.errors.any? %>
           <% @event.errors.full_messages.each do |msg| %>
@@ -19,7 +19,7 @@
             f: f %>
         <p>
           <%= f.submit "Create Table",
-              class: "btn btn--blue" %>
+              class: "btn btn--primary" %>
         </p>
       <% end %>
     </div>

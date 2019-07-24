@@ -1,5 +1,5 @@
 .container {
-  margin: 0 auto;
+  margin: 0 auto spacing(10);
   max-width: $max-width;
   width: 84vw;
 
@@ -9,11 +9,12 @@
 }
 
 .column-container {
-  margin: spacing(-2);
-}
+  $gap: spacing(2);
+  margin: -$gap;
 
-.column {
-  margin: spacing(2);
+  .column {
+    margin: $gap;
+  }
 }
 
 .column--small {

@@ -50,26 +50,20 @@
 }
 
 .card__buttons {
+  $gap: spacing(0.5);
+  margin: -$gap;
   width: 100%;
 
   .card__btn {
-    margin: 0;
-  }
-
-  .card__view {
-    margin-right: spacing();
+    margin: $gap;
   }
 
   .card__edit {
     margin-left: auto;
 
     @include bpMin('small') {
-      margin-left: 0;
+      margin-left: spacing(0.5);
       margin-right: auto;
     }
-  }
-
-  .card__remove {
-    margin-left: spacing();
   }
 }

@@ -4,7 +4,7 @@
   <div data-module="banner" class="banner">
     <span>Your account has been created! Start browsing tables near you.</span>
     <%= link_to edit_registration_path(current_user),
-        class: "btn banner__button" do %>
+        class: "btn btn--info banner__button" do %>
       Complete Your Profile
     <% end %>
     <button class="banner__close">
@@ -32,7 +32,7 @@
             class: "form__select form__input form__input--md") %>
       <% end %>
     </div>
-    <div class="column column--big flex-col mb-130">
+    <div class="column column--big flex-col">
     <%= render partial: "event",
         collection: @events %>
     </div>

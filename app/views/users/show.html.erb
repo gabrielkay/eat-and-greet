@@ -1,7 +1,7 @@
 <%= render "header" %>
 
 <div class="container">
-  <div class="column-container flex justify-between mb-130">
+  <div class="column-container flex justify-between">
     <div class="profile column mb-50">
       <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
@@ -76,12 +76,12 @@
         <%= link_to "Log out",
             destroy_user_session_path,
             method: :delete,
-            class: "btn btn--blue" %>
+            class: "btn btn--primary" %>
         <%= link_to "Delete my account",
             user_registration_path,
             data: { confirm: "Are you sure?" },
             method: :delete,
-            class: "btn btn--maroon" %>
+            class: "btn btn--leave" %>
       <% end %>
     </div>
     <% if @user.id == current_user.id %>
@@ -95,7 +95,7 @@
               collection: @created_events %>
         </div>
         <div class="tab__content" id="archived">
-          <%= render partial: "events/event",
+          <%= render partial: "archived_event",
               collection: @archived_events %>
         </div>
       </div>

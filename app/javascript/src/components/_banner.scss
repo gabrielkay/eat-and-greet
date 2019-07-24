@@ -23,12 +23,4 @@
 
 .banner__button {
   margin-left: spacing();
-  background-color: $white;
-  color: $charcoal;
-
-  &:hover,
-  &:focus {
-    background-color: $gray100;
-    color: $charcoal;
-  }
 }

@@ -67,32 +67,34 @@
       <p class="heading-md sm:heading-md mb-30"><%= @event.description %></p>
 
       <div class="mb-50">
-        <%= form_for [@event, @membership] do |f| %>
-          <% if @existing_membership.nil? %>
-              <%= f.hidden_field :user_id,
-                  value: current_user.id %>
-              <%= f.hidden_field :event_id,
-                  value: @event.id %>
-              <%= f.submit 'Join Table',
-                  class: "btn btn--yellow" %>
-          <% elsif @event.creator_id == current_user.id %>
-            <%= link_to 'Edit Table',
-                edit_event_path,
-                class: "btn btn--blue" %>
-            <%= link_to 'Cancel Table',
-                event_path,
-                method: :delete,
-                class: "btn btn--blue" %>
-          <% else %>
-            <%= link_to 'Leave Table',
-                event_membership_path(@event, @existing_membership),
-                method: :delete,
-                class: "btn btn--blue" %>
+        <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+          <%= form_for [@event, @membership] do |f| %>
+            <% if @existing_membership.nil? %>
+                <%= f.hidden_field :user_id,
+                    value: current_user.id %>
+                <%= f.hidden_field :event_id,
+                    value: @event.id %>
+                <%= f.submit 'Join Table',
+                    class: "btn btn--join" %>
+            <% elsif @event.creator_id == current_user.id %>
+              <%= link_to 'Edit Table',
+                  edit_event_path,
+                  class: "btn btn--secondary" %>
+              <%= link_to 'Cancel Table',
+                  event_path,
+                  method: :delete,
+                  class: "btn btn--leave" %>
+            <% else %>
+              <%= link_to 'Leave Table',
+                  event_membership_path(@event, @existing_membership),
+                  method: :delete,
+                  class: "btn btn--leave" %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
     </div>
-    <div class="table-details__comments flex-col mb-130">
+    <div class="table-details__comments flex-col">
       <h3 class="heading-lg sm:heading-lg mb-30">Discussion</h3>
       <div class="comments">
         <% @comments.each do |comment| %>
@@ -116,25 +118,27 @@
             <p><%= child_comment.body %></p>
           </div>
           <% end %>
-          <div class="mb-5">
-            <%= form_for @comment do |f| %>
-              <%= f.hidden_field :user_id,
-                  value: current_user.id %>
-              <%= f.hidden_field :comment_id,
-                  value: comment.id %>
-              <%= f.text_field :body,
-                  required: true,
-                  placeholder: "send a response",
-                  class: "form__input comment__helper" %>
-              <%= f.submit 'Post',
-                  class: "btn btn--blue" %>
-            <% end %>
-          </div>
+          <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+            <div class="mb-5">
+              <%= form_for @comment do |f| %>
+                <%= f.hidden_field :user_id,
+                    value: current_user.id %>
+                <%= f.hidden_field :comment_id,
+                    value: comment.id %>
+                <%= f.text_field :body,
+                    required: true,
+                    placeholder: "send a response",
+                    class: "form__input comment__helper" %>
+                <%= f.submit 'Post',
+                    class: "btn btn--primary" %>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
       </div>
-      <hr class="comment__divider mb-20">
-      <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
-      <div class="mb-130">
+      <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+        <hr class="comment__divider mb-20">
+        <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
         <%= form_for @comment do |f| %>
           <%= f.hidden_field :user_id,
               value: current_user.id %>
@@ -145,9 +149,9 @@
               placeholder: "what would you like to say?",
               class: "form__input comment__helper" %>
           <%= f.submit 'Post',
-              class: "btn btn--blue" %>
+              class: "btn btn--primary" %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>
