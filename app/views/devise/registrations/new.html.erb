@@ -2,12 +2,14 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "container form flex-col" }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-
-  <h2 class="heading-xl sm:heading-xl mb-130">Let's make your profile.</h2>
-
-  <h3 class="heading-lg sm:heading-lg mb-50">Start with the basics:</h3>
-  <div class="column-container flex justify-between mb-150">
-    <div class="column form__section">
+  <div class="flex-gap">
+    <div class="flex-gap__item column-top">
+      <h2 class="heading-xl sm:heading-xl mb-130">Let's make your profile.</h2>
+      <h3 class="heading-lg sm:heading-lg mb-50">Start with the basics:</h3>
+    </div>
+  </div>
+  <div class="flex-gap flex justify-between mb-150">
+    <div class="flex-gap__item form__section">
       <div class="form__label">
         <%= f.label :name do %>
           Name<span aria-hidden="true" class="text-red"> *</span>
@@ -32,7 +34,7 @@
           { required: true,
             class: "form__select form__input" } %>
     </div>
-    <div class="column">
+    <div class="flex-gap__item">
       <%= f.label :profile_pic, "Profile picture",
           class: "form__label" %>
       <%= f.label :profile_pic, "(This helps people know you’re not a robot.)",

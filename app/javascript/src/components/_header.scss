@@ -1,11 +1,18 @@
 .header {
+  align-items: center;
   position: absolute;
+  top: spacing(2);
+  width: 100%;
 }
 
 .header__logo {
-  color: $white;
+  color: $charcoal;
   font-size: rem($h2);
-  margin: spacing(2) spacing(3);
+  margin: 0 spacing(3);
+}
+
+.header__log-in {
+  margin: 0 spacing(3);
 }
 
 .header__nav {

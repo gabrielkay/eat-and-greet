@@ -1,27 +1,25 @@
 <%= render "header" %>
 
-<div class="container">
-  <div class="column-container flex justify-between">
-    <div class="column column--small mb-50">
-      <h2 class="heading-xl sm:heading-xl mb-20">Create a Table</h2>
-      <p class="heading-md sm:heading-md mb-50">
-        You choose the place, time, and conversation topics. We’ll find people to fill the table.
-      </p>
-    </div>
-    <div class="column column--big flex-col">
-      <%= form_for(@event) do |f| %>
-        <% if @event.errors.any? %>
-          <% @event.errors.full_messages.each do |msg| %>
-            <p class="alert">Error: <%= msg %></p>
-          <% end %>
+<div class="container-full flex">
+  <div class="column-title">
+    <h2 class="heading-xl sm:heading-xl mb-20">Create a Table</h2>
+    <p class="heading-md sm:heading-md mb-50">
+      You choose the place, time, and conversation topics. We’ll find people to fill the table.
+    </p>
+  </div>
+  <div class="column-main">
+    <%= form_for(@event) do |f| %>
+      <% if @event.errors.any? %>
+        <% @event.errors.full_messages.each do |msg| %>
+          <p class="alert">Error: <%= msg %></p>
         <% end %>
-        <%= render 'event_fields',
-            f: f %>
-        <p>
-          <%= f.submit "Create Table",
-              class: "btn btn--primary" %>
-        </p>
       <% end %>
-    </div>
+      <%= render 'event_fields',
+          f: f %>
+      <p>
+        <%= f.submit "Create Table",
+            class: "btn btn--primary" %>
+      </p>
+    <% end %>
   </div>
 </div>

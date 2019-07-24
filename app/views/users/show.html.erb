@@ -1,8 +1,8 @@
 <%= render "header" %>
 
 <div class="container">
-  <div class="column-container flex justify-between">
-    <div class="profile column mb-50">
+  <div class="flex-gap flex justify-between">
+    <div class="profile flex-gap__item column-top mb-50">
       <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
         <%= inline_svg "icons/location.svg",
@@ -85,7 +85,7 @@
       <% end %>
     </div>
     <% if @user.id == current_user.id %>
-      <div data-module="tabs" class="column column--big flex-col">
+      <div data-module="tabs" class="column-main flex-col">
         <div class="tab flex justify-between">
           <button class="tab__links active" data-type="created">Created Tables</button>
           <button class="tab__links" data-type="archived">Archived Tables</button>

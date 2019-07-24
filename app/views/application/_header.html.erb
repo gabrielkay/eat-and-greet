@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header flex justify-between">
   <h1 class="header__logo">
     <%= link_to root_path do %>
       Eat & Greet
@@ -30,7 +30,15 @@
         <span class="header__btn-text form__label">Create Table</span>
       <% end %>
     </nav>
+  <% elsif controller_name == 'sessions' %>
+    <div class="header__log-in">
+      <%= render "sign-in" %>
+    </div>
   <% else %>
-    <%= render "sign-in" %>
+    <div class="header__log-in">
+      <%= link_to "Log in",
+          user_session_path,
+          class: "btn btn--primary" %>
+    </div>
   <% end %>
 </header>

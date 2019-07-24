@@ -1,4 +1,10 @@
 .table-details {
+  padding-top: spacing(2);
+
+  @include bpMin('small') {
+    padding-top: spacing(8);
+  }
+
   @include bp('medium') {
     display: flex;
     flex-direction: column;

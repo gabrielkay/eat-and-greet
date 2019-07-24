@@ -14,7 +14,7 @@
 <% end %>
 
 <div class="container-full flex">
-  <div class="card-column__title">
+  <div class="column-title">
     <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
     <p class="heading-md sm:heading-md mb-50">
       Connect with fellow newcomers by eating together at a local restaurant.
@@ -31,7 +31,7 @@
           class: "form__select form__input form__input--md") %>
     <% end %>
   </div>
-  <div class="card-column__cards flex-col lg:flex-row mb-130">
+  <div class="column-main flex-col lg:flex-row">
   <%= render partial: "event",
       collection: @events %>
   </div>

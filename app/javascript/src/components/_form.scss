@@ -7,6 +7,10 @@
 .form__input,
 .form__field {
   margin: spacing(0.5) auto spacing(2);
+
+  @include bpMin('small') {
+    max-width: rem(570px);
+  }
 }
 
 .form__input,

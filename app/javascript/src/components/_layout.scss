@@ -9,33 +9,28 @@
 }
 
 .container-full {
-  margin: 0;
+  margin: 0 0 spacing(10);
 
   @include bpMin('medium') {
     margin-right: spacing(10);
   }
 }
 
-.column-container {
-  $gap: spacing(2);
+$gap: spacing(2);
+
+.flex-gap {
   margin: -$gap;
-
-  .column {
-    margin: $gap;
-  }
 }
 
-.column--small {
-  flex: 1 1 rem(350px);
-  max-width: rem(515px);
-  min-width: rem(350px);
+.flex-gap__item {
+  margin: $gap;
 }
 
-.column--big {
-  flex-basis: rem(570px);
+.column-top {
+  margin-top: spacing(20);
 }
 
-.card-column__title {
+.column-title {
   background-color: $red;
   border-bottom-right-radius: rem(50px);
   color: $white;
@@ -63,7 +58,7 @@
   }
 }
 
-.card-column__cards {
+.column-main {
   margin: auto;
   padding: spacing(2);
   width: 100%;
