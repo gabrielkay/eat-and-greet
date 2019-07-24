@@ -24,8 +24,8 @@ describe 'Log into an account', type: :feature do
     visit('/users/sign_in')
     fill_in 'user_email', with: 'login@example.com'
     fill_in 'user_password', with: 'password'
-    click_button('Sign in')
-    expect(page).to have_content('Signed in successfully.')
+    click_button('Log in')
+    expect(page).to have_content('Browse Tables')
   end
 end
 

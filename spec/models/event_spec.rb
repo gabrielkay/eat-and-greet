@@ -15,7 +15,7 @@ RSpec.describe Event, type: :model do
       today = DateTime.now.beginning_of_day
       event = Event.build_with_member(user,
         {restaurant: "restaurant1", restaurant_address: "address1", title: "title1",
-          min_people: 3, max_people: 4, diet: "diet1", start_time: today, end_time: today})
+          city: "Denver/Boulder", max_people: 4, start_time: today, end_time: today})
       expect(event.restaurant).to eq "restaurant1"
       expect(event.creator_id).to eq user.id
       expect(event.save).to eq true

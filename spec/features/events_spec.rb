@@ -10,12 +10,13 @@ describe 'Create an Event', type: :feature do
   it 'Fills in event details' do
     visit('/tables/new')
     fill_in 'event_restaurant', with: 'Burger King'
-    fill_in 'event_start_time', with: DateTime.now
-    fill_in 'event_end_time', with: DateTime.now
-    fill_in 'event_min_people', with: 3
-    fill_in 'event_max_people', with: 4
+    fill_in 'event_date_field', with: "11/11/2019"
+    fill_in 'event_start_time_field', with: Time.now
+    fill_in 'event_end_time_field', with: Time.now
+    select "Denver/Boulder", from: "event_city"
+    select 4, from: "event_max_people"
     expect {
-      click_button 'Create Event'
+      click_button 'Create Table'
     }.to change {
       Event.count
     }.by(1)
@@ -32,11 +33,15 @@ describe 'Edit an Event', type: :feature do
   end
 
   it 'Edits an existing event' do
-    visit(event_path(event))
-    click_link('Edit Event')
-    fill_in 'event_restaurant', with: 'ChangedRestaurant'
+    visit(edit_event_path(event))
+    fill_in 'event_title', with: 'ChangedTitle'
+    fill_in 'event_date_field', with: "11/11/3000"
+    fill_in 'event_start_time_field', with: Time.now
+    fill_in 'event_end_time_field', with: Time.now
+    select "Denver/Boulder", from: "event_city"
+    select 4, from: "event_max_people"
     click_button 'Save Changes'
-    expect(page).to have_content('ChangedRestaurant')
+    expect(page).to have_content('ChangedTitle')
   end
 end
 
@@ -51,7 +56,7 @@ describe 'Delete an Event', type: :feature do
   it 'Deletes an existing event' do
     visit(event_path(event))
     expect {
-      click_link('Delete Event')
+      click_button('Cancel Table')
     }.to change {
       Event.count
     }.by(-1)

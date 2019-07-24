@@ -5,7 +5,6 @@ FactoryBot.define do
     restaurant_address { 'McDonalds' }
     title { 'EventTitle' }
     city { 'Atlanta' }
-    diet { 'none' }
     start_time { DateTime.now }
     end_time { DateTime.now }
     min_people { 3 }
