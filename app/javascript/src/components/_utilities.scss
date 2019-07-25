@@ -1,24 +1,27 @@
 .flex {
   display: flex;
-  flex-wrap: wrap;
 }
 
-.flex-col {
-  display: flex;
-  flex-direction: column;
+.sm\:flex {
+  @include bpMin('small') {
+    display: flex;
+  }
 }
 
-.md\:flex-row {
+.md\:flex {
   @include bpMin('medium') {
-    flex-direction: row;
+    display: flex;
   }
 }
 
-.lg\:flex-row {
+.lg\:flex {
   @include bpMin('large') {
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: flex;
   }
+}
+
+.wrap {
+  flex-wrap: wrap;
 }
 
 .justify-between {

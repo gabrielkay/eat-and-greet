@@ -4,9 +4,7 @@ export default class Banner {
     this.setVars();
     this.bindEvents();
 
-    setTimeout(() => {
-      this.el.style.opacity = '0';
-    }, 15000);
+    setTimeout(this.hideBanner, 15000);
   }
 
   setVars() {

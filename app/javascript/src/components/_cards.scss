@@ -16,8 +16,20 @@
   }
 }
 
-.card__title {
-  max-width: calc(100% - 125px);
+$gap: spacing(2);
+
+.card__top {
+  margin: -$gap;
+  margin-bottom: 0;
+}
+
+.card__title,
+.card__space {
+  margin: $gap;
+}
+
+.card__space {
+  flex-shrink: 0;
 }
 
 .card__restaurant {
@@ -61,7 +73,6 @@
 .card__buttons {
   $gap: spacing(0.5);
   margin: -$gap;
-  width: 100%;
 
   .card__btn {
     margin: $gap;

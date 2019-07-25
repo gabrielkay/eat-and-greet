@@ -1,18 +1,18 @@
 <div class="card card--link">
-  <div class="flex justify-between">
+  <div class="card__top sm:flex justify-between">
     <div class="card__title">
       <h2 class="heading-md sm:heading-md mb-10"><%= event.title %></h2>
-      <p class="card__restaurant mb-20"><%= event.restaurant %></p>
+      <p class="card__restaurant"><%= event.restaurant %></p>
     </div>
-    <div class="card__space flex-col">
+    <div class="card__space">
       <p class="card__seats mb-5">
         <%= event.memberships.length == event.max_people ? "No" : event.max_people - event.memberships.length %>
          seats available
       </p>
-      <p class="card__guests mb-20">up to <%= event.max_people %> guests</p>
+      <p class="card__guests">up to <%= event.max_people %> guests</p>
     </div>
   </div>
-  <div class="flex mb-10">
+  <div class="flex wrap mb-10">
     <div class="card__time flex mb-10">
       <%= inline_svg "icons/clock.svg",
           class: "card__icon" %>
@@ -28,7 +28,7 @@
       </time>
     </div>
   </div>
-  <div class="card__buttons flex justify-between">
+  <div class="card__buttons flex wrap justify-between">
     <%= link_to event_path(event),
         class: "btn btn--primary card__btn card__view" do %>
       <span>View Table</span>

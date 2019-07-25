@@ -13,7 +13,7 @@
   </div>
 <% end %>
 
-<div class="container-full flex">
+<div class="container-full flex wrap">
   <div class="column-title">
     <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
     <p class="heading-md sm:heading-md mb-50">
@@ -31,7 +31,7 @@
           class: "form__select form__input form__input--md") %>
     <% end %>
   </div>
-  <div class="column-main flex-col lg:flex-row">
+  <div class="column-main lg:flex wrap">
   <%= render partial: "event",
       collection: @events %>
   </div>
