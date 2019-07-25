@@ -11,11 +11,11 @@ describe 'Join an Event', type: :feature do
   it 'Joins an existing event' do
     visit(event_path(event))
     expect {
-      click_button('Join Event')
+      click_button('Join Table')
     }.to change{
       Membership.count
     }.by(1)
-    expect(page).to have_content('Leave Event')
+    expect(page).to have_content('Leave Table')
   end
 end
 
@@ -30,7 +30,7 @@ describe 'Leave an Event', type: :feature do
   it 'Leaves an event they were a member of' do
     visit(event_path(membership.event_id))
     expect {
-      click_link('Leave Event')
+      click_link('Leave Table')
     }.to change{
       Membership.count
     }.by(-1)
@@ -48,7 +48,7 @@ describe 'My Events Page', type: :feature do
 
   it 'Joins an event and navigates to My Events' do
     visit(event_path(event))
-    click_button('Join Event')
+    click_button('Join Table')
     visit('/my-tables')
     expect(page).to have_content('MyRestaurant')
   end
