@@ -1,5 +1,7 @@
 class Event < ApplicationRecord
 
+  attr_accessor :date_field, :start_time_field, :end_time_field
+
   LOCATIONS = [ "Raleigh-Durham", "Denver/Boulder", "Washington D.C. Metro" ]
 
   scope :past, -> { where("start_time < ?", DateTime.now.beginning_of_day) }
@@ -14,6 +16,7 @@ class Event < ApplicationRecord
   validates :restaurant, presence: true
   validates :city, presence: true
   validates :start_time, presence: true
+  validates :end_time, presence: true
   validates :creator_id, presence: true
 
   def self.search_location(location, id)
