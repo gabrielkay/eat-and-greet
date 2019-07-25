@@ -61,9 +61,9 @@ class EventsController < ApplicationController
     event.start_time = DateTime.parse("#{date_field} #{start_time_field}")
     event.end_time = DateTime.parse("#{date_field} #{end_time_field}")
     event
-    rescue ArgumentError
-      event.errors.add(:start_time, :invalid, message: "Date or time was invalid")
-      event
+  rescue ArgumentError
+    event.errors.add(:start_time, :invalid, message: "Date or time was invalid")
+    event
   end
 
   private def event_params
