@@ -1,8 +1,7 @@
-<%= render "header" %>
-
 <div class="container">
   <div class="flex-gap flex wrap justify-between">
     <div class="profile flex-gap__item column-top mb-50">
+      <%= render "header" %>
       <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
         <%= inline_svg "icons/location.svg",
@@ -17,32 +16,32 @@
         <% end %>
       </div>
       <div class="flex justify-between mb-10">
-        <div class="profile__social flex">
+        <div class="flex">
           <% if @user.instagram_link? %>
             <%= link_to @user.instagram_link,
                 target: :_blank do %>
               <%= inline_svg "icons/instagram.svg",
-                  class: "profile__icon" %>
+                  class: "profile__social" %>
             <% end %>
           <% end %>
           <% if @user.facebook_link? %>
             <%= link_to @user.facebook_link,
                 target: :_blank do %>
               <%= inline_svg "icons/facebook.svg",
-                  class: "profile__icon" %>
+                  class: "profile__social" %>
             <% end %>
           <% end %>
           <% if @user.twitter_link? %>
             <%= link_to @user.twitter_link,
                 target: :_blank do %>
               <%= inline_svg "icons/twitter.svg",
-                  class: "profile__icon" %>
+                  class: "profile__social" %>
             <% end %>
           <% end %>
         </div>
         <% if @user.id == current_user.id %>
           <%= link_to edit_registration_path(current_user),
-              class: "profile__btn flex" do %>
+              class: "profile__btn link flex" do %>
             <%= inline_svg "icons/edit.svg",
                 class: "profile__icon" %>
             <span class="profile__edit">Edit</span>

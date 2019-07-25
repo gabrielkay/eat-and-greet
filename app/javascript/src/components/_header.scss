@@ -1,18 +1,14 @@
 .header {
   align-items: center;
   position: absolute;
-  top: spacing(2);
-  width: 100%;
+  top: spacing(4);
+  max-width: $max-width;
+  width: 84vw;
 }
 
 .header__logo {
-  color: $charcoal;
-  font-size: rem($h2);
-  margin: 0 spacing(3);
-}
-
-.header__log-in {
-  margin: 0 spacing(3);
+  height: rem(48px);
+  width: rem(104px);
 }
 
 .header__nav {
@@ -38,6 +34,7 @@
 
 .header__button {
   border: solid 1px $gray100;
+  color: $black;
   display: inline-block;
   flex-basis: 25%;
   padding: spacing() 0;
@@ -58,6 +55,14 @@
     .header__icon-stroke {
       stroke: $red;
     }
+  }
+
+  .header__btn-text {
+    color: $black;
+    font-size: rem(11px);
+    font-weight: 700;
+    line-height: 1.4;
+    text-transform: uppercase;
   }
 
   @include bpMin('medium') {

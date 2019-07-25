@@ -1,8 +1,6 @@
-<%= render "header" %>
-
-
 <div class="container-full flex wrap">
   <div class="column-title">
+    <%= render "header" %>
     <h2 class="heading-xl sm:heading-xl mb-20">Edit Your Profile</h2>
   </div>
   <div class="column-main">
@@ -89,7 +87,7 @@
             class: "form__label" %>
         <%= f.label :profile_pic, "(This helps people know you’re not a robot.)",
             class: "form__details" %>
-        <label class="form__photo form__label">
+        <label class="form__photo link">
           <div class="form__photo-button flex">
             <%= inline_svg "icons/photo.svg",
                 class: "form__photo-icon" %>

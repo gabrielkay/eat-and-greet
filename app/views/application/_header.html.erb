@@ -1,7 +1,8 @@
 <header class="header flex justify-between">
-  <h1 class="header__logo">
+  <h1>
     <%= link_to root_path do %>
-      Eat & Greet
+      <%= inline_svg "icons/logo.svg",
+          class: "header__logo" %>
     <% end %>
   </h1>
   <%- if user_signed_in? %>
@@ -15,19 +16,19 @@
           class: "header__button" do %>
         <%= inline_svg "icons/search.svg",
             class: "header__icon" %>
-        <span class="header__btn-text form__label">Browse Tables</span>
+        <span class="header__btn-text">Browse Tables</span>
       <% end %>
       <%= link_to my_tables_path,
           class: "header__button" do %>
         <%= inline_svg "icons/tables.svg",
             class: "header__icon" %>
-        <span class="header__btn-text form__label">My Tables</span>
+        <span class="header__btn-text">My Tables</span>
       <% end %>
       <%= link_to new_event_path,
           class: "header__button" do %>
         <%= inline_svg "icons/new.svg",
             class: "header__icon-stroke" %>
-        <span class="header__btn-text form__label">Create Table</span>
+        <span class="header__btn-text">Create Table</span>
       <% end %>
     </nav>
   <% elsif controller_name == 'sessions' %>

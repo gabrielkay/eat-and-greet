@@ -35,6 +35,10 @@ $gap: spacing(2);
 
 .column-top {
   margin-top: spacing(20);
+
+  .header__logo {
+    color: $red;
+  }
 }
 
 .column-title {
@@ -46,15 +50,17 @@ $gap: spacing(2);
   width: 100%;
 
   @include bpMin('small') {
-    min-width: rem(460px);
     max-width: rem(550px);
     padding: spacing(15) spacing(5) spacing(5) 8vw;
-    width: 38vw;
   }
 
   @include bpMin('medium') {
     border-bottom-right-radius: 50%;
+    max-width: rem(640px);
+    min-height: rem(460px);
+    min-width: rem(460px);
     padding: spacing(20) spacing(8) spacing(8) spacing(13);
+    width: 38vw;
   }
 
   @include bpMin('medium') {
@@ -64,10 +70,6 @@ $gap: spacing(2);
 
   .form__label {
     color: $white;
-
-    .form__label-icon {
-      fill: $white;
-    }
   }
 }
 
@@ -91,5 +93,9 @@ $gap: spacing(2);
   @include bpMin('large') {
     align-items: flex-start;
     margin: spacing(-1.5);
+  }
+
+  .form__label {
+    color: $black;
   }
 }

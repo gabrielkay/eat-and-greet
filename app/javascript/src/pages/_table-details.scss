@@ -1,6 +1,10 @@
 .table-details {
   padding-top: spacing(2);
 
+  .header__logo {
+    color: $red;
+  }
+
   @include bpMin('small') {
     padding-top: spacing(8);
   }

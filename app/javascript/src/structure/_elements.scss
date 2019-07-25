@@ -9,10 +9,15 @@ body {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.link {
+  color: $link;
+  transition: color 0.3s;
 
   &:focus,
   &:hover {
-    color: inherit;
+    color: $link-hover;
   }
 }
 
@@ -22,9 +27,10 @@ img {
 }
 
 svg {
-  fill: $charcoal;
+  fill: currentColor;
 }
 
-button {
+button,
+input[type='submit'] {
   cursor: pointer;
 }

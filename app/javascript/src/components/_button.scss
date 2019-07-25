@@ -51,10 +51,6 @@
   background-color: $blue;
   color: $white;
 
-  .btn__icon {
-    fill: $white;
-  }
-
   &:hover,
   &:focus {
     background-color: $blue-hover;
@@ -88,10 +84,6 @@
   border-color: $yellow;
   color: $charcoal;
 
-  .btn__icon {
-    fill: $charcoal;
-  }
-
   &:hover,
   &:focus {
     background-color: $yellow-hover;
@@ -104,10 +96,6 @@
   background-color: $maroon;
   border-color: $maroon;
   color: $white;
-
-  .btn__icon {
-    fill: $white;
-  }
 
   &:hover,
   &:focus {

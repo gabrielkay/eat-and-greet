@@ -45,6 +45,7 @@
     <% end %>
     <% if event.creator_id == current_user.id %>
       <%= link_to event_path(event),
+          data: { confirm: "Are you sure?" },
           method: :delete,
           class: "btn btn--leave card__btn btn--small card__remove" do %>
         <span class="btn__text">Cancel Table</span>
@@ -54,6 +55,7 @@
     <% elsif event.members.include?(current_user) %>
       <%= link_to 'Leave Table',
           event_membership_path(event, Membership.find_membership(current_user, event)),
+          data: { confirm: "Are you sure?" },
           method: :delete,
           class: "btn btn--leave card__btn card__remove" %>
     <% end %>
