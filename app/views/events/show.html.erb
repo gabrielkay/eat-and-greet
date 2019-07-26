@@ -1,7 +1,7 @@
 <div class="container">
   <div class="table-details">
     <%= render "header" %>
-    <div class="table-details__guests mb-50">
+    <div class="table-details__guests">
       <p class="card__seats mb-5">
         <%= @event.memberships.length == @event.max_people ? "No" : @event.max_people - @event.memberships.length %>
          seats available
@@ -124,10 +124,12 @@
                     value: current_user.id %>
                 <%= f.hidden_field :comment_id,
                     value: comment.id %>
-                <%= f.text_field :body,
-                    required: true,
-                    placeholder: "send a response",
-                    class: "form__input comment__helper" %>
+                <div>
+                  <%= f.text_field :body,
+                      required: true,
+                      placeholder: "send a response",
+                      class: "form__input form__input--lg comment__helper" %>
+                </div>
                 <%= f.submit 'Post',
                     class: "btn btn--primary" %>
               <% end %>
@@ -135,18 +137,20 @@
           <% end %>
         <% end %>
       </div>
+      <hr class="comment__divider mb-20">
       <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
-        <hr class="comment__divider mb-20">
         <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
         <%= form_for @comment do |f| %>
           <%= f.hidden_field :user_id,
               value: current_user.id %>
           <%= f.hidden_field :event_id,
               value: @event.id %>
-          <%= f.text_field :body,
-              required: true,
-              placeholder: "what would you like to say?",
-              class: "form__input comment__helper" %>
+          <div>
+            <%= f.text_field :body,
+                required: true,
+                placeholder: "what would you like to say?",
+                class: "form__input form__input--lg comment__helper" %>
+          </div>
           <%= f.submit 'Post',
               class: "btn btn--primary" %>
         <% end %>

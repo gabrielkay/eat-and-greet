@@ -22,6 +22,10 @@
   max-width: 250px;
 }
 
+.form__input--lg {
+  max-width: none;
+}
+
 .form__input {
   background-color: $white;
   border-radius: $rounded-sm;
