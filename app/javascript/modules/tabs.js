@@ -5,11 +5,13 @@ export default class Tabs {
     this.el = el;
     this.setVars();
     this.bindEvents();
+    this.firstTab.style.display = 'block';
   }
 
   setVars() {
     this.tabs = selectAll('.tab__links', this.el);
     this.tabGroups = selectAll('.tab__content', this.el);
+    this.firstTab = this.el.querySelector('.tab__content', this.el);
   }
 
   bindEvents() {
