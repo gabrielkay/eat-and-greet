@@ -1,12 +1,9 @@
 .table-details {
-  padding-top: spacing(2);
+  margin: spacing(15) auto 0;
+  width: 84vw;
 
   .header__logo {
     color: $red;
-  }
-
-  @include bpMin('small') {
-    padding-top: spacing(8);
   }
 
   @include bp('medium') {
@@ -21,12 +18,12 @@
       clear: both;
       display: table;
     }
+    margin-top: spacing(5);
   }
 
   @supports (display: grid) {
     display: grid;
     grid-template-areas:
-      '.'
       'guests'
       'title'
       'aside'
@@ -38,16 +35,19 @@
       grid-template-areas:
         '. guests'
         'aside title'
-        'aside comments';
+        'aside comments'
+        'aside .';
       grid-template-columns: rem(350px) minmax(350px, 750px);
     }
   }
 }
 
 .table-details__guests {
+  margin-bottom: spacing(4);
   order: 1;
 
   @include bpMin('medium') {
+    margin-bottom: spacing(10);
     margin-left: 35%;
   }
 

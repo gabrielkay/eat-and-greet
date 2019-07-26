@@ -1,5 +1,9 @@
 .profile {
-  flex-basis: 350px;
+  width: 84vw;
+
+  @include bpMin('small') {
+    flex-basis: 350px;
+  }
 }
 
 .profile__location {
