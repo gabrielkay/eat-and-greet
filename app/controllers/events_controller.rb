@@ -4,7 +4,6 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.future.search_location(params[:search_location] || current_user.location, current_user.id)
-    # add a page for no events in the area
   end
 
   def show

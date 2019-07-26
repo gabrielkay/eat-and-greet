@@ -31,7 +31,6 @@
     <% end %>
   </div>
   <div class="column-main lg:flex wrap">
-  <%= render partial: "event",
-      collection: @events %>
+    <%= render(@events) || "<p class='big-body sm:big-body'>Whoops! Looks like there aren’t any open tables in your city right now. Why not create one?</p>".html_safe %>
   </div>
 </div>

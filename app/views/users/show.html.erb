@@ -1,6 +1,5 @@
-<div class="container">
-  <div class="flex-gap flex wrap justify-between">
-    <div class="profile flex-gap__item column-top mb-50">
+<div class="container flex wrap justify-between">
+    <div class="profile column-top mb-50">
       <%= render "header" %>
       <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
@@ -70,17 +69,19 @@
           <% end %>
         </div>
       <% end %>
-      <%= form_for @user,
-          html: { class: "flex justify-between" } do |f| %>
-        <%= link_to "Log out",
-            destroy_user_session_path,
-            method: :delete,
-            class: "btn btn--primary" %>
-        <%= link_to "Delete my account",
-            user_registration_path,
-            data: { confirm: "Are you sure?" },
-            method: :delete,
-            class: "btn btn--leave" %>
+      <% if @user.id == current_user.id %>
+        <%= form_for @user,
+            html: { class: "flex justify-between" } do |f| %>
+          <%= link_to "Log out",
+              destroy_user_session_path,
+              method: :delete,
+              class: "btn btn--primary" %>
+          <%= link_to "Delete my account",
+              user_registration_path,
+              data: { confirm: "Are you sure?" },
+              method: :delete,
+              class: "btn btn--leave" %>
+        <% end %>
       <% end %>
     </div>
     <% if @user.id == current_user.id %>
@@ -90,14 +91,11 @@
           <button class="tab__links" data-type="archived">Archived Tables</button>
         </div>
         <div class="tab__content" id="created">
-          <%= render partial: "events/event",
-              collection: @created_events %>
+          <%= render(@created_events) || "<p class='card big-body sm:big-body'>You haven't created any tables yet.</p>".html_safe %>
         </div>
         <div class="tab__content" id="archived">
-          <%= render partial: "archived_event",
-              collection: @archived_events %>
+          <%= render(@archived_events) || "<p class='card big-body sm:big-body'>Your past tables will show up here.</p>".html_safe %>
         </div>
       </div>
     <% end %>
-  </div>
 </div>

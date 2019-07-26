@@ -8,16 +8,14 @@
   </div>
   <div data-module="tabs" class="column-main">
     <div class="tab flex justify-between">
-      <button class="tab__links active" data-type="created">Created Tables</button>
-      <button class="tab__links" data-type="joined">Joined Tables</button>
-    </div>
-    <div class="tab__content" id="created">
-      <%= render partial: "events/event",
-          collection: @created_events %>
+      <button class="tab__links active" data-type="joined">Joined Tables</button>
+      <button class="tab__links" data-type="created">Created Tables</button>
     </div>
     <div class="tab__content" id="joined">
-      <%= render partial: "events/event",
-          collection: @joined_events %>
+      <%= render(@joined_events) || "<p class='card big-body sm:big-body'>You haven't joined any tables yet.</p>".html_safe %>
+    </div>
+    <div class="tab__content" id="created">
+      <%= render(@created_events) || "<p class='card big-body sm:big-body'>You haven't created any tables yet.</p>".html_safe %>
     </div>
   </div>
 </div>

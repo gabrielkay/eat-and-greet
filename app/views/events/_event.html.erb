@@ -35,29 +35,31 @@
       <%= inline_svg "icons/arrow.svg",
           class: "btn__icon" %>
     <% end %>
-    <% if event.creator_id == current_user.id %>
-      <%= link_to edit_event_path(event),
-          class: "btn btn--secondary card__btn btn--small card__edit" do %>
-        <span class="btn__text">Edit Table</span>
-        <%= inline_svg "icons/edit.svg",
-            class: "btn__icon" %>
+    <% if event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+      <% if event.creator_id == current_user.id %>
+        <%= link_to edit_event_path(event),
+            class: "btn btn--secondary card__btn btn--small card__edit" do %>
+          <span class="btn__text">Edit Table</span>
+          <%= inline_svg "icons/edit.svg",
+              class: "btn__icon" %>
+        <% end %>
       <% end %>
-    <% end %>
-    <% if event.creator_id == current_user.id %>
-      <%= link_to event_path(event),
-          data: { confirm: "Are you sure?" },
-          method: :delete,
-          class: "btn btn--leave card__btn btn--small card__remove" do %>
-        <span class="btn__text">Cancel Table</span>
-        <%= inline_svg "icons/delete.svg",
-            class: "btn__icon" %>
+      <% if event.creator_id == current_user.id %>
+        <%= link_to event_path(event),
+            data: { confirm: "Are you sure?" },
+            method: :delete,
+            class: "btn btn--leave card__btn btn--small card__remove" do %>
+          <span class="btn__text">Cancel Table</span>
+          <%= inline_svg "icons/delete.svg",
+              class: "btn__icon" %>
+        <% end %>
+      <% elsif event.members.include?(current_user) %>
+        <%= link_to 'Leave Table',
+            event_membership_path(event, Membership.find_membership(current_user, event)),
+            data: { confirm: "Are you sure?" },
+            method: :delete,
+            class: "btn btn--leave card__btn card__remove" %>
       <% end %>
-    <% elsif event.members.include?(current_user) %>
-      <%= link_to 'Leave Table',
-          event_membership_path(event, Membership.find_membership(current_user, event)),
-          data: { confirm: "Are you sure?" },
-          method: :delete,
-          class: "btn btn--leave card__btn card__remove" %>
     <% end %>
   </div>
 </div>
