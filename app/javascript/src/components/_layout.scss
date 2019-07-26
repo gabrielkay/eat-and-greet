@@ -23,16 +23,6 @@
   }
 }
 
-$gap: spacing(2);
-
-.flex-gap {
-  margin: (-$gap) (-$gap) spacing();
-}
-
-.flex-gap__item {
-  margin: $gap;
-}
-
 .column-top {
   margin: spacing(15) auto 0;
 
@@ -96,7 +86,7 @@ $gap: spacing(2);
 
   @include bpMin('large') {
     align-items: flex-start;
-    margin: spacing(-1.5);
+    margin: -$gap;
   }
 
   .form__label {

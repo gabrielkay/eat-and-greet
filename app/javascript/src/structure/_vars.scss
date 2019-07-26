@@ -2,6 +2,10 @@
 $base-spacing: 10px;
 $max-width: 1200px;
 
+// flex gap
+$gap-sm: 15px;
+$gap: 20px;
+
 $breakpoints: (
   'large': 1440,
   'medium': 1200,
