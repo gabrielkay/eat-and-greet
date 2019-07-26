@@ -1,7 +1,7 @@
 <%= form_for(resource,
     as: resource_name,
     url: session_path(resource_name),
-    html: { class: "splash-sign-in form md:flex" }) do |f| %>
+    html: { class: "splash__sign-in-form" }) do |f| %>
   <%= f.email_field :email,
       class: "form__input",
       autofocus: true,
@@ -11,7 +11,6 @@
       class: "form__input",
       autocomplete: "current-password",
       placeholder: "••••••••" %>
-
   <% if devise_mapping.rememberable? %>
     <div class="form__field">
       <div class="mb-5">
@@ -21,7 +20,11 @@
       <%= render "devise/shared/links" %>
     </div>
   <% end %>
-
   <%= f.submit "Log in",
-      class: "form__button btn btn--primary" %>
+      class: "btn btn--primary splash-login__text" %>
 <% end %>
+  
+<%# TODO: Add full screen overlay sign in %>
+<button class="splash__sign-in-btn btn">
+  <%= inline_svg "icons/profile.svg" %>
+</button>

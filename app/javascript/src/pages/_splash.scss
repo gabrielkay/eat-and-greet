@@ -1,5 +1,13 @@
-.splash-sign-in {
+.splash {
+  width: 84vw;
+}
+
+.splash__sign-in-form {
+  display: none;
+
   @include bpMin('medium') {
+    display: flex;
+
     .form__input,
     .form__field {
       margin: spacing(0.5);
@@ -7,7 +15,22 @@
   }
 }
 
-.splash-image {
-  margin: spacing(2) auto;
-  max-width: 450px;
+.splash__sign-in-btn {
+  background-color: $white;
+  border-color: $gray100;
+  border-radius: $rounded-full;
+  box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.15);
+  color: $purple;
+  min-height: rem(44px);
+  min-width: rem(44px);
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    color: $red;
+  }
+
+  @include bpMin('medium') {
+    display: none;
+  }
 }

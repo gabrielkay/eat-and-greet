@@ -8,9 +8,10 @@
   <%- if user_signed_in? %>
     <nav class="header__nav flex">
       <%= link_to user_path(current_user.slug),
-          class: "header__button" do %>
-        <%= inline_svg "icons/profile.svg",
-            class: "header__icon" %>
+          class: "header__button header__button--sign-in" do %>
+          <div class="btn header__icon--sign-in">
+            <%= inline_svg "icons/profile.svg" %>
+          </div>
       <% end %>
       <%= link_to events_path,
           class: "header__button" do %>
@@ -27,7 +28,7 @@
       <%= link_to new_event_path,
           class: "header__button" do %>
         <%= inline_svg "icons/new.svg",
-            class: "header__icon-stroke" %>
+            class: "header__icon" %>
         <span class="header__btn-text">Create Table</span>
       <% end %>
     </nav>

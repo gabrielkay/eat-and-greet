@@ -26,8 +26,12 @@
 .column-top {
   margin: spacing(15) auto 0;
 
+  @include bpMin('small') {
+    margin: spacing(15) 0 0;
+  }
+
   @include bpMin('medium') {
-    margin-top: spacing(18);
+    margin: spacing(18) auto 0;
   }
 
   .header__logo {

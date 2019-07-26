@@ -45,22 +45,9 @@
   &:hover,
   &:focus {
     color: $red;
-
-    .header__btn-text {
-      color: $red;
-    }
-
-    .header__icon {
-      fill: $red;
-    }
-
-    .header__icon-stroke {
-      stroke: $red;
-    }
   }
 
   .header__btn-text {
-    color: $black;
     font-size: rem(11px);
     font-weight: 700;
     line-height: 1.4;
@@ -79,16 +66,34 @@
 .header__icon {
   align-self: center;
   display: block;
-  fill: $black;
   margin: auto;
 }
 
-.header__icon-stroke {
-  align-self: center;
-  display: block;
-  fill: none;
-  margin: auto;
-  stroke: $black;
+.header__button--sign-in {
+  order: 1;
+
+  @include bpMin('medium') {
+    color: $purple;
+    order: 0;
+    padding: 0 spacing(4.5) 0 0;
+  }
+}
+
+.header__icon--sign-in {
+  border: none;
+  min-height: auto;
+  min-width: auto;
+  padding: 0;
+
+  @include bpMin('medium') {
+    background-color: $white;
+    border-color: $gray100;
+    border-radius: $rounded-full;
+    box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.15);
+    min-height: rem(44px);
+    min-width: rem(44px);
+    padding: 0;
+  }
 }
 
 .header__btn-text {
