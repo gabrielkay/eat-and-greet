@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :auth_user
 
   def index
-    @events = Event.search_location(params[:search_location] || current_user.location, current_user.id)
+    @events = Event.future.search_location(params[:search_location] || current_user.location, current_user.id)
     # add a page for no events in the area
   end
 
