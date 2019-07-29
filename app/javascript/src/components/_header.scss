@@ -3,7 +3,7 @@
   position: absolute;
   top: spacing(4);
   max-width: $max-width;
-  width: 84vw;
+  width: $default-width;
 }
 
 .header__logo {
@@ -19,7 +19,6 @@
   left: 0;
   margin: 0;
   position: fixed;
-  right: 0;
   width: 100%;
   z-index: map-get($zindex, nav);
 
@@ -73,9 +72,14 @@
   order: 1;
 
   @include bpMin('medium') {
-    color: $purple;
+    color: $red;
     order: 0;
     padding: 0 spacing(4.5) 0 0;
+
+    &:hover,
+    &:focus {
+      color: $blue;
+    }
   }
 }
 
@@ -86,13 +90,7 @@
   padding: 0;
 
   @include bpMin('medium') {
-    background-color: $white;
-    border-color: $gray100;
-    border-radius: $rounded-full;
-    box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.15);
-    min-height: rem(44px);
-    min-width: rem(44px);
-    padding: 0;
+    @include userBtn;
   }
 }
 

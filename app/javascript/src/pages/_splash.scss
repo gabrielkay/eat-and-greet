@@ -1,5 +1,5 @@
 .splash {
-  width: 84vw;
+  width: $default-width;
 }
 
 .splash__sign-in-form {
@@ -16,18 +16,12 @@
 }
 
 .splash__sign-in-btn {
-  background-color: $white;
-  border-color: $gray100;
-  border-radius: $rounded-full;
-  box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.15);
-  color: $purple;
-  min-height: rem(44px);
-  min-width: rem(44px);
-  padding: 0;
+  @include userBtn;
+  color: $red;
 
   &:hover,
   &:focus {
-    color: $red;
+    color: $blue;
   }
 
   @include bpMin('medium') {

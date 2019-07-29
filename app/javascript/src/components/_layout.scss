@@ -3,7 +3,7 @@
   max-width: $max-width;
 
   @include bpMin('small') {
-    width: 84vw;
+    width: $default-width;
   }
 
   @include bpMin('medium') {
@@ -78,7 +78,7 @@
 
   @include bpMin('small') {
     padding: spacing(5) 0;
-    width: 84vw;
+    width: $default-width;
   }
 
   @include bpMin('medium') {

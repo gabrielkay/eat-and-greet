@@ -40,6 +40,10 @@
   color: $red;
 }
 
+.tab__content.active {
+  display: block;
+}
+
 .tab__content {
   display: none;
   width: 100%;

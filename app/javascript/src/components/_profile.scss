@@ -1,5 +1,5 @@
 .profile {
-  width: 84vw;
+  width: $default-width;
 
   @include bpMin('small') {
     flex-basis: 350px;

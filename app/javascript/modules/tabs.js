@@ -5,13 +5,13 @@ export default class Tabs {
     this.el = el;
     this.setVars();
     this.bindEvents();
-    this.firstTab.style.display = 'block';
+    this.tabs[0].classList.add('active');
+    this.tabGroups[0].classList.add('active');
   }
 
   setVars() {
     this.tabs = selectAll('.tab__links', this.el);
     this.tabGroups = selectAll('.tab__content', this.el);
-    this.firstTab = this.el.querySelector('.tab__content', this.el);
   }
 
   bindEvents() {
@@ -22,7 +22,7 @@ export default class Tabs {
 
   switchTabs = e => {
     this.tabGroups.forEach(tabGroup => {
-      tabGroup.style.display = 'none';
+      tabGroup.classList.remove('active');
     });
 
     this.tabs.forEach(tab => {
@@ -33,7 +33,7 @@ export default class Tabs {
     const type = target.dataset.type;
     const content = document.getElementById(type);
 
-    content.style.display = 'block';
     target.classList.add('active');
+    content.classList.add('active');
   };
 }

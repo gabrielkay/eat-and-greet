@@ -72,6 +72,12 @@
   margin: -$gap;
 
   .card__btn {
+    @include btn;
+    margin: $gap;
+  }
+
+  .card__btn--small {
+    @include btnSmall;
     margin: $gap;
   }
 

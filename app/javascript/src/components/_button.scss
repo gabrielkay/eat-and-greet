@@ -1,54 +1,14 @@
 .btn {
-  align-items: center;
-  appearance: none;
-  border-radius: $rounded-full;
-  border: solid 1px $blue;
-  display: inline-flex;
-  font-size: rem(11px);
-  font-weight: $black-weight;
-  justify-content: center;
-  margin: auto;
-  min-height: rem(44px);
-  min-width: rem(44px);
-  padding: 0 spacing(2);
-  text-transform: uppercase;
-  transition: 0.3s;
-
-  .btn__icon {
-    align-self: center;
-  }
-
-  @include bpMin('small') {
-    border-radius: $rounded;
-    min-height: auto;
-    min-width: auto;
-    padding: spacing() spacing(2.5);
-    width: auto;
-  }
+  @include btn;
 }
 
 .btn--small {
-  padding: 0;
-
-  .btn__text {
-    display: none;
-  }
-
-  @include bpMin('small') {
-    padding: spacing() spacing(2.5);
-
-    .btn__text {
-      display: block;
-    }
-
-    .btn__icon {
-      display: none;
-    }
-  }
+  @include btnSmall;
 }
 
 .btn--primary {
   background-color: $blue;
+  border-color: $blue;
   color: $white;
 
   &:hover,
@@ -61,6 +21,7 @@
 
 .btn--secondary {
   background-color: transparent;
+  border-color: $blue;
   color: $charcoal;
 
   .btn__icon {
