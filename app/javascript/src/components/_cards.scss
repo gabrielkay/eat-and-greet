@@ -69,16 +69,16 @@
 }
 
 .card__buttons {
-  margin: -$gap;
+  margin: -$gap-xs;
 
   .card__btn {
     @include btn;
-    margin: $gap;
+    margin: $gap-xs;
   }
 
   .card__btn--small {
     @include btnSmall;
-    margin: $gap;
+    margin: $gap-xs;
   }
 
   .card__edit {
