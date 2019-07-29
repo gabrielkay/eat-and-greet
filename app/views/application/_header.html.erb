@@ -32,11 +32,7 @@
         <span class="header__btn-text">Create Table</span>
       <% end %>
     </nav>
-  <% elsif controller_name == 'sessions' %>
-    <div class="header__log-in">
-      <%= render "sign-in" %>
-    </div>
-  <% else %>
+  <% elsif controller_name != 'sessions' %>
     <div class="header__log-in">
       <%= link_to "Log in",
           user_session_path,
