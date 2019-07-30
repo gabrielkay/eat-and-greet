@@ -10,7 +10,7 @@
     </div>
     <%= render "sign-in" %>
     <div class="splash__img-container mb-50">
-      <img class="splash__img" src="/assets/splash-cover.jpg">
+      <%= image_tag("splash-cover.jpg", class: "splash__img", alt: "") %>
     </div>
   </div>
   <div class="splash__main mb-110 text-center">
@@ -20,15 +20,15 @@
     <div class="splash__plates">
       <div class="splash__plate">
         <h3 class="heading-lg sm:heading-lg mb-10">Find tables near you</h3>
-        <img class="splash__plate-img right" src="/assets/splash-plate-1" alt="">
+        <%= image_tag("splash-plate-1.png", class: "splash__plate-img right", alt: "") %>
       </div>
         <div class="splash__plate">
         <h3 class="heading-lg sm:heading-lg mb-10">Join tables</h3>
-      <img class="splash__plate-img left" src="/assets/splash-plate-2" alt="">
+        <%= image_tag("splash-plate-1.png", class: "splash__plate-img left", alt: "") %>
       </div>
       <div class="splash__plate">
         <h3 class="heading-lg sm:heading-lg mb-10">Create your own table</h3>
-        <img class="splash__plate-img right" src="/assets/splash-plate-3" alt="">
+        <%= image_tag("splash-plate-1.png", class: "splash__plate-img right", alt: "") %>
       </div>
     </div>
     <p class="heading-md sm:heading-md mb-30">Sound interesting?</p>
