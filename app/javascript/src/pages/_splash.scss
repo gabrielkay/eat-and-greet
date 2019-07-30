@@ -1,4 +1,5 @@
 .splash {
+  margin-bottom: spacing(10);
   position: relative;
 
   @include bpMin('small') {
@@ -25,15 +26,16 @@
 
     @include bpMin('medium') {
       border-bottom-right-radius: 50%;
-      min-width: rem(800px);
       max-width: rem(1000px);
       min-height: rem(840px);
+      min-width: rem(800px);
+      padding: spacing(15) spacing(8) spacing(8) spacing(13);
       width: 50%;
-      padding: spacing(18) spacing(8) spacing(8) spacing(13);
     }
 
     @include bpMin('large') {
       height: rem(1100px);
+      padding-top: spacing(20);
     }
   }
 }
@@ -43,9 +45,9 @@
   width: 100%;
 
   &::after {
-    content: '';
     border: solid 2px $white;
     bottom: spacing(-42.8);
+    content: '';
     left: spacing(2.2);
     pointer-events: none;
     position: absolute;
@@ -67,18 +69,19 @@
 }
 
 .splash__img-container {
-  width: 100%;
-  height: rem(500px);
-  position: absolute;
   bottom: spacing(-50);
+  height: rem(500px);
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
   z-index: map-get($zindex, behind);
 
   @include bpMin('medium') {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 70%;
     height: rem(760px);
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 70%;
   }
 
   @include bpMin('large') {
@@ -89,10 +92,15 @@
     display: block;
     margin-left: auto;
     margin-right: 0;
+    transform: translateY(-25%);
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
+
+    @supports (object-fit: cover) {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: none;
+    }
   }
 }
 
@@ -125,11 +133,11 @@
 }
 
 .splash__sign-in-btn {
-  position: absolute;
-  top: spacing(4.4);
-  right: spacing(4.4);
   @include userBtn;
   color: $red;
+  position: absolute;
+  right: spacing(4.4);
+  top: spacing(4.4);
 
   &:hover,
   &:focus {
@@ -137,8 +145,8 @@
   }
 
   @include bpMin('small') {
-    top: spacing(6);
     right: spacing(6);
+    top: spacing(6);
   }
 
   @include bpMin('medium') {
@@ -147,7 +155,10 @@
 }
 
 .splash__main {
+  margin-left: auto;
+  margin-right: auto;
   margin-top: spacing(50);
+  overflow: hidden;
 
   @include bpMin('small') {
     margin-top: spacing(55);
@@ -156,4 +167,59 @@
   @include bpMin('medium') {
     margin-top: spacing(10);
   }
+}
+
+.splash__plates {
+  margin-bottom: spacing(10);
+
+  @include bpMin('medium') {
+    margin-bottom: spacing(25);
+  }
+}
+
+.splash__plate {
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  padding-top: spacing(5);
+  position: relative;
+  width: auto;
+
+  @include bpMin('medium') {
+    max-width: rem(200px);
+    overflow: visible;
+    padding-top: spacing(20);
+  }
+
+  .splash__plate-img {
+    left: 50%;
+    margin: 0;
+    position: relative;
+    transform: translateX(-50%);
+    vertical-align: middle;
+
+    @include bpMin('medium') {
+      position: absolute;
+      top: 0;
+      transform: none;
+    }
+  }
+
+  @include bpMin('medium') {
+    .right {
+      left: rem(250px);
+    }
+
+    .left {
+      left: auto;
+      right: rem(250px);
+    }
+  }
+}
+
+.splash__icon {
+  color: $black;
+  height: rem(47px);
+  margin: 0 auto;
+  width: rem(168px);
 }

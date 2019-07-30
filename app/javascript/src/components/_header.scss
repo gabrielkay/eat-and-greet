@@ -1,8 +1,8 @@
 .header {
   align-items: center;
+  max-width: $max-width;
   position: absolute;
   top: spacing(4);
-  max-width: $max-width;
   width: $default-width;
 }
 

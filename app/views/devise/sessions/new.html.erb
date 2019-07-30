@@ -1,31 +1,35 @@
 <div class="splash">
   <div class="splash__heading">
-  <div class="splash__title">
-    <%= render "header" %>
-    <h2 class="heading-xxl sm:heading-xxl mb-30">New in town? We know some people you should meet.</h2>
-    <p class="heading-md sm:heading-md mb-30">Eat & Greet connects you to fellow newcomers for a meal
-    at local restaurants. Around here, we believe that asking questions and being authentic is the best
-    way to find your community. So come on in — we saved you a seat.</p>
-    <%= render "devise/shared/sign_up" %>
-  </div>
-  <%= render "sign-in" %>
-  <div class="splash__img-container mb-50">
-    <img class="splash__img" src="/assets/splash-cover.jpg">
-  </div>
+    <div class="splash__title">
+      <%= render "header" %>
+      <h2 class="heading-xxl sm:heading-xxl mb-30">New in town? We know some people you should meet.</h2>
+      <p class="heading-md sm:heading-md mb-30">Eat & Greet connects you to fellow newcomers for a meal
+      at local restaurants. Around here, we believe that asking questions and being authentic is the best
+      way to find your community. So come on in — we saved you a seat.</p>
+      <%= render "devise/shared/sign_up" %>
+    </div>
+    <%= render "sign-in" %>
+    <div class="splash__img-container mb-50">
+      <img class="splash__img" src="/assets/splash-cover.jpg">
+    </div>
   </div>
   <div class="splash__main mb-110 text-center">
-    <h2 class="heading-xl sm:heading-xl mb-150">How it works</h2>
-    <div class="mb-150">
-      <h3 class="heading-lg sm:heading-lg mb-10">Find tables near you</h3>
-      <img src="https://via.placeholder.com/300x150" alt="">
-    </div>
-      <div class="mb-150">
-      <h3 class="heading-lg sm:heading-lg mb-10">Join tables</h3>
-    <img class="img-fit" src="https://via.placeholder.com/300x150" alt="">
-    </div>
-    <div class="mb-150">
-      <h3 class="heading-lg sm:heading-lg mb-10">Create your own table</h3>
-      <img src="https://via.placeholder.com/300x150" alt="">
+    <h2 class="heading-xl sm:heading-xl mb-15">How it works</h2>
+    <%= inline_svg "icons/cutlery.svg",
+          class: "splash__icon" %>
+    <div class="splash__plates">
+      <div class="splash__plate">
+        <h3 class="heading-lg sm:heading-lg mb-10">Find tables near you</h3>
+        <img class="splash__plate-img right" src="/assets/splash-plate-1" alt="">
+      </div>
+        <div class="splash__plate">
+        <h3 class="heading-lg sm:heading-lg mb-10">Join tables</h3>
+      <img class="splash__plate-img left" src="/assets/splash-plate-2" alt="">
+      </div>
+      <div class="splash__plate">
+        <h3 class="heading-lg sm:heading-lg mb-10">Create your own table</h3>
+        <img class="splash__plate-img right" src="/assets/splash-plate-3" alt="">
+      </div>
     </div>
     <p class="heading-md sm:heading-md mb-30">Sound interesting?</p>
     <%= render "devise/shared/sign_up" %>
