@@ -75,6 +75,7 @@
   margin: auto;
   padding: spacing(2);
   width: 100%;
+  z-index: map-get($zindex, content);
 
   @include bpMin('small') {
     padding: spacing(5) 0;
