@@ -59,8 +59,8 @@
   text-transform: uppercase;
 }
 
-.sm\:heading-xxl {
-  @include bpMin('small') {
+.md\:heading-xxl {
+  @include bpMin('medium') {
     font-size: rem($title);
     line-height: lineHeight(title);
   }

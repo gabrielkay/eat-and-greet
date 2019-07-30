@@ -92,6 +92,11 @@
   @include bpMin('medium') {
     @include userBtn;
   }
+
+  svg {
+    height: rem(40px);
+    width: rem(40px);
+  }
 }
 
 .header__btn-text {

@@ -152,6 +152,60 @@
   @include bpMin('medium') {
     display: none;
   }
+
+  svg {
+    height: rem(40px);
+    width: rem(40px);
+  }
+}
+
+.overlay {
+  background-color: $white;
+  height: 0%;
+  left: 0;
+  overflow-y: hidden;
+  position: fixed;
+  top: 0;
+  transition: 0.5s;
+  width: 100%;
+  z-index: map-get($zindex, modal);
+
+  .header__logo {
+    color: $red;
+    left: spacing(2.2);
+    position: absolute;
+    top: spacing(4);
+
+    @include bpMin('small') {
+      left: spacing(6);
+      top: spacing(6);
+    }
+  }
+
+  .overlay-close {
+    position: absolute;
+    right: spacing(4.4);
+    top: spacing(4.4);
+
+    @include bpMin('small') {
+      right: spacing(6);
+      top: spacing(6);
+    }
+
+    svg {
+      height: rem(40px);
+      width: rem(40px);
+    }
+  }
+
+  .overlay-content {
+    padding: spacing(13) spacing(2.2) spacing(2.2);
+    width: 100%;
+
+    @include bpMin('small') {
+      padding: spacing(15) spacing(6) spacing(6);
+    }
+  }
 }
 
 .splash__main {
