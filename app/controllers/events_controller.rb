@@ -22,7 +22,7 @@ class EventsController < ApplicationController
     @event = Event.build_with_member(current_user, event_params)
     @event = convert_to_datetime_and_assign(@event, event_params)
     if (@event.save)
-      redirect_to my_tables_path
+      redirect_to user_path(current_user.slug)
     else
       flash_errors(@event.errors)
       render 'new'
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
     @event = convert_to_datetime_and_assign(@event, event_params)
     authorize @event
     if @event.update(event_params)
-      redirect_to my_tables_path
+      redirect_to user_path(current_user.slug)
     else
       flash_errors(@event.errors)
       render 'edit'
