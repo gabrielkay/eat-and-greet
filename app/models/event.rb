@@ -2,7 +2,7 @@ class Event < ApplicationRecord
 
   attr_writer :date_field, :start_time_field, :end_time_field
 
-  LOCATIONS = [ "Raleigh-Durham", "Denver/Boulder", "Washington D.C. Metro" ]
+  LOCATIONS = [ "Denver-Boulder, CO", "Washington, DC", "Raleigh-Durham, NC" ]
 
   scope :past, -> { where("start_time < ?", DateTime.now.beginning_of_day) }
   scope :future, -> { where("start_time > ?", DateTime.now.beginning_of_day) }
