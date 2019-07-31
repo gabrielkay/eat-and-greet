@@ -13,7 +13,7 @@
   <%= f.text_field :restaurant,
       required: true,
       class: "form__input",
-      placeholder: "Restaurant name" %>
+      placeholder: "Restaurant Name" %>
 </p>
 
 <p>
@@ -30,7 +30,7 @@
       class: "form__label" %>
   <%= f.select :city,
       Event::LOCATIONS,
-      { include_blank: "--- select ---" },
+      { include_blank: "--- Select ---" },
       { required: true,
         class: "form__select form__input form__input--md" } %>
 </p>
@@ -64,7 +64,7 @@
   <%= f.label :max_people, 'Make sure to include yourself.',
       class: "form__details" %>
   <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ],
-      { include_blank: "--- select ---" },
+      { include_blank: "--- Select ---" },
       { required: true,
         class: "form__select form__input form__input--md" } %>
 </p>
@@ -75,7 +75,7 @@
   <%= f.label :topic, 'List up to 5 topics to get the conversation started at your table (separate with commas).',
       class: "form__details" %>
   <%= f.text_field :topic,
-      class: "form__input", placeholder: "Books, Surfing, Books about surfing" %>
+      class: "form__input", placeholder: "Books, Surfing, Books about Surfing" %>
 </p>
 
 <p>
