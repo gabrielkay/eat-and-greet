@@ -11,7 +11,7 @@
         <% if @user.profile_pic.attached? %>
           <img class="profile__image" src="<%= (url_for(@user.profile_pic)) %>">
         <% else %>
-          <img class=" profile__image" src="https://via.placeholder.com/250">
+          <%= inline_svg "icons/profile.svg" %>
         <% end %>
       </div>
       <div class="flex justify-between mb-10">

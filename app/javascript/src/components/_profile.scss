@@ -11,19 +11,42 @@
 }
 
 .profile__img-container {
+  align-items: center;
   border-radius: $rounded-full;
   border: solid 1px $red;
+  color: $red;
+  display: inline-flex;
   height: rem(250px);
+  justify-content: center;
   margin: 0 auto;
   max-width: 100%;
   overflow: hidden;
-  position: relative;
   width: rem(250px);
 
   .profile__image {
-    height: 100%;
-    margin: 0 -25% 0;
-    width: auto;
+    flex: none;
+    left: 50%;
+    max-height: 200%;
+    max-width: 200%;
+    min-height: 100%;
+    min-width: 100%;
+    position: relative;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    @supports (object-fit: cover) {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: static;
+      transform: none;
+      width: 100%;
+    }
+  }
+
+  svg {
+    height: rem(200px);
+    width: rem(200px);
   }
 }
 
