@@ -65,7 +65,9 @@
     </div>
     <div class="table-details__title mb-20">
       <h2 class="heading-xl sm:heading-xl mb-20"><%= @event.title %></h2>
-      <p class="heading-md sm:heading-md mb-30"><%= @event.description %></p>
+      <div class="mb-30">
+        <%= simple_format(@event.description, class: "heading-md sm:heading-md mb-5") %>
+      </div>
 
       <div class="mb-50">
         <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
