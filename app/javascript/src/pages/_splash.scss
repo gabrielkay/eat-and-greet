@@ -119,15 +119,16 @@
   }
 
   @include bpMin('medium') {
+    align-items: center;
     display: flex;
     position: absolute;
     right: spacing(6);
     top: spacing(6);
     z-index: map-get($zindex, base);
 
-    .form__input,
-    .form__field {
-      margin: spacing(0.5);
+    & > * {
+      margin: spacing();
+      width: auto;
     }
   }
 }
@@ -154,8 +155,8 @@
   }
 
   svg {
-    height: rem(40px);
-    width: rem(40px);
+    height: rem(30px);
+    width: rem(30px);
   }
 }
 

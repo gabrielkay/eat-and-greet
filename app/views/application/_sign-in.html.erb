@@ -20,8 +20,12 @@
       <%= render "devise/shared/links" %>
     </div>
   <% end %>
-  <%= f.submit "Log in",
-      class: "btn btn--primary" %>
+  <%= f.button :submit,
+      class: "btn btn--primary" do %>
+    <span>Log in</span>
+    <%= inline_svg "icons/arrow.svg",
+        class: "btn__icon" %>
+  <% end %>
 <% end %>
   
 <%# TODO: Add full screen overlay sign in %>
@@ -64,8 +68,12 @@
             <%= render "devise/shared/links" %>
           </div>
         <% end %>
-        <%= f.submit "Log in",
-            class: "btn btn--primary" %>
+        <%= f.button :submit,
+            class: "btn btn--primary" do %>
+          <span>Log in</span>
+          <%= inline_svg "icons/arrow.svg",
+              class: "btn__icon" %>
+        <% end %>
       <% end %>
     </div>
   </div>

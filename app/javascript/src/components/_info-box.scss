@@ -26,10 +26,13 @@
   }
 
   .info-box__image {
+    align-items: center;
     border-radius: $rounded-full;
     border: solid 1px $red;
     color: $red;
+    display: inline-flex;
     height: rem(40px);
+    justify-content: center;
     margin-right: spacing(1.25);
     overflow: hidden;
     width: rem(40px);
@@ -52,6 +55,11 @@
         transform: none;
         width: 100%;
       }
+    }
+
+    svg {
+      height: rem(30px);
+      width: rem(30px);
     }
   }
 }

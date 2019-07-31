@@ -60,6 +60,18 @@
     padding: 0 spacing(4.5) 0 0;
     text-align: center;
   }
+
+  svg {
+    @include bpMin('small') {
+      height: rem(36px);
+      width: rem(36px);
+    }
+
+    @include bpMin('medium') {
+      height: rem(24px);
+      width: rem(24px);
+    }
+  }
 }
 
 .header__icon {
@@ -91,11 +103,11 @@
 
   @include bpMin('medium') {
     @include userBtn;
-  }
 
-  svg {
-    height: rem(40px);
-    width: rem(40px);
+    svg {
+      height: rem(30px);
+      width: rem(30px);
+    }
   }
 }
 

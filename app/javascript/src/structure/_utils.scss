@@ -44,6 +44,10 @@
 
   .btn__icon {
     align-self: center;
+
+    @include bpMin('small') {
+      height: rem(8px);
+    }
   }
 
   @include bpMin('small') {
@@ -81,7 +85,7 @@
   border-color: $gray100;
   border-radius: $rounded-full;
   box-shadow: -2px 5px 5px rgba(0, 0, 0, 0.15);
-  min-height: rem(44px);
-  min-width: rem(44px);
+  height: rem(40px);
   padding: 0;
+  width: rem(40px);
 }
