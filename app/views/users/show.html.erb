@@ -7,13 +7,15 @@
             class: "profile__icon" %>
         <p class="heading-sm sm:heading-sm"><%= @user.location %></p>
       </div>
-      <div class="profile__img-container mb-30">
-        <% if @user.profile_pic.attached? %>
-          <img class="profile__image" src="<%= (url_for(@user.profile_pic)) %>">
-        <% else %>
+      <% if @user.profile_pic.attached? %>
+        <div class="profile__image mb-30">
+          <img src="<%= (url_for(@user.profile_pic)) %>">
+        </div>
+      <% else %>
+        <div class="profile__image-default mb-30">
           <%= inline_svg "icons/profile.svg" %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
       <div class="flex justify-between mb-10">
         <div class="flex">
           <% if @user.instagram_link? %>

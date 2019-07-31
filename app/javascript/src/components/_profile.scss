@@ -10,20 +10,19 @@
   align-items: center;
 }
 
-.profile__img-container {
-  align-items: center;
+.profile__image,
+.profile__image-default {
   border-radius: $rounded-full;
   border: solid 1px $red;
-  color: $red;
-  display: inline-flex;
   height: rem(250px);
-  justify-content: center;
   margin: 0 auto;
-  max-width: 100%;
-  overflow: hidden;
   width: rem(250px);
+}
 
-  .profile__image {
+.profile__image {
+  overflow: hidden;
+
+  img {
     flex: none;
     left: 50%;
     max-height: 200%;
@@ -43,6 +42,13 @@
       width: 100%;
     }
   }
+}
+
+.profile__image-default {
+  align-items: center;
+  color: $red;
+  display: flex;
+  justify-content: center;
 
   svg {
     height: rem(200px);
