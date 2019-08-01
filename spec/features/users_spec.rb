@@ -26,6 +26,7 @@ describe 'Create an account with invalid password', type: :feature do
     fill_in 'user_password', with: '12345678'
     fill_in 'user_password_confirmation', with: '12345678'
     expect(page).to_not have_content('Your account has been created')
+    expect(page).to have_content('Password must be 8-50 characters and include at least 1 letter and 1 number')
   end
 end
 
