@@ -25,7 +25,7 @@ class User < ApplicationRecord
   end
 
   def get_time_zone
-    if location == "Denver/Boulder"
+    if location == "Denver-Boulder, CO"
       "Mountain Time (US & Canada)"
     else
       "Eastern Time (US & Canada)"
