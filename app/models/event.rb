@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
 
-  attr_accessor :date_field, :start_time_field, :end_time_field
+  attr_writer :date_field, :start_time_field, :end_time_field
 
   LOCATIONS = [ "Raleigh-Durham", "Denver/Boulder", "Washington D.C. Metro" ]
 
@@ -24,6 +24,21 @@ class Event < ApplicationRecord
     .where('id NOT IN (SELECT event_id FROM memberships WHERE user_id = ?)', id).reject do |event|
       event.members.count == event.max_people
     end
+  end
+
+  def date_field
+    return unless start_time
+    start_time.strftime("%Y-%m-%d")
+  end
+
+  def start_time_field
+    return unless start_time
+    start_time.strftime("%H:%M:%S")
+  end
+
+  def end_time_field
+    return unless end_time
+    end_time.strftime("%H:%M:%S")
   end
 
   def self.build_with_member(user, event_params)

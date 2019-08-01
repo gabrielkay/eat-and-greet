@@ -41,21 +41,24 @@
       class: "form__label" %>
   <%= f.date_field :date_field,
       required: true,
-      class: "form__date form__input form__input--md" %>
+      class: "form__date form__input form__input--md",
+      value: f.object.date_field %>
 </p>
 <p>
   <%= f.label :start_time_field, 'Start Time',
       class: "form__label" %>
   <%= f.time_field :start_time_field,
       required: true,
-      class: "form__date form__input form__input--md" %>
+      class: "form__date form__input form__input--md",
+      value: f.object.start_time_field %>
 </p>
 <p>
   <%= f.label :end_time_field, 'End Time',
       class: "form__label" %>
   <%= f.time_field :end_time_field,
       required: true,
-      class: "form__date form__input form__input--md" %>
+      class: "form__date form__input form__input--md",
+      value: f.object.end_time_field %>
 </p>
 
 <p>
