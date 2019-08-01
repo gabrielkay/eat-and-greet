@@ -44,7 +44,7 @@
               class: "btn__icon" %>
         <% end %>
         <%= link_to event_path(event),
-            data: { confirm: "Are you sure?" },
+            data: { confirm: "Are you sure you want to cancel this table?" },
             method: :delete,
             class: "card__btn--small btn--leave" do %>
           <span class="btn__text">Cancel Table</span>
@@ -54,7 +54,7 @@
       <% elsif event.members.include?(current_user) %>
         <%= link_to 'Leave Table',
             event_membership_path(event, Membership.find_membership(current_user, event)),
-            data: { confirm: "Are you sure?" },
+            data: { confirm: "Are you sure you want to leave this table?" },
             method: :delete,
             class: "card__btn btn--leave" %>
       <% end %>

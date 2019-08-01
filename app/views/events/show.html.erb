@@ -85,11 +85,13 @@
                   class: "btn btn--secondary" %>
               <%= link_to 'Cancel Table',
                   event_path,
+                  data: { confirm: "Are you sure you want to cancel this table?" },
                   method: :delete,
                   class: "btn btn--leave" %>
             <% else %>
               <%= link_to 'Leave Table',
                   event_membership_path(@event, @existing_membership),
+                  data: { confirm: "Are you sure you want to leave this table?" },
                   method: :delete,
                   class: "btn btn--leave" %>
             <% end %>
