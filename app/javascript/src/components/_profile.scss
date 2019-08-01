@@ -1,9 +1,39 @@
+.profile-container {
+  margin: auto;
+
+  @include bpMin('small') {
+    max-width: $default-width;
+  }
+
+  .header {
+    left: 8vw;
+
+    @include bpMin('small') {
+      left: auto;
+    }
+  }
+
+  .header__logo {
+    color: $red;
+  }
+}
+
 .profile {
   width: $default-width;
 
-  @include bpMin('small') {
-    flex-basis: 350px;
+  &:last-child > * {
+    margin-left: auto;
+    margin-right: auto;
   }
+
+  @include bpMin('medium') {
+    margin-right: auto;
+    flex-basis: rem(350px);
+  }
+}
+
+.profile__section {
+  max-width: rem(350px);
 }
 
 .profile__location {
@@ -56,9 +86,9 @@
   }
 }
 
-.profile__details {
-  border-top: solid 1px $charcoal;
-  padding-top: spacing(1.5);
+.profile__divider {
+  border: solid 0.5px $charcoal;
+  margin: spacing(1.5) 0;
 }
 
 .profile__social {
@@ -84,5 +114,13 @@
 
   .profile__icon {
     margin-bottom: spacing(0.2);
+  }
+}
+
+.profile__buttons {
+  margin: -$gap-xs;
+
+  & > * {
+    margin: $gap-xs;
   }
 }
