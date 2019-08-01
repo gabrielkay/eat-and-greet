@@ -1,6 +1,10 @@
 <p>
-  <%= f.label :title, "Let's give your table a name",
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :title do %>
+      Let's give your table a name<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.text_field :title,
       required: true,
       class: "form__input",
@@ -8,8 +12,12 @@
 </p>
 
 <p>
-  <%= f.label :restaurant, 'Where are we going?',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :restaurant do %>
+      Where are we going?<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.text_field :restaurant,
       required: true,
       class: "form__input",
@@ -17,8 +25,12 @@
 </p>
 
 <p>
-  <%= f.label :restaurant_address, 'Address of Restaurant',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :restaurant_address do %>
+      Address of Restaurant<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.text_field :restaurant_address,
       required: true,
       class: "form__input",
@@ -26,8 +38,12 @@
 </p>
 
 <p>
-  <%= f.label :city, 'Location',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :city do %>
+      Location<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.select :city,
       Event::LOCATIONS,
       { include_blank: "--- Select ---" },
@@ -37,16 +53,24 @@
 
 
 <p>
-  <%= f.label :date_field, 'Scheduled Date',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :date_field do %>
+      When is it?<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.date_field :date_field,
       required: true,
       class: "form__date form__input form__input--md",
       value: f.object.date_field %>
 </p>
 <p>
-  <%= f.label :start_time_field, 'Start Time',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :start_time_field do %>
+      Start Time<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.label :start_time_field, 'Example: 12:00 PM',
       class: "form__details" %>
   <%= f.time_field :start_time_field,
@@ -55,8 +79,12 @@
       value: f.object.start_time_field %>
 </p>
 <p>
-  <%= f.label :end_time_field, 'End Time',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :end_time_field do %>
+      End Time<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.label :end_time_field, 'Example: 01:00 PM',
       class: "form__details" %>
   <%= f.time_field :end_time_field,
@@ -66,8 +94,12 @@
 </p>
 
 <p>
-  <%= f.label :max_people, 'Maximum Number of Guests',
-      class: "form__label" %>
+  <div class="form__label">
+    <%= f.label :max_people do %>
+      Maximum Number of Guests<span aria-hidden="true" class="text-red"> *</span>
+      <span class="sr-only">Required field</span>
+    <% end %>
+  </div>
   <%= f.label :max_people, 'Make sure to include yourself.',
       class: "form__details" %>
   <%= f.select :max_people, [ 3, 4, 5, 6, 7, 8 ],
