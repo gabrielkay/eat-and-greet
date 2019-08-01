@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates :twitter_link, url: true
   validates :instagram_link, url: true
   validates :facebook_link, url: true
+  validate :password_complexity
 
   before_create :set_slug
 
@@ -61,5 +62,10 @@ class User < ApplicationRecord
     unless topics.count(",") < 5
       errors.add(:topics, ': You must have 5 or less topics')
     end
+  end
+
+  def password_complexity
+    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,50}$/
+    errors.add :password, 'Password must be 8-50 characters and include at least 1 letter and 1 number'
   end
 end

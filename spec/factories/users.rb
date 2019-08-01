@@ -4,6 +4,6 @@ FactoryBot.define do
     sequence(:name) { |i| "John#{i} Doe#{i}" }
     location { 'Atlanta' }
     is_private { false }
-    password { 'password' }
+    password { 'password1' }
   end
 end

@@ -13,7 +13,7 @@ describe 'Create an Event', type: :feature do
     fill_in 'event_date_field', with: "11/11/2019"
     fill_in 'event_start_time_field', with: Time.now
     fill_in 'event_end_time_field', with: Time.now
-    select "Denver/Boulder", from: "event_city"
+    select "Denver-Boulder, CO", from: "event_city"
     select 4, from: "event_max_people"
     expect {
       click_button 'Create Table'
@@ -38,7 +38,7 @@ describe 'Edit an Event', type: :feature do
     fill_in 'event_date_field', with: "11/11/3000"
     fill_in 'event_start_time_field', with: Time.now
     fill_in 'event_end_time_field', with: Time.now
-    select "Denver/Boulder", from: "event_city"
+    select "Denver-Boulder, CO", from: "event_city"
     select 4, from: "event_max_people"
     click_button 'Save Changes'
     expect(page).to have_content('ChangedTitle')
