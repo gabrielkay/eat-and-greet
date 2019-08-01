@@ -5,7 +5,7 @@ describe 'Create an account', type: :feature do
     visit('/users/sign_up')
     fill_in 'Name', with: 'John Doe'
     fill_in 'Email', with: 'example@default.com'
-    select 'Denver/Boulder', from: 'user_location'
+    select 'Denver-Boulder, CO', from: 'user_location'
     fill_in 'user_password', with: 'password1'
     fill_in 'user_password_confirmation', with: 'password1'
     expect {
@@ -22,9 +22,10 @@ describe 'Create an account with invalid password', type: :feature do
     visit('/users/sign_up')
     fill_in 'Name', with: 'John Doe'
     fill_in 'Email', with: 'example@default.com'
-    select 'Denver/Boulder', from: 'user_location'
+    select 'Denver-Boulder, CO', from: 'user_location'
     fill_in 'user_password', with: '12345678'
     fill_in 'user_password_confirmation', with: '12345678'
+    click_button('Create my account')
     expect(page).to_not have_content('Your account has been created')
     expect(page).to have_content('Password must be 8-50 characters and include at least 1 letter and 1 number')
   end
