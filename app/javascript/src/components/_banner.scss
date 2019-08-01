@@ -4,23 +4,30 @@
   box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.25);
   color: $black;
   font-weight: $regular-weight;
-  left: spacing(5);
+  left: spacing(2);
   opacity: 1;
-  padding: spacing(0.75);
+  padding: spacing() spacing(4) spacing() spacing(2);
   position: absolute;
-  right: spacing(5);
+  right: spacing(2);
   text-align: center;
   top: spacing(2);
   transition: opacity 1s;
   z-index: map-get($zindex, modal);
+
+  @include bpMin('small') {
+    left: spacing(5);
+    right: spacing(5);
+  }
+}
+
+.banner__text {
+  display: inline-block;
+  margin-right: spacing();
+  margin-bottom: spacing();
 }
 
 .banner__close {
   position: absolute;
   right: spacing();
-  top: 25%;
-}
-
-.banner__button {
-  margin-left: spacing();
+  top: spacing();
 }
