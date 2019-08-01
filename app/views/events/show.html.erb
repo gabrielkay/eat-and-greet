@@ -99,70 +99,68 @@
     </div>
     <div class="table-details__comments">
       <h3 class="heading-lg sm:heading-lg mb-30">Discussion</h3>
-      <div class="comments">
-        <% @comments.each do |comment| %>
-          <%= link_to user_path(User.find(comment.user_id).slug), class: "info-box__attending mb-5" do %>
-            <% if User.find(comment.user_id).profile_pic.attached? %>
-              <div class="info-box__image">
-                <img src="<%= (url_for(User.find(comment.user_id).profile_pic)) %>">
-              </div>
-            <% else %>
-              <div class="info-box__image">
-                <%= inline_svg "icons/face.svg" %>
-              </div>
-            <% end %>
-            <p class="heading-sm sm:heading-sm"><%= User.find(comment.user_id).name %></p>
-            <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
-              <%= comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
-            </time>
-          <% end %>
-          <div class="comment__body">
-            <p><%= comment.body %></p>
-          </div>
-          <div class="mb-20">
-            <% comment.comments.each do |child_comment| %>
-              <div class="comment__reply">
-                <%= link_to user_path(User.find(child_comment.user_id).slug), class: "info-box__attending mb-5" do %>
-                  <% if User.find(child_comment.user_id).profile_pic.attached? %>
-                    <div class="info-box__image">
-                      <img src="<%= (url_for(User.find(child_comment.user_id).profile_pic)) %>">
-                    </div>
-                  <% else %>
-                    <div class="info-box__image">
-                      <%= inline_svg "icons/face.svg" %>
-                    </div>
-                  <% end %>
-                  <p class="heading-sm sm:heading-sm"><%= User.find(child_comment.user_id).name %></p>
-                  <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
-                    <%= child_comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
-                  </time>
-                <% end %>
-                <div class="comment__body">
-                  <p><%= child_comment.body %></p>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
-            <div class="mb-5">
-              <%= form_for @comment do |f| %>
-                <%= f.hidden_field :user_id,
-                    value: current_user.id %>
-                <%= f.hidden_field :comment_id,
-                    value: comment.id %>
-                <div>
-                  <%= f.text_field :body,
-                      required: true,
-                      placeholder: "send a response",
-                      class: "form__input form__input--lg comment__helper" %>
-                </div>
-                <%= f.submit 'Post',
-                    class: "btn btn--primary" %>
-              <% end %>
+      <% @comments.each do |comment| %>
+        <%= link_to user_path(User.find(comment.user_id).slug), class: "info-box__attending mb-5" do %>
+          <% if User.find(comment.user_id).profile_pic.attached? %>
+            <div class="info-box__image">
+              <img src="<%= (url_for(User.find(comment.user_id).profile_pic)) %>">
+            </div>
+          <% else %>
+            <div class="info-box__image">
+              <%= inline_svg "icons/face.svg" %>
             </div>
           <% end %>
+          <p class="heading-sm sm:heading-sm"><%= User.find(comment.user_id).name %></p>
+          <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
+            <%= comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
+          </time>
         <% end %>
-      </div>
+        <div class="comment__body">
+          <p><%= comment.body %></p>
+        </div>
+        <div class="mb-20">
+          <% comment.comments.each do |child_comment| %>
+            <div class="comment__reply">
+              <%= link_to user_path(User.find(child_comment.user_id).slug), class: "info-box__attending mb-5" do %>
+                <% if User.find(child_comment.user_id).profile_pic.attached? %>
+                  <div class="info-box__image">
+                    <img src="<%= (url_for(User.find(child_comment.user_id).profile_pic)) %>">
+                  </div>
+                <% else %>
+                  <div class="info-box__image">
+                    <%= inline_svg "icons/face.svg" %>
+                  </div>
+                <% end %>
+                <p class="heading-sm sm:heading-sm"><%= User.find(child_comment.user_id).name %></p>
+                <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
+                  <%= child_comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
+                </time>
+              <% end %>
+              <div class="comment__body">
+                <p><%= child_comment.body %></p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
+          <div class="mb-5">
+            <%= form_for @comment do |f| %>
+              <%= f.hidden_field :user_id,
+                  value: current_user.id %>
+              <%= f.hidden_field :comment_id,
+                  value: comment.id %>
+              <div>
+                <%= f.text_field :body,
+                    required: true,
+                    placeholder: "send a response",
+                    class: "form__input form__input--lg comment__helper" %>
+              </div>
+              <%= f.submit 'Post',
+                  class: "btn btn--primary mb-20" %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
       <hr class="comment__divider mb-20">
       <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
         <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
