@@ -47,6 +47,8 @@
 <p>
   <%= f.label :start_time_field, 'Start Time',
       class: "form__label" %>
+  <%= f.label :start_time_field, 'Example: 12:00 PM',
+      class: "form__details" %>
   <%= f.time_field :start_time_field,
       required: true,
       class: "form__date form__input form__input--md",
@@ -55,6 +57,8 @@
 <p>
   <%= f.label :end_time_field, 'End Time',
       class: "form__label" %>
+  <%= f.label :end_time_field, 'Example: 01:00 PM',
+      class: "form__details" %>
   <%= f.time_field :end_time_field,
       required: true,
       class: "form__date form__input form__input--md",
