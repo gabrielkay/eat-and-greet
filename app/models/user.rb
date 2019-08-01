@@ -65,7 +65,7 @@ class User < ApplicationRecord
   end
 
   def password_complexity
-    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,50}$/
+    return if password.blank? || password =~ /^(?=.*[A-Za-z])(?=.*\d).{8,50}$/
     errors.add :password, 'Password must be 8-50 characters and include at least 1 letter and 1 number'
   end
 end
