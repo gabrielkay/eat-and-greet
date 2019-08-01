@@ -1,4 +1,4 @@
-<%# if notice == "Welcome! You have signed up successfully." %>
+<% if notice == "Welcome! You have signed up successfully." %>
   <div data-module="banner" class="banner">
     <span class="banner__text">Your account has been created! Start browsing tables near you.</span>
     <%= link_to edit_registration_path(current_user),
@@ -9,7 +9,7 @@
       <%= inline_svg "icons/close.svg" %>
     </button>
   </div>
-<%# end %>
+<% end %>
 
 <div class="container-full flex wrap">
   <div class="column-title">

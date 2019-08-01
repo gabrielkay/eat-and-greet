@@ -16,6 +16,6 @@ export default class Banner {
   }
 
   hideBanner = () => {
-    this.el.style.opacity = '0';
+    this.el.style.display = 'none';
   };
 }

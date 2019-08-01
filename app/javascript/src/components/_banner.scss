@@ -5,13 +5,11 @@
   color: $black;
   font-weight: $regular-weight;
   left: spacing(2);
-  opacity: 1;
   padding: spacing() spacing(4) spacing() spacing(2);
   position: absolute;
   right: spacing(2);
   text-align: center;
   top: spacing(2);
-  transition: opacity 1s;
   z-index: map-get($zindex, modal);
 
   @include bpMin('small') {
