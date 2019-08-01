@@ -24,6 +24,14 @@ class User < ApplicationRecord
     slug
   end
 
+  def get_time_zone
+    if location == "Denver/Boulder"
+      "Mountain Time (US & Canada)"
+    else
+      "Eastern Time (US & Canada)"
+    end
+  end
+
   private
 
   def set_slug

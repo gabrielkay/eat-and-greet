@@ -12,6 +12,7 @@ class EventsController < ApplicationController
     @membership = Membership.new
     @comments = @event.comments
     @comment = Comment.new
+    @time_zone = current_user.get_time_zone
   end
 
   def new

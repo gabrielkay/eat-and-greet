@@ -32,7 +32,7 @@
           <div class="small-body sm:small-body">
             <time datetime="<%= @event.start_time.strftime("%H:%M:%S") %>">
               <%= @event.start_time.strftime("%l:%M %p") %>
-            </time> - 
+            </time> -
             <time datetime="<%= @event.end_time.strftime("%H:%M:%S") %>">
               <%= @event.end_time.strftime("%l:%M %p") %>
             </time>
@@ -70,7 +70,7 @@
       </div>
 
       <div class="mb-50">
-        <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+        <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
           <%= form_for [@event, @membership] do |f| %>
             <% if @existing_membership.nil? %>
                 <%= f.hidden_field :user_id,
@@ -112,8 +112,8 @@
               </div>
             <% end %>
             <p class="heading-sm sm:heading-sm"><%= User.find(comment.user_id).name %></p>
-            <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>">
-              <%= comment.created_at.strftime("%-m/%-d %l:%M %p") %>
+            <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
+              <%= comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
             </time>
           <% end %>
           <div class="comment__body">
@@ -133,8 +133,8 @@
                     </div>
                   <% end %>
                   <p class="heading-sm sm:heading-sm"><%= User.find(child_comment.user_id).name %></p>
-                  <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.strftime("%Y-%m-%dT%H:%M:%S") %>">
-                    <%= child_comment.created_at.strftime("%-m/%-d %l:%M %p") %>
+                  <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
+                    <%= child_comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
                   </time>
                 <% end %>
                 <div class="comment__body">
@@ -143,7 +143,7 @@
               </div>
             <% end %>
           </div>
-          <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+          <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
             <div class="mb-5">
               <%= form_for @comment do |f| %>
                 <%= f.hidden_field :user_id,
@@ -164,7 +164,7 @@
         <% end %>
       </div>
       <hr class="comment__divider mb-20">
-      <% if @event.start_time > DateTime.now.in_time_zone(Time.zone).beginning_of_day %>
+      <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
         <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
         <%= form_for @comment do |f| %>
           <%= f.hidden_field :user_id,
