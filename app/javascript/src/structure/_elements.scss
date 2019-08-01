@@ -5,6 +5,7 @@ body {
   font-size: $body;
   font-weight: $light-weight;
   line-height: lineHeight(body);
+  overflow: hidden;
 }
 
 a {
