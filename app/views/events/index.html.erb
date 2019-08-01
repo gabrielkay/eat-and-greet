@@ -1,6 +1,6 @@
 <% if notice == "Welcome! You have signed up successfully." %>
   <div data-module="banner" class="banner">
-    <span class="banner__text">Your account has been created! Start browsing tables near you.</span>
+    <p class="banner__text">Your account has been created! Start browsing tables near you.</p>
     <%= link_to edit_registration_path(current_user),
         class: "btn btn--info banner__button" do %>
       Complete Your Profile
