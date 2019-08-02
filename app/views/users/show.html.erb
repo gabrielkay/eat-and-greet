@@ -53,22 +53,20 @@
         <hr class="profile__divider">
       <% end %>
       <div class="profile__details">
-        <% if @user.favorite_dish? || @user.topics? %>
-          <div class="flex mb-15">
-            <% if @user.favorite_dish? %>
-              <div class="profile__flex-item">
-                <h3 class="form__label">Favorite Food:</h3>
-                <p><%= @user.favorite_dish %></p>
-              </div>
-            <% end %>
-            <% if @user.topics? %>
-              <div class="profile__flex-item">
-                <h3 class="form__label">Hobbies and Interests:</h3>
-                <p><%= @user.topics %></p>
-              </div>
-            <% end %>
-          </div>
-        <% end %>
+        <div class="sm:flex justify-between">
+          <% if @user.favorite_dish? %>
+            <div class="profile__flex-item mb-15">
+              <h3 class="form__label">Favorite Food:</h3>
+              <p><%= @user.favorite_dish %></p>
+            </div>
+          <% end %>
+          <% if @user.topics? %>
+            <div class="profile__flex-item mb-15">
+              <h3 class="form__label">Hobbies and Interests:</h3>
+              <p><%= @user.topics %></p>
+            </div>
+          <% end %>
+        </div>
         <% if @user.bio? %>
           <h3 class="form__label">Bio:</h3>
           <%= simple_format(@user.bio, class: "mb-5") %>
