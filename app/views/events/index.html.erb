@@ -14,8 +14,8 @@
 <div class="container-full flex wrap">
   <div class="column-title">
     <%= render "header" %>
-    <h2 class="heading-xl sm:heading-xl mb-20">Browse Tables</h2>
-    <p class="heading-md sm:heading-md mb-50">
+    <h2 class="heading-xl mb-20">Browse Tables</h2>
+    <p class="heading-md mb-50">
       Connect with fellow newcomers by eating together at a local restaurant.
     </p>
     <div class="form__label flex">
@@ -31,6 +31,6 @@
     <% end %>
   </div>
   <div class="column-main lg:flex wrap">
-    <%= render(@events) || "<p class='big-body sm:big-body'>Whoops! Looks like there aren’t any open tables in your city right now. Why not create one?</p>".html_safe %>
+    <%= render(@events) || "<p class='big-body'>Whoops! Looks like there aren’t any open tables in your city right now. Why not create one?</p>".html_safe %>
   </div>
 </div>

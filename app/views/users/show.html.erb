@@ -2,11 +2,11 @@
   <div class="profile-container flex wrap">
     <%= render "header" %>
     <div class="profile column-top mb-50">
-      <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
+      <h2 class="heading-xl mb-10"><%= @user.name %></h2>
       <div class="profile__location flex mb-20">
         <%= inline_svg "icons/location.svg",
             class: "profile__icon" %>
-        <p class="heading-sm sm:heading-sm"><%= @user.location %></p>
+        <p class="heading-sm"><%= @user.location %></p>
       </div>
       <% if @user.id == current_user.id %>
         <%= link_to edit_registration_path(current_user),
@@ -96,10 +96,10 @@
           <button class="tab__links" data-type="archived">Archived Tables</button>
         </div>
         <div class="tab__content" id="created">
-          <%= render(@created_events) || "<p class='card big-body sm:big-body'>You haven't created any tables yet.</p>".html_safe %>
+          <%= render(@created_events) || "<p class='card big-body'>You haven't created any tables yet.</p>".html_safe %>
         </div>
         <div class="tab__content" id="archived">
-          <%= render(@archived_events) || "<p class='card big-body sm:big-body'>Your past tables will show up here.</p>".html_safe %>
+          <%= render(@archived_events) || "<p class='card big-body'>Your past tables will show up here.</p>".html_safe %>
         </div>
       </div>
     <% end %>

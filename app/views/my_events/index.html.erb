@@ -1,8 +1,8 @@
 <div class="container-full flex wrap">
   <div class="column-title">
     <%= render "header" %>
-    <h2 class="heading-xl sm:heading-xl mb-20">My Tables</h2>
-    <p class="heading-md sm:heading-md mb-50">
+    <h2 class="heading-xl mb-20">My Tables</h2>
+    <p class="heading-md mb-50">
       Tables you’ve created or joined show up here.
     </p>
   </div>
@@ -12,10 +12,10 @@
       <button class="tab__links" data-type="created">Created Tables</button>
     </div>
     <div class="tab__content" id="joined">
-      <%= render(@joined_events) || "<p class='card big-body sm:big-body'>You haven't joined any tables yet.</p>".html_safe %>
+      <%= render(@joined_events) || "<p class='card big-body'>You haven't joined any tables yet.</p>".html_safe %>
     </div>
     <div class="tab__content" id="created">
-      <%= render(@created_events) || "<p class='card big-body sm:big-body'>You haven't created any tables yet.</p>".html_safe %>
+      <%= render(@created_events) || "<p class='card big-body'>You haven't created any tables yet.</p>".html_safe %>
     </div>
   </div>
 </div>

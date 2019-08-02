@@ -10,18 +10,18 @@
     </div>
     <div class="info-box-group table-details__aside mb-50">
       <div class="info-box mb-30">
-        <h3 class="heading-xs sm:heading-xs mb-30">Table Details</h2>
+        <h3 class="heading-xs mb-30">Table Details</h2>
         <div class="info-box__details flex mb-20">
           <%= inline_svg "icons/store.svg", class: "info-box__icon" %>
-          <p class="small-body sm:small-body"><%= @event.restaurant %></p>
+          <p class="small-body"><%= @event.restaurant %></p>
         </div>
         <div class="info-box__details flex mb-20">
           <%= inline_svg "icons/location.svg", class: "info-box__icon" %>
-          <p class="small-body sm:small-body"><%= @event.restaurant_address %></p>
+          <p class="small-body"><%= @event.restaurant_address %></p>
         </div>
         <div class="info-box__details flex mb-20">
           <%= inline_svg "icons/calendar.svg", class: "info-box__icon" %>
-          <div class="small-body sm:small-body">
+          <div class="small-body">
             <time datetime="<%= @event.start_time.strftime("%Y-%m-%d") %>">
               <%= @event.start_time.strftime("%A, %b %e") %>
             </time>
@@ -29,7 +29,7 @@
         </div>
         <div class="info-box__details flex mb-20">
           <%= inline_svg "icons/clock.svg", class: "info-box__icon" %>
-          <div class="small-body sm:small-body">
+          <div class="small-body">
             <time datetime="<%= @event.start_time.strftime("%H:%M:%S") %>">
               <%= @event.start_time.strftime("%l:%M %p") %>
             </time> -
@@ -40,11 +40,11 @@
         </div>
         <div class="info-box__details flex">
           <%= inline_svg "icons/tag.svg", class: "info-box__icon" %>
-          <p class="small-body sm:small-body"><%= @event.topic %></p>
+          <p class="small-body"><%= @event.topic %></p>
         </div>
       </div>
       <div class="info-box">
-        <h3 class="heading-xs sm:heading-xs mb-30">Attending</h3>
+        <h3 class="heading-xs mb-30">Attending</h3>
         <% @event.members.each do |current_user| %>
           <div>
             <%= link_to user_path(current_user.slug), class: "info-box__attending mb-20" do %>
@@ -57,16 +57,16 @@
                   <%= inline_svg "icons/face.svg" %>
                 </div>
               <% end %>
-              <p class="heading-sm sm:heading-sm"><%= current_user.name %></p>
+              <p class="heading-sm"><%= current_user.name %></p>
             <% end %>
           </div>
         <% end %>
       </div>
     </div>
     <div class="table-details__title mb-20">
-      <h2 class="heading-xl sm:heading-xl mb-20"><%= @event.title %></h2>
+      <h2 class="heading-xl mb-20"><%= @event.title %></h2>
       <div class="mb-30">
-        <%= simple_format(@event.description, class: "heading-md sm:heading-md mb-5") %>
+        <%= simple_format(@event.description, class: "heading-md mb-5") %>
       </div>
 
       <div class="mb-50">
@@ -102,7 +102,7 @@
       </div>
     </div>
     <div class="table-details__comments">
-      <h3 class="heading-lg sm:heading-lg mb-30">Discussion</h3>
+      <h3 class="heading-lg mb-30">Discussion</h3>
       <% @comments.each do |comment| %>
         <%= link_to user_path(User.find(comment.user_id).slug), class: "info-box__attending mb-5" do %>
           <% if User.find(comment.user_id).profile_pic.attached? %>
@@ -114,8 +114,8 @@
               <%= inline_svg "icons/face.svg" %>
             </div>
           <% end %>
-          <p class="heading-sm sm:heading-sm"><%= User.find(comment.user_id).name %></p>
-          <time class="small-body sm:small-body comment__time" datetime="<%= comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
+          <p class="heading-sm"><%= User.find(comment.user_id).name %></p>
+          <time class="small-body comment__time" datetime="<%= comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
             <%= comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
           </time>
         <% end %>
@@ -135,8 +135,8 @@
                     <%= inline_svg "icons/face.svg" %>
                   </div>
                 <% end %>
-                <p class="heading-sm sm:heading-sm"><%= User.find(child_comment.user_id).name %></p>
-                <time class="small-body sm:small-body comment__time" datetime="<%= child_comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
+                <p class="heading-sm"><%= User.find(child_comment.user_id).name %></p>
+                <time class="small-body comment__time" datetime="<%= child_comment.created_at.in_time_zone(@time_zone).strftime("%Y-%m-%dT%H:%M:%S") %>">
                   <%= child_comment.created_at.in_time_zone(@time_zone).strftime("%-m/%-d %l:%M %p") %>
                 </time>
               <% end %>
@@ -169,7 +169,7 @@
       <% end %>
       <hr class="comment__divider mb-20">
       <% if @event.start_time > DateTime.now.in_time_zone(@time_zone).beginning_of_day %>
-        <h4 class="heading-sm sm:heading-sm mb-20">Add your comments</h4>
+        <h4 class="heading-sm mb-20">Add your comments</h4>
         <%= form_for @comment do |f| %>
           <%= f.hidden_field :user_id,
               value: current_user.id %>
