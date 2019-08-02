@@ -200,12 +200,21 @@
   }
 
   .overlay-content {
+    display: none;
     padding: spacing(13) spacing(2.2) spacing(2.2);
     width: 100%;
 
     @include bpMin('small') {
       padding: spacing(15) spacing(6) spacing(6);
     }
+  }
+}
+
+.overlay.open {
+  height: 100%;
+
+  .overlay-content {
+    display: block;
   }
 }
 

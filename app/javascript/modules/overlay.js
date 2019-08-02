@@ -19,14 +19,12 @@ export default class Overlay {
   }
 
   openOverlay = () => {
-    this.overlay.style.height = '100%';
-    this.overlayContent.display = 'block';
+    this.overlay.classList.add('open');
     this.body.style.overflow = 'hidden';
   };
 
   closeOverlay = () => {
-    this.overlay.style.height = '0%';
-    this.overlayContent.display = 'none';
+    this.overlay.classList.remove('open');
     this.body.style.overflow = 'visible';
   };
 }
