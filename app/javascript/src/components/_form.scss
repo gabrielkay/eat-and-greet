@@ -83,6 +83,7 @@ select.form__select option[value=''] {
 
 .form__photo {
   cursor: pointer;
+  overflow: hidden;
 
   .form__photo-button {
     align-items: center;
