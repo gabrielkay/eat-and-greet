@@ -10,6 +10,7 @@ export default class Overlay {
     this.overlay = this.el.querySelector('.overlay', this.el);
     this.overlayContent = this.el.querySelector('.overlay-content', this.el);
     this.buttonClose = this.el.querySelector('.overlay-close', this.el);
+    this.body = document.querySelector('body');
   }
 
   bindEvents() {
@@ -20,10 +21,12 @@ export default class Overlay {
   openOverlay = () => {
     this.overlay.style.height = '100%';
     this.overlayContent.display = 'block';
+    this.body.style.overflow = 'hidden';
   };
 
   closeOverlay = () => {
     this.overlay.style.height = '0%';
     this.overlayContent.display = 'none';
+    this.body.style.overflow = 'visible';
   };
 }
