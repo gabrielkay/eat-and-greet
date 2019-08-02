@@ -54,7 +54,7 @@
 
   @supports (display: grid) {
     grid-area: guests;
-    margin-left: auto;
+    margin-left: 0;
     width: auto;
   }
 }
