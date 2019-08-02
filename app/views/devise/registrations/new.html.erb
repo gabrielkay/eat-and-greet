@@ -85,8 +85,10 @@
         class: "form__input",
         placeholder: "••••••••",
         autocomplete: "new-password" %>
-    <%= f.submit "Create my profile",
-        class: "form__button btn btn--join" %>
+    <%= f.button :submit,
+        class: "form__button btn btn--join" do %>
+      Create my profile
+    <% end %>
   </div>
   
 <% end %>

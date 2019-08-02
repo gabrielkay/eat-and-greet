@@ -13,8 +13,10 @@
       <%= render 'event_fields',
           f: f %>
       <p>
-        <%= f.submit "Save Changes",
-            class: "btn btn--primary" %>
+        <%= f.button :submit,
+            class: "btn btn--primary" do %>
+          Save Changes
+        <% end %>
       </p>
     <% end %>
   </div>

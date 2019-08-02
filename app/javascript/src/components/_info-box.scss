@@ -26,19 +26,21 @@
     color: $red;
   }
 
-  .info-box__image {
-    align-items: center;
+  .info-box__image,
+  .info-box__image-default {
     border-radius: $rounded-full;
     border: solid 1px $red;
-    color: $red;
-    display: inline-flex;
     height: rem(40px);
-    justify-content: center;
+    margin: 0 auto;
+    width: rem(40px);
+  }
+
+  .info-box__image {
     margin-right: spacing(1.25);
     overflow: hidden;
-    width: rem(40px);
 
     img {
+      flex: none;
       left: 50%;
       max-height: 200%;
       max-width: 200%;
@@ -57,6 +59,13 @@
         width: 100%;
       }
     }
+  }
+
+  .info-box__image-default {
+    align-items: center;
+    color: $red;
+    display: flex;
+    justify-content: center;
 
     svg {
       height: rem(30px);

@@ -1,6 +1,6 @@
 <div class="password container">
   <%= render "header" %>
-  <h2 class="heading-xxl md:heading-xxl mb-30">Forgot your password?</h2>
+  <h2 class="heading-xl md:heading-xl mb-30">Forgot your password?</h2>
   <%= form_for(resource,
       as: resource_name,
       url: session_path(resource_name),
@@ -13,7 +13,9 @@
           autocomplete: "email",
           placeholder: "your.email@example.com" %>
     </div>
-    <%= f.submit "Send me reset password instructions",
-        class: "btn btn--primary" %>
+    <%= f.button :submit,
+        class: "btn btn--primary" do %>
+      Send me reset password instructions
+    <% end %>
   <% end %>
 </div>

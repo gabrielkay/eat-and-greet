@@ -47,13 +47,15 @@
   order: 1;
 
   @include bpMin('medium') {
+    margin-left: rem(335px);
     margin-bottom: spacing(10);
-    margin-left: 35%;
+    width: 65%;
   }
 
   @supports (display: grid) {
     grid-area: guests;
-    margin-left: 0;
+    margin-left: auto;
+    width: auto;
   }
 }
 
@@ -62,12 +64,12 @@
 
   @include bpMin('medium') {
     float: left;
-    width: 35%;
+    margin-right: spacing(6);
   }
 
   @supports (display: grid) {
     grid-area: aside;
-    width: auto;
+    margin-right: 0;
   }
 }
 

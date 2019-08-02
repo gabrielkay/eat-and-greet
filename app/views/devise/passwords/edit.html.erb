@@ -1,6 +1,6 @@
 <div class="password container">
   <%= render "header" %>
-  <h2 class="heading-xxl md:heading-xxl mb-30">Change your password</h2>
+  <h2 class="heading-xl md:heading-xl mb-30">Change your password</h2>
   <%= form_for(resource,
       as: resource_name,
       url: session_path(resource_name),
@@ -25,7 +25,9 @@
           placeholder: "••••••••",
           class: "form__input" %>
     </div>
-    <%= f.submit "Change my password",
-        class: "btn btn--primary" %>
+    <%= f.button :submit,
+        class: "btn btn--primary" do %>
+      Change my password
+    <% end %>
   <% end %>
 </div>

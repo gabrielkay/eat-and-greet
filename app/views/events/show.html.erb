@@ -77,8 +77,10 @@
                     value: current_user.id %>
                 <%= f.hidden_field :event_id,
                     value: @event.id %>
-                <%= f.submit 'Join Table',
-                    class: "btn btn--join" %>
+                <%= f.button :submit,
+                    class: "btn btn--join" do %>
+                  Join Table
+                <% end %>
             <% elsif @event.creator_id == current_user.id %>
               <%= link_to 'Edit Table',
                   edit_event_path,
@@ -129,7 +131,7 @@
                     <img src="<%= (url_for(User.find(child_comment.user_id).profile_pic)) %>">
                   </div>
                 <% else %>
-                  <div class="info-box__image">
+                  <div class="info-box__image-default">
                     <%= inline_svg "icons/face.svg" %>
                   </div>
                 <% end %>
@@ -157,8 +159,10 @@
                     placeholder: "send a response",
                     class: "form__input form__input--lg comment__helper" %>
               </div>
-              <%= f.submit 'Post',
-                  class: "btn btn--primary mb-20" %>
+              <%= f.button :submit,
+                  class: "btn btn--primary mb-20" do %>
+                Post
+              <% end %>
             <% end %>
           </div>
         <% end %>
@@ -177,8 +181,10 @@
                 placeholder: "what would you like to say?",
                 class: "form__input form__input--lg comment__helper" %>
           </div>
-          <%= f.submit 'Post',
-              class: "btn btn--primary" %>
+          <%= f.button :submit,
+              class: "btn btn--primary" do %>
+            Post
+          <% end %>
         <% end %>
       <% end %>
     </div>

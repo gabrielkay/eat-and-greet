@@ -54,6 +54,7 @@
 
   @include bpMin('medium') {
     border-bottom-right-radius: 50%;
+    height: 50%;
     max-width: rem(640px);
     min-height: rem(460px);
     min-width: rem(460px);

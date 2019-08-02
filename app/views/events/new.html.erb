@@ -16,8 +16,10 @@
       <%= render 'event_fields',
           f: f %>
       <p>
-        <%= f.submit "Create Table",
-            class: "btn btn--primary" %>
+        <%= f.button :submit,
+            class: "btn btn--primary" do %>
+          Create Table
+        <% end %>
       </p>
     <% end %>
   </div>
