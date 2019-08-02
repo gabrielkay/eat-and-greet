@@ -53,7 +53,7 @@
                   <img src="<%= (url_for(current_user.profile_pic)) %>">
                 </div>
               <% else %>
-                <div class="info-box__image">
+                <div class="info-box__image-default">
                   <%= inline_svg "icons/face.svg" %>
                 </div>
               <% end %>
@@ -110,7 +110,7 @@
               <img src="<%= (url_for(User.find(comment.user_id).profile_pic)) %>">
             </div>
           <% else %>
-            <div class="info-box__image">
+            <div class="info-box__image-default">
               <%= inline_svg "icons/face.svg" %>
             </div>
           <% end %>

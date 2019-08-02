@@ -31,12 +31,11 @@
     border-radius: $rounded-full;
     border: solid 1px $red;
     height: rem(40px);
-    margin: 0 auto;
+    margin: 0 spacing(1.25) 0 0;
     width: rem(40px);
   }
 
   .info-box__image {
-    margin-right: spacing(1.25);
     overflow: hidden;
 
     img {
