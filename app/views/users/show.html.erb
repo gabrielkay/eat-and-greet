@@ -2,100 +2,91 @@
   <div class="profile-container flex wrap justify-between">
     <%= render "header" %>
     <div class="profile column-top mb-50">
-      <div class="profile__section">
-        <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
-        <div class="profile__location flex mb-20">
-          <%= inline_svg "icons/location.svg",
+      <h2 class="heading-xl sm:heading-xl mb-10"><%= @user.name %></h2>
+      <div class="profile__location flex mb-20">
+        <%= inline_svg "icons/location.svg",
+            class: "profile__icon" %>
+        <p class="heading-sm sm:heading-sm"><%= @user.location %></p>
+      </div>
+      <% if @user.id == current_user.id %>
+        <%= link_to edit_registration_path(current_user),
+            class: "profile__btn link flex" do %>
+          <%= inline_svg "icons/edit.svg",
               class: "profile__icon" %>
-          <p class="heading-sm sm:heading-sm"><%= @user.location %></p>
+          <span class="profile__edit">Edit Profile</span>
+        <% end %>
+      <% end %>
+      <% if @user.profile_pic.attached? %>
+        <div class="profile__image mb-20">
+          <img src="<%= (url_for(@user.profile_pic)) %>">
         </div>
-        <% if @user.id == current_user.id %>
-          <%= link_to edit_registration_path(current_user),
-              class: "profile__btn link flex" do %>
-            <%= inline_svg "icons/edit.svg",
-                class: "profile__icon" %>
-            <span class="profile__edit">Edit Profile</span>
+      <% else %>
+        <div class="profile__image-default mb-20">
+          <%= inline_svg "icons/profile.svg" %>
+        </div>
+      <% end %>
+      <div class="flex">
+        <% if @user.instagram_link? %>
+          <%= link_to @user.instagram_link,
+              target: :_blank do %>
+            <%= inline_svg "icons/instagram.svg",
+                class: "profile__social" %>
           <% end %>
         <% end %>
-        <% if @user.profile_pic.attached? %>
-          <div class="profile__image mb-20">
-            <img src="<%= (url_for(@user.profile_pic)) %>">
-          </div>
-        <% else %>
-          <div class="profile__image-default mb-20">
-            <%= inline_svg "icons/profile.svg" %>
-          </div>
+        <% if @user.facebook_link? %>
+          <%= link_to @user.facebook_link,
+              target: :_blank do %>
+            <%= inline_svg "icons/facebook.svg",
+                class: "profile__social" %>
+          <% end %>
+        <% end %>
+        <% if @user.twitter_link? %>
+          <%= link_to @user.twitter_link,
+              target: :_blank do %>
+            <%= inline_svg "icons/twitter.svg",
+                class: "profile__social" %>
+          <% end %>
         <% end %>
       </div>
-      <% if @user.instagram_link? || @user.facebook_link? || @user.twitter_link? || @user.favorite_dish? || @user.topics? || @user.bio? || @user.id == current_user.id %>
-        <div class="profile__section">
-          <% if @user.instagram_link? || @user.facebook_link? || @user.twitter_link? %>
-            <div class="flex mb-10">
-              <% if @user.instagram_link? %>
-                <%= link_to @user.instagram_link,
-                    target: :_blank do %>
-                  <%= inline_svg "icons/instagram.svg",
-                      class: "profile__social" %>
-                <% end %>
-              <% end %>
-              <% if @user.facebook_link? %>
-                <%= link_to @user.facebook_link,
-                    target: :_blank do %>
-                  <%= inline_svg "icons/facebook.svg",
-                      class: "profile__social" %>
-                <% end %>
-              <% end %>
-              <% if @user.twitter_link? %>
-                <%= link_to @user.twitter_link,
-                    target: :_blank do %>
-                  <%= inline_svg "icons/twitter.svg",
-                      class: "profile__social" %>
-                <% end %>
-              <% end %>
-            </div>
-          <% end %>
-          <% if (@user.instagram_link? || @user.facebook_link? || @user.twitter_link?) && (@user.favorite_dish? || @user.topics? || @user.bio? || @user.id == current_user.id) %>
-            <hr class="profile__divider">
-          <% end %>
-          <% if @user.favorite_dish? || @user.topics? || @user.bio? %>
-            <div class="profile__details mb-30">
-              <% if @user.favorite_dish? || @user.topics? %>
-                <div class="flex mb-15">
-                  <% if @user.favorite_dish? %>
-                    <div class="profile__flex-item">
-                      <h3 class="form__label">Favorite Food:</h3>
-                      <p><%= @user.favorite_dish %></p>
-                    </div>
-                  <% end %>
-                  <% if @user.topics? %>
-                    <div class="profile__flex-item">
-                      <h3 class="form__label">Hobbies and Interests:</h3>
-                      <p><%= @user.topics %></p>
-                    </div>
-                  <% end %>
-                </div>
-              <% end %>
-              <% if @user.bio? %>
-                <h3 class="form__label">Bio:</h3>
-                <%= simple_format(@user.bio, class: "mb-5") %>
-              <% end %>
-            </div>
-          <% end %>
-          <% if @user.id == current_user.id %>
-            <%= form_for @user,
-                html: { class: "profile__buttons flex" } do |f| %>
-              <%= link_to "Log out",
-                  destroy_user_session_path,
-                  method: :delete,
-                  class: "btn btn--primary" %>
-              <%= link_to "Delete my account",
-                  user_registration_path,
-                  data: { confirm: "Are you sure you want to delete your account?" },
-                  method: :delete,
-                  class: "btn btn--leave" %>
+      <% if (@user.instagram_link? || @user.facebook_link? || @user.twitter_link?) &&
+            (@user.favorite_dish? || @user.topics? || @user.bio? || @user.id == current_user.id) %>
+        <hr class="profile__divider">
+      <% end %>
+      <div class="profile__details">
+        <% if @user.favorite_dish? || @user.topics? %>
+          <div class="flex mb-15">
+            <% if @user.favorite_dish? %>
+              <div class="profile__flex-item">
+                <h3 class="form__label">Favorite Food:</h3>
+                <p><%= @user.favorite_dish %></p>
+              </div>
             <% end %>
-          <% end %>
-        </div>
+            <% if @user.topics? %>
+              <div class="profile__flex-item">
+                <h3 class="form__label">Hobbies and Interests:</h3>
+                <p><%= @user.topics %></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+        <% if @user.bio? %>
+          <h3 class="form__label">Bio:</h3>
+          <%= simple_format(@user.bio, class: "mb-5") %>
+        <% end %>
+      </div>
+      <% if @user.id == current_user.id %>
+        <%= form_for @user,
+            html: { class: "profile__buttons flex" } do |f| %>
+          <%= link_to "Log out",
+              destroy_user_session_path,
+              method: :delete,
+              class: "btn btn--primary" %>
+          <%= link_to "Delete my account",
+              user_registration_path,
+              data: { confirm: "Are you sure you want to delete your account?" },
+              method: :delete,
+              class: "btn btn--leave" %>
+        <% end %>
       <% end %>
     </div>
     <% if @user.id == current_user.id %>

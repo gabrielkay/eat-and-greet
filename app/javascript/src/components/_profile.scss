@@ -19,21 +19,13 @@
 }
 
 .profile {
+  max-width: rem(350px);
   width: $default-width;
 
-  &:last-child > * {
+  &:last-child {
     margin-left: auto;
     margin-right: auto;
   }
-
-  @include bpMin('medium') {
-    margin-right: auto;
-    flex-basis: rem(350px);
-  }
-}
-
-.profile__section {
-  max-width: rem(350px);
 }
 
 .profile__location {
@@ -84,6 +76,10 @@
     height: rem(200px);
     width: rem(200px);
   }
+}
+
+.profile__details > *:last-child {
+  margin-bottom: spacing(3);
 }
 
 .profile__divider {
