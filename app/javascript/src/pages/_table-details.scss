@@ -74,6 +74,7 @@
 }
 
 .table-details__title {
+  margin-right: spacing(4);
   max-width: rem(750px);
   order: 2;
 
@@ -89,6 +90,7 @@
 }
 
 .table-details__comments {
+  margin-right: spacing(4);
   max-width: rem(750px);
   order: 4;
 
