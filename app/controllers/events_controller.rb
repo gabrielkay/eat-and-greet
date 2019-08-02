@@ -55,14 +55,18 @@ class EventsController < ApplicationController
   end
 
   def convert_to_datetime_and_assign(event, params)
-    date_field = Date.parse(params[:date_field]).strftime("%Y-%m-%d")
+    if params[:date_field].include?('/')
+      date_field = Date.strptime(params[:date_field], "%m/%d/%Y").strftime("%Y-%m-%d")
+    else
+      date_field = Date.parse(params[:date_field]).strftime("%Y-%m-%d")
+    end
     start_time_field = Time.parse(params[:start_time_field]).strftime("%H:%M:%S")
     end_time_field = Time.parse(params[:end_time_field]).strftime("%H:%M:%S")
     event.start_time = DateTime.parse("#{date_field} #{start_time_field}")
     event.end_time = DateTime.parse("#{date_field} #{end_time_field}")
     event
   rescue ArgumentError
-    event.errors.add(:start_time, :invalid, message: "Date or time was invalid")
+    event.errors.add(:start_time, "Date or time was invalid")
     event
   end
 

@@ -59,6 +59,8 @@
       <span class="sr-only">Required field</span>
     <% end %>
   </div>
+  <%= f.label :date_field, 'Example: 12/25/2020',
+      class: "form__details" %>
   <%= f.date_field :date_field,
       required: true,
       class: "form__date form__input form__input--md",
