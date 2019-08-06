@@ -55,15 +55,14 @@ class EventsController < ApplicationController
   end
 
   def convert_to_datetime_and_assign(event, params)
+    #date_fields use yyyy-mm-dd format, user typed dates use mm/dd/yyyy format. Checking for '/' so dates get parsed correctly
     if params[:date_field].include?('/')
-      date_field = Date.strptime(params[:date_field], "%m/%d/%Y").strftime("%Y-%m-%d")
+      event.start_time = DateTime.strptime("#{params[:date_field]} #{params[:start_time_field]}", "%m/%d/%Y %I:%M %p")
+      event.end_time = DateTime.strptime("#{params[:date_field]} #{params[:end_time_field]}", "%m/%d/%Y %I:%M %p")
     else
-      date_field = Date.parse(params[:date_field]).strftime("%Y-%m-%d")
+      event.start_time = DateTime.strptime("#{params[:date_field]} #{params[:start_time_field]}", "%Y-%m-%d %H:%M")
+      event.end_time = DateTime.strptime("#{params[:date_field]} #{params[:end_time_field]}", "%Y-%m-%d %H:%M")
     end
-    start_time_field = Time.parse(params[:start_time_field]).strftime("%H:%M:%S")
-    end_time_field = Time.parse(params[:end_time_field]).strftime("%H:%M:%S")
-    event.start_time = DateTime.parse("#{date_field} #{start_time_field}")
-    event.end_time = DateTime.parse("#{date_field} #{end_time_field}")
     event
   rescue ArgumentError
     event.errors.add(:start_time, "Date or time was invalid")
