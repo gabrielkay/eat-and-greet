@@ -1,13 +1,13 @@
-# README
+# Eat & Greet
 
 ### What is Eat & Greet?
 
-Eat & Greet is a mealsharing app that connects you to fellow newcomers for a meal at local restaurants. It is designed for people who are new to an area and looking to make friends. The site currently supports Durham, Boulder, and Washington DC, the locations of Viget's 3 offices. You can check it out at [eatandgreet.us](https://eatandgreet.us/)
+Eat & Greet is a mealsharing app that connects you to fellow newcomers for a meal at local restaurants. It is designed for people who are new to an area and looking to make friends. The site currently supports 6 of the most populated US cities as well as Durham, Boulder, and Washington DC, the locations of Viget's 3 offices. You can check it out at [eatandgreet.us](https://eatandgreet.us/)
 
 ### Starting a local server
 In order to run this on a local server:
 1. Make sure you have postgres running
-2. install all dependancies locally by running `bundle install` in the project repo
+2. install all dependencies locally by running `bundle install` in the project repo
 3. run `rake db:create` followed by `rake db:migrate`
 4. get your local server started by running `rails s`
 
