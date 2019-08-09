@@ -28,8 +28,12 @@ class User < ApplicationRecord
   def get_time_zone
     if location == "Denver-Boulder, CO"
       "Mountain Time (US & Canada)"
-    else
+    elsif location == "Chicago, IL" || "Houston, TX"
+      "Central Time (US & Canada)"
+    elsif location == "New York City, NY" || "Atlanta, GA" || "Raleigh-Durham, NC"
       "Eastern Time (US & Canada)"
+    else
+      "Pacific Time (US & Canada)"
     end
   end
 
